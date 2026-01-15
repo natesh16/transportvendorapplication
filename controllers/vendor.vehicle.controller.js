@@ -1,4 +1,4 @@
-const Vehicle = require("../model/fleet.Models");
+const Vehicle = require("../models/fleet.Models");
 const AppError = require("../utils/apperror");
 const asyncHandler = require("../utils/asyncHandler");
 const { v4: uuidv4 } = require("uuid");

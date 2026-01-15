@@ -1,4 +1,4 @@
-const Corporate = require("../model/corporat.ID.Schema");
+const Corporate = require("../models/corporat.ID.Schema");
 const asyncHandler = require("../utils/asyncHandler");
 const AppError = require("../utils/appError");
 

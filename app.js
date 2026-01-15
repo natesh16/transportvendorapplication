@@ -4,7 +4,10 @@ const errorHandler = require("./middlewares/errorHandler");
 const superAdminRoutes = require("./routes/superAdmin.routes");
 const cookieParser = require("cookie-parser");
 
-app.use(express.json());
+app.use(express.json());              // ✅ parses JSON body
+app.use(express.urlencoded({ extended: true })); // optional but safe
+app.use(cookieParser());
+
 app.use(cookieParser());
 
 app.use("/api/vehicles", require("./routes/vehicle.routes"));
