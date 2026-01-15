@@ -1,0 +1,32 @@
+SUPER_ADMIN
+   |
+   | (creates / controls)
+   |
+CORPORATE ───────────┐
+   |                 |
+   | (has users)     | (contract)
+   |                 |
+CORPORATE_USER   CORPORATE_VENDOR_CONTRACT
+                         |
+                         |
+                     TRANSPORT_VENDOR
+                         |
+             ┌───────────┴───────────┐
+             |                       |
+          VEHICLE                  DRIVER
+             |
+         TRIP / ROSTER
+             |
+          BILLING
+
+SuperAdmin (SAAS)
+   └── Corporate
+        ├── Corporate Admin
+        └── Corporate Supervisor
+
+
+Super Admin (SAAS)
+ └── Corporate
+      └── Transport Vendor
+           ├── Vendor Admin
+           └── Vendor Supervisor

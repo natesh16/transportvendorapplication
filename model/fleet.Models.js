@@ -1,5 +1,4 @@
-const mongoose = require("mongoose"); // ✅ IMPORT MONGOOSE
-
+const mongoose = require("mongoose");
 const vehicleSchema = new mongoose.Schema(
   {
     // vendorId: {
