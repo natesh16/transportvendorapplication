@@ -1,1 +1,4 @@
 /node_modules
+logs/combined.log
+logs/debug.log'
+logs/error.log

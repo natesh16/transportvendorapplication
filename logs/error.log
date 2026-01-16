@@ -133,3 +133,6 @@
 2026-01-16 16:48:29 [ERROR]: Error: Access denied. SUPER_ADMIN only.
     at F:\development\backend\middlewares\auth.js:65:11
     at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/super-admin/coporate/create/corporateID","method":"POST","user":null}
+2026-01-16 17:02:44 [ERROR]: Error: Access denied. SUPER_ADMIN only.
+    at F:\development\backend\middlewares\auth.js:65:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/super-admin/coporate/create/corporateID","method":"POST","user":null}

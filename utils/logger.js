@@ -61,16 +61,16 @@ const logger = winston.createLogger({
 });
 
 /* ------------------ Console (DEV ONLY) ------------------ */
-if (!isProd) {
-  logger.add(
-    new winston.transports.Console({
-      level: "debug",
-      format: winston.format.combine(
-        winston.format.colorize(),
-        winston.format.simple()
-      )
-    })
-  );
-}
+// if (!isProd) {
+//   logger.add(
+//     new winston.transports.Console({
+//       level: "debug",
+//       format: winston.format.combine(
+//         winston.format.colorize(),
+//         winston.format.simple()
+//       )
+//     })
+//   );
+// }
 
 module.exports = logger;
