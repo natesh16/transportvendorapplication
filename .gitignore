@@ -1,4 +1,8 @@
-/node_modules
-logs/combined.log
-logs/debug.log'
-logs/error.log
+node_modules/
+.env
+.env.*
+logs/
+*.log
+dist/
+build/
+coverage/
