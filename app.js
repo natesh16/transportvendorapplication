@@ -1,14 +1,15 @@
 const express=require("express")
 const app=express()
 const errorHandler = require("./middlewares/errorHandler");
+const requestLogger = require("./middlewares/requestLogger");
 const superAdminRoutes = require("./routes/superAdmin.routes");
 const cookieParser = require("cookie-parser");
 
 app.use(express.json());              // ✅ parses JSON body
 app.use(express.urlencoded({ extended: true })); // optional but safe
 app.use(cookieParser());
-
-app.use(cookieParser());
+app.use(errorHandler);
+app.use(requestLogger);
 
 app.use("/api/vehicles", require("./routes/vehicle.routes"));
 app.use(require("./middlewares/errorHandler"));

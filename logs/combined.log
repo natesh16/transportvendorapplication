@@ -1,0 +1,8 @@
+2026-01-16T06:56:32.179Z [WARN]: SuperAdmin already exists 
+2026-01-16T06:56:32.188Z [ERROR]: Error: Name already exists
+    at F:\development\backend\controllers\superAdmin.controller.js:45:13
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) 
+2026-01-16T06:56:32.756Z [INFO]: POST /api/super-admin/create/superadmin 500 636.574 ms - body={"name":"SuperAdmin2","email":"superadmin@7company.com","password":"Secure@123"} 
+2026-01-16T06:57:16.601Z [INFO]: Auth cookie set for SuperAdmin 
+2026-01-16T06:57:16.608Z [INFO]: Create SuperAdmin API called 
+2026-01-16T06:57:16.656Z [INFO]: POST /api/super-admin/create/superadmin 201 969.975 ms - body={"name":"SuperAdmin2","email":"superadmin@7company.com","password":"Secure@123"} 

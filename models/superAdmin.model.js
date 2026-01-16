@@ -9,6 +9,7 @@ const superAdminSchema = new mongoose.Schema(
       type: String,
       required: true,
       trim: true,
+      unique: true,
       maxlength: 80
     },
 

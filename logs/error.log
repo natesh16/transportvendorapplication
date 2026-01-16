@@ -1,0 +1,3 @@
+2026-01-16T06:56:32.188Z [ERROR]: Error: Name already exists
+    at F:\development\backend\controllers\superAdmin.controller.js:45:13
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) 

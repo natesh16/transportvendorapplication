@@ -4,6 +4,7 @@ const asyncHandler = require("../utils/asyncHandler");
 const AppError = require("../utils/appError");
 const bcrypt=require('bcrypt')
 const jwt = require("jsonwebtoken");
+const logger=require('../utils/logger')
 
 /* ================= JWT HELPER ================= */
 
@@ -35,13 +36,14 @@ const sendAuthCookie = (res, token) => {
 
 exports.createSuperAdmin = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
-
   // 1️⃣ Validate email uniqueness
-  const exists = await SuperAdmin.findOne({ email });
+const exists = await SuperAdmin.findOne({
+  $or: [{ email }, { name }]
+});
   if (exists) {
-    throw new AppError("Email already registered", 409);
+  logger.warn("SuperAdmin already exists", { email });
+      throw new AppError(exists.email === email? "Email already registered": "Name already exists",)
   }
-
   // 2️⃣ Create Super Admin (password hashed via schema middleware)
   const admin = await SuperAdmin.create({
     name,
@@ -49,17 +51,25 @@ exports.createSuperAdmin = asyncHandler(async (req, res) => {
     password,
     role: "SUPER_ADMIN"
   });
-
   // 3️⃣ Generate JWT bound to created admin
   const token = signToken(admin);
-
   // 4️⃣ Attach cookie → directly linked to admin._id
   if (process.env.USE_COOKIE_AUTH === "true") {
+    logger.info("Auth cookie set for SuperAdmin", {
+      adminId: admin._id
+    });
     sendAuthCookie(res, token);
   }
 
+logger.info("Create SuperAdmin API called", {
+  email: req.body?.email,
+  requestId: req.requestId || null,
+  ip: req.ip
+});
+  console.log("Headers already sent:", res.headersSent);
+
   // 5️⃣ Send safe response
-  res.status(201).json({
+   return res.status(201).json({
     success: true,
     message: "Super Admin created and authenticated successfully",
     token: process.env.USE_COOKIE_AUTH === "true" ? undefined : token,
@@ -71,12 +81,13 @@ exports.createSuperAdmin = asyncHandler(async (req, res) => {
       role: admin.role
     }
   });
-    res.cookie("auth_token", token, {
-    httpOnly: true,
-    secure: false,   // localhost
-    sameSite: "lax",
-    maxAge: 7 * 24 * 60 * 60 * 1000
-  });
+  //  res.cookie("auth_token", token, {
+  //   httpOnly: true,
+  //   secure: false,   // localhost
+  //   sameSite: "lax",
+  //   maxAge: 7 * 24 * 60 * 60 * 1000
+  // });
+
 });
 
 
@@ -105,51 +116,6 @@ const sendAuthCookielogin = (res, token) => {
     maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
   });
 };
-
-/* ================= LOGIN SUPER ADMIN ================= */
-
-// exports.loginSuperAdmin = asyncHandler(async (req, res) => {
-//   const { email, password } = req.body;
-
-//   /* 1️⃣ Validate input */
-//   if (!email || !password) {
-//     throw new AppError("Email and password are required", 400);
-//   }
-
-//   /* 2️⃣ Find admin + password */
-//   const admin = await SuperAdmin.findOne({ email }).select("+password");
-//   if (!admin) {
-//     throw new AppError("Invalid email or password", 401);
-//   }
-
-//   /* 3️⃣ Verify password */
-//   const isMatch = await bcrypt.compare(password, admin.password);
-//   if (!isMatch) {
-//     throw new AppError("Invalid email or password", 401);
-//   }
-
-//   /* 4️⃣ Generate JWT (unique per admin) */
-//   const token = signToken(admin._id);
-
-
-//   /* 5️⃣ Attach cookie BEFORE sending response */
-//   if (process.env.USE_COOKIE_AUTH === "true") {
-//     sendAuthCookielogin(res, token);
-//   }
-
-//   /* 6️⃣ Send response */
-//   res.status(200).json({
-//     success: true,
-//     message: "Login successful",
-//     token: process.env.USE_COOKIE_AUTH === "true" ? undefined : token,
-//     data: {
-//       id: admin._id,
-//       name: admin.name,
-//       email: admin.email,
-//       role: admin.role
-//     }
-//   });
-// });
 
 /* ================= LOGIN SUPER ADMIN ================= */
 
