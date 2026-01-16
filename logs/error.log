@@ -1,3 +1,8 @@
-2026-01-16T06:56:32.188Z [ERROR]: Error: Name already exists
-    at F:\development\backend\controllers\superAdmin.controller.js:45:13
-    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) 
+2026-01-16 14:35:53 [ERROR]: Error: Invalid email or password
+    at F:\development\backend\controllers\superAdmin.controller.js:151:11 {"path":"/api/super-admin/login/superadmin","method":"POST","user":null}
+2026-01-16 14:36:52 [ERROR]: Error: Invalid email or password
+    at F:\development\backend\controllers\superAdmin.controller.js:142:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/super-admin/login/superadmin","method":"POST","user":null}
+2026-01-16 14:37:32 [ERROR]: Error: Invalid email or password
+    at F:\development\backend\controllers\superAdmin.controller.js:142:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/super-admin/login/superadmin","method":"POST","user":null}

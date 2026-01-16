@@ -1,5 +1,6 @@
 2026-01-16 14:35:08 [INFO]: Login attempt {"email":"superadmin@7company.com","ip":"::1"}
 2026-01-16 14:35:10 [INFO]: Password verified {"adminId":"6969e14b5fe7fad530ccc4f4"}
+2026-01-16 14:35:10 [DEBUG]: Login cookie issued {"adminId":"6969e14b5fe7fad530ccc4f4"}
 2026-01-16 14:35:10 [INFO]: SuperAdmin login successful {"adminId":"6969e14b5fe7fad530ccc4f4"}
 2026-01-16 14:35:10 [INFO]: POST /api/super-admin/login/superadmin 200 1701.498 ms - body={"email":"superadmin@7company.com","password":"Secure@123"} 
 2026-01-16 14:35:53 [INFO]: Login attempt {"email":"superadmin@7company.com","ip":"::1"}
@@ -9,6 +10,7 @@
 2026-01-16 14:35:53 [INFO]: POST /api/super-admin/login/superadmin 401 538.793 ms - body={"email":"superadmin@7company.com","password":"Secure@13"} 
 2026-01-16 14:36:29 [INFO]: Login attempt {"email":"superadmin@company.com","ip":"::1"}
 2026-01-16 14:36:31 [INFO]: Password verified {"adminId":"6968ff156a7f8fc7d7ba82e7"}
+2026-01-16 14:36:31 [DEBUG]: Login cookie issued {"adminId":"6968ff156a7f8fc7d7ba82e7"}
 2026-01-16 14:36:31 [INFO]: SuperAdmin login successful {"adminId":"6968ff156a7f8fc7d7ba82e7"}
 2026-01-16 14:36:31 [INFO]: POST /api/super-admin/login/superadmin 200 1394.854 ms - body={"email":"superadmin@company.com","password":"Secure@123"} 
 2026-01-16 14:36:52 [INFO]: Login attempt {"email":"superadmin@99company.com","ip":"::1"}

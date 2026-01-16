@@ -127,35 +127,55 @@ const loginsignToken = (id) =>
 
 exports.loginSuperAdmin = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
+   logger.info("Login attempt", {email,ip: req.ip});
 
   /* 1️⃣ Validate input */
   if (!email || !password) {
+    logger.warn("Login failed - missing credentials", { email });
     throw new AppError("Email and password are required", 400);
   }
 
   /* 2️⃣ Find admin + password */
   const admin = await SuperAdmin.findOne({ email }).select("+password");
   if (!admin) {
+  logger.warn("Login failed - email not found", { email });
     throw new AppError("Invalid email or password", 401);
   }
 
   /* 3️⃣ Verify password */
   const isMatch = await bcrypt.compare(password, admin.password);
   if (!isMatch) {
+    logger.warn("Login failed - password mismatch", {
+      adminId: admin._id
+    });
     throw new AppError("Invalid email or password", 401);
   }
+
+  logger.info("Password verified", {
+    adminId: admin._id
+  });
 
   /* 4️⃣ Generate JWT (ID ONLY) ✅ */
   const token = loginsignToken(admin._id);
   /* 5️⃣ Attach cookie */
   if (process.env.USE_COOKIE_AUTH === "true") {
-    res.cookie("jwt", token, {
+    res.cookie("login_auth_jwt", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       sameSite: "lax",          // REQUIRED for Postman
       maxAge: 7 * 24 * 60 * 60 * 1000
     });
+    // logger.debug("Login cookie issued", {
+    //   adminId: admin._id
+    // });
   }
+  logger.debug("Login cookie issued", {
+  adminId: admin._id
+  });
+
+   logger.info("SuperAdmin login successful", {
+    adminId: admin._id
+  });
 
   /* 6️⃣ Response */
   res.status(200).json({
