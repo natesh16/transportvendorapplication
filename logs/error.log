@@ -6,3 +6,130 @@
 2026-01-16 14:37:32 [ERROR]: Error: Invalid email or password
     at F:\development\backend\controllers\superAdmin.controller.js:142:11
     at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/super-admin/login/superadmin","method":"POST","user":null}
+2026-01-16 15:45:13 [ERROR]: TypeError: next is not a function
+    at model.Query.<anonymous> (F:\development\backend\models\corporate.Model.js:128:3)
+    at Kareem.execPre (F:\development\backend\node_modules\kareem\index.js:63:39)
+    at _executePreHooks (F:\development\backend\node_modules\mongoose\lib\query.js:4681:33)
+    at model.Query.exec (F:\development\backend\node_modules\mongoose\lib\query.js:4630:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async F:\development\backend\controllers\corporate.controller.js:41:29 {"path":"/api/super-admin/coporate/create/corporateID","method":"POST","user":null}
+2026-01-16 15:46:12 [ERROR]: TypeError: Cannot read properties of undefined (reading 'id')
+    at F:\development\backend\controllers\corporate.controller.js:74:25
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/super-admin/coporate/create/corporateID","method":"POST","user":null}
+2026-01-16 15:47:28 [ERROR]: TypeError: Cannot read properties of undefined (reading 'id')
+    at F:\development\backend\controllers\corporate.controller.js:74:25
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/super-admin/coporate/create/corporateID","method":"POST","user":null}
+2026-01-16 15:49:53 [ERROR]: Error: Not authenticated. Login required.
+    at F:\development\backend\middlewares\auth.js:49:11
+    at F:\development\backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\backend\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (F:\development\backend\node_modules\router\lib\route.js:117:3)
+    at handle (F:\development\backend\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (F:\development\backend\node_modules\router\lib\layer.js:152:17)
+    at F:\development\backend\node_modules\router\index.js:295:15
+    at processParams (F:\development\backend\node_modules\router\index.js:582:12)
+    at next (F:\development\backend\node_modules\router\index.js:291:5) {"path":"/api/super-admin/coporate/create/corporateID","method":"POST","user":null}
+2026-01-16 15:51:43 [ERROR]: TypeError: next is not a function
+    at model.<anonymous> (F:\development\backend\models\corporate.Model.js:97:34)
+    at Kareem.execPre (F:\development\backend\node_modules\kareem\index.js:63:39)
+    at model._execDocumentPreHooks (F:\development\backend\node_modules\mongoose\lib\document.js:2951:29)
+    at model.$__validate (F:\development\backend\node_modules\mongoose\lib\document.js:2968:28)
+    at model.validate (F:\development\backend\node_modules\mongoose\lib\document.js:2672:16)
+    at model.validateBeforeSave (F:\development\backend\node_modules\mongoose\lib\plugins\validateBeforeSave.js:34:18)
+    at Kareem.execPre (F:\development\backend\node_modules\kareem\index.js:63:39)
+    at model._execDocumentPreHooks (F:\development\backend\node_modules\mongoose\lib\document.js:2951:29)
+    at model.$__save (F:\development\backend\node_modules\mongoose\lib\model.js:369:16)
+    at model.save (F:\development\backend\node_modules\mongoose\lib\model.js:609:16) {"path":"/api/super-admin/coporate/create/corporateID","method":"POST","user":"6968ff156a7f8fc7d7ba82e7"}
+2026-01-16 15:54:19 [ERROR]: ValidationError: Corporate validation failed: registeredEmail: Path `registeredEmail` is required., companyName: Company name is required
+    at Document.invalidate (F:\development\backend\node_modules\mongoose\lib\document.js:3379:32)
+    at validatePath (F:\development\backend\node_modules\mongoose\lib\document.js:3154:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async Promise.all (index 0)
+    at async model.$__validate (F:\development\backend\node_modules\mongoose\lib\document.js:3095:3)
+    at async model.validate (F:\development\backend\node_modules\mongoose\lib\document.js:2672:5)
+    at async model.validateBeforeSave (F:\development\backend\node_modules\mongoose\lib\plugins\validateBeforeSave.js:34:7)
+    at async Kareem.execPre (F:\development\backend\node_modules\kareem\index.js:65:24)
+    at async model.$__save (F:\development\backend\node_modules\mongoose\lib\model.js:369:5)
+    at async model.save (F:\development\backend\node_modules\mongoose\lib\model.js:609:5) {"path":"/api/super-admin/coporate/create/corporateID","method":"POST","user":"6968ff156a7f8fc7d7ba82e7"}
+2026-01-16 16:16:25 [ERROR]: ReferenceError: contact is not defined
+    at F:\development\backend\controllers\corporate.controller.js:36:3
+    at F:\development\backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\backend\node_modules\router\lib\route.js:157:13)
+    at F:\development\backend\middlewares\auth.js:78:3
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/super-admin/coporate/create/corporateID","method":"POST","user":"6968ff156a7f8fc7d7ba82e7"}
+2026-01-16 16:38:51 [ERROR]: ReferenceError: contact is not defined
+    at F:\development\backend\controllers\corporate.controller.js:36:3
+    at F:\development\backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\backend\node_modules\router\lib\route.js:157:13)
+    at F:\development\backend\middlewares\auth.js:78:3
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/super-admin/coporate/create/corporateID","method":"POST","user":"6968ff156a7f8fc7d7ba82e7"}
+2026-01-16 16:39:33 [ERROR]: TypeError: next is not a function
+    at model.Query.<anonymous> (F:\development\backend\models\corporate.Model.js:193:3)
+    at Kareem.execPre (F:\development\backend\node_modules\kareem\index.js:63:39)
+    at _executePreHooks (F:\development\backend\node_modules\mongoose\lib\query.js:4681:33)
+    at model.Query.exec (F:\development\backend\node_modules\mongoose\lib\query.js:4630:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async F:\development\backend\controllers\corporate.controller.js:40:29 {"path":"/api/super-admin/coporate/create/corporateID","method":"POST","user":"6968ff156a7f8fc7d7ba82e7"}
+2026-01-16 16:40:10 [ERROR]: ReferenceError: description is not defined
+    at F:\development\backend\controllers\corporate.controller.js:68:5
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/super-admin/coporate/create/corporateID","method":"POST","user":"6968ff156a7f8fc7d7ba82e7"}
+2026-01-16 16:41:43 [ERROR]: ValidationError: Corporate validation failed: companyName: Company name is required
+    at Document.invalidate (F:\development\backend\node_modules\mongoose\lib\document.js:3379:32)
+    at validatePath (F:\development\backend\node_modules\mongoose\lib\document.js:3154:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async Promise.all (index 1)
+    at async model.$__validate (F:\development\backend\node_modules\mongoose\lib\document.js:3095:3)
+    at async model.validate (F:\development\backend\node_modules\mongoose\lib\document.js:2672:5)
+    at async model.validateBeforeSave (F:\development\backend\node_modules\mongoose\lib\plugins\validateBeforeSave.js:34:7)
+    at async Kareem.execPre (F:\development\backend\node_modules\kareem\index.js:65:24)
+    at async model.$__save (F:\development\backend\node_modules\mongoose\lib\model.js:369:5)
+    at async model.save (F:\development\backend\node_modules\mongoose\lib\model.js:609:5) {"path":"/api/super-admin/coporate/create/corporateID","method":"POST","user":"6968ff156a7f8fc7d7ba82e7"}
+2026-01-16 16:42:00 [ERROR]: Error: Corporate name is required
+    at F:\development\backend\controllers\corporate.controller.js:24:11
+    at F:\development\backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\backend\node_modules\router\lib\route.js:157:13)
+    at F:\development\backend\middlewares\auth.js:78:3
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/super-admin/coporate/create/corporateID","method":"POST","user":"6968ff156a7f8fc7d7ba82e7"}
+2026-01-16 16:42:41 [ERROR]: ReferenceError: companyName is not defined
+    at F:\development\backend\controllers\corporate.controller.js:23:3
+    at F:\development\backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\backend\node_modules\router\lib\route.js:157:13)
+    at F:\development\backend\middlewares\auth.js:78:3
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/super-admin/coporate/create/corporateID","method":"POST","user":"6968ff156a7f8fc7d7ba82e7"}
+2026-01-16 16:43:19 [ERROR]: ReferenceError: companyName is not defined
+    at F:\development\backend\controllers\corporate.controller.js:27:23
+    at F:\development\backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\backend\node_modules\router\lib\route.js:157:13)
+    at F:\development\backend\middlewares\auth.js:78:3
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/super-admin/coporate/create/corporateID","method":"POST","user":"6968ff156a7f8fc7d7ba82e7"}
+2026-01-16 16:43:47 [ERROR]: ValidationError: Corporate validation failed: companyName: Company name is required
+    at Document.invalidate (F:\development\backend\node_modules\mongoose\lib\document.js:3379:32)
+    at validatePath (F:\development\backend\node_modules\mongoose\lib\document.js:3154:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async Promise.all (index 1)
+    at async model.$__validate (F:\development\backend\node_modules\mongoose\lib\document.js:3095:3)
+    at async model.validate (F:\development\backend\node_modules\mongoose\lib\document.js:2672:5)
+    at async model.validateBeforeSave (F:\development\backend\node_modules\mongoose\lib\plugins\validateBeforeSave.js:34:7)
+    at async Kareem.execPre (F:\development\backend\node_modules\kareem\index.js:65:24)
+    at async model.$__save (F:\development\backend\node_modules\mongoose\lib\model.js:369:5)
+    at async model.save (F:\development\backend\node_modules\mongoose\lib\model.js:609:5) {"path":"/api/super-admin/coporate/create/corporateID","method":"POST","user":"6968ff156a7f8fc7d7ba82e7"}
+2026-01-16 16:47:55 [ERROR]: Error: Not authenticated. Login required.
+    at F:\development\backend\middlewares\auth.js:49:11
+    at F:\development\backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\backend\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (F:\development\backend\node_modules\router\lib\route.js:117:3)
+    at handle (F:\development\backend\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (F:\development\backend\node_modules\router\lib\layer.js:152:17)
+    at F:\development\backend\node_modules\router\index.js:295:15
+    at processParams (F:\development\backend\node_modules\router\index.js:582:12)
+    at next (F:\development\backend\node_modules\router\index.js:291:5) {"path":"/api/super-admin/coporate/create/corporateID","method":"POST","user":null}
+2026-01-16 16:48:29 [ERROR]: Error: Access denied. SUPER_ADMIN only.
+    at F:\development\backend\middlewares\auth.js:65:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/super-admin/coporate/create/corporateID","method":"POST","user":null}

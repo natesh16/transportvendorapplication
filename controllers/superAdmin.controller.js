@@ -159,7 +159,7 @@ exports.loginSuperAdmin = asyncHandler(async (req, res) => {
   const token = loginsignToken(admin._id);
   /* 5️⃣ Attach cookie */
   if (process.env.USE_COOKIE_AUTH === "true") {
-    res.cookie("login_auth_jwt", token, {
+    res.cookie("auth_token", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       sameSite: "lax",          // REQUIRED for Postman

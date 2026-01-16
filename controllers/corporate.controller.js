@@ -1,46 +1,92 @@
-const Corporate = require("../models/corporat.ID.Schema");
 const asyncHandler = require("../utils/asyncHandler");
+const logger = require("../utils/logger");
+const crypto = require("crypto");
+const Corporate = require("../models/corporate.Model");
 const AppError = require("../utils/appError");
 
+/**
+ * @desc    Create Corporate
+ * @route   POST /api/v1/corporates
+ * @access  Protected (SUPER_ADMIN via cookie)
+ */
 exports.createCorporate = asyncHandler(async (req, res) => {
-  // 🔐 Auth & Role Guard (works with auth middleware)
+  /* 🔐 req.user is guaranteed by middleware */
   const {
-    name,
-    logo,
-    description,
+    companyname,
     contact,
     address,
+    logo,
     subscription,
     billing
   } = req.body;
-  // 🧪 Check existing corporate
+
+  /* 🧪 Validation */
+  if (!companyname || typeof companyname !== "string") {
+    throw new AppError("Corporate name is required", 400);
+  }
+
+  const trimmedName = companyname.trim();
+  if (trimmedName.length < 3) {
+    throw new AppError(
+      "Corporate name must be at least 3 characters",
+      400
+    );
+  }
+
+  if (contact.registerEmail && !/^\S+@\S+\.\S+$/.test(contact.registeredEmail)) {
+    throw new AppError("Invalid contact email format", 400);
+  }
+
+  /* 🔍 Duplicate check (case-insensitive) */
   const existingCorporate = await Corporate.findOne({
-    name,
-    isDeleted: false
+    name: new RegExp(`^${trimmedName}$`, "i"),
+    isDeleted: { $ne: true }
   });
+
   if (existingCorporate) {
     throw new AppError("Corporate already exists", 409);
   }
-  // 🆔 Generate Corporate Code
-  const corporateCode = `CORP-${Date.now().toString().slice(-6)}`;
-  // 🏢 Create Corporate
+
+  /* 🆔 Corporate Code generation */
+  const normalizedName = trimmedName
+    .toUpperCase()
+    .replace(/[^A-Z0-9]/g, "")
+    .slice(0, 6)
+    .padEnd(3, "X");
+
+  const hash = crypto
+    .randomBytes(3)
+    .toString("hex")
+    .toUpperCase();
+
+  const corporateCode = `CORP-${normalizedName}-${hash}`;
+
+  /* 🏢 Create Corporate */
   const corporate = await Corporate.create({
-    name,
+    companyname: trimmedName,
     corporateCode,
     logo,
-    description,
     contact,
     address,
     subscription,
     billing,
-    createdBy: req.user.id // from auth middleware
+    createdBy: req.user.id // ✅ from cookie-auth
   });
+
+  /* ✅ Response */
   res.status(201).json({
     success: true,
     message: "Corporate created successfully",
-    data: corporate
+    data: {
+      id: corporate._id,
+      name: corporate.name,
+      corporateCode: corporate.corporateCode,
+      status: corporate.status,
+      createdAt: corporate.createdAt
+    }
   });
 });
+
 exports.getCorporates = asyncHandler(async (req, res) => {
   if (req.user.role !== "SUPER_ADMIN") {
     throw new AppError("Access denied", 403);

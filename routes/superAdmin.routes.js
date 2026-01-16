@@ -1,6 +1,6 @@
 const express = require("express");
 const { protect } = require("../middlewares/auth");
-const { createCorporate } = require("../controllers/corporate.controller");
+// const { createCorporate } = require("../controllers/corporate.controller");
 const { restrictTo } = require("../middlewares/rbac");
 
 const {

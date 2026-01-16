@@ -1,8 +1,9 @@
-// const express = require("express");
-// const { createCorporate } = require("../controllers/corporate.controller");
-// const router = express.Router();
-// router.route("/create/corporateID")
-//     .post(createCorporate)
-//     .get(getSuperAdmins);
+const express = require("express");
+const {protectSuperAdmin}=require('../middlewares/auth')
+const { createCorporate } = require("../controllers/corporate.controller");
+const router = express.Router();
+router.route("/create/corporateID")
+    .post(protectSuperAdmin,createCorporate)
+    // .get(getSuperAdmins);
 
-// module.exports = router;
+module.exports = router;
