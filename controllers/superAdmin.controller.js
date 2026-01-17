@@ -36,7 +36,7 @@ const sendAuthCookie = (res, token) => {
 
 exports.createSuperAdmin = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
-  // 1️⃣ Validate email uniqueness
+  //  Validate email uniqueness
 const exists = await SuperAdmin.findOne({
   $or: [{ email }, { name }]
 });
@@ -44,16 +44,16 @@ const exists = await SuperAdmin.findOne({
   logger.warn("SuperAdmin already exists", { email });
       throw new AppError(exists.email === email? "Email already registered": "Name already exists",)
   }
-  // 2️⃣ Create Super Admin (password hashed via schema middleware)
+  // Create Super Admin (password hashed via schema middleware)
   const admin = await SuperAdmin.create({
     name,
     email,
     password,
     role: "SUPER_ADMIN"
   });
-  // 3️⃣ Generate JWT bound to created admin
+  // Generate JWT bound to created admin
   const token = signToken(admin);
-  // 4️⃣ Attach cookie → directly linked to admin._id
+  //  Attach cookie → directly linked to admin._id
   if (process.env.USE_COOKIE_AUTH === "true") {
     logger.info("Auth cookie set for SuperAdmin", {
       adminId: admin._id
@@ -66,9 +66,8 @@ logger.info("Create SuperAdmin API called", {
   requestId: req.requestId || null,
   ip: req.ip
 });
-  console.log("Headers already sent:", res.headersSent);
 
-  // 5️⃣ Send safe response
+  //  Send safe response
    return res.status(201).json({
     success: true,
     message: "Super Admin created and authenticated successfully",
