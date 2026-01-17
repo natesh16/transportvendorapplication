@@ -3,6 +3,9 @@ const logger = require("../utils/logger");
 const crypto = require("crypto");
 const Corporate = require("../models/corporate.Model");
 const AppError = require("../utils/appError");
+const {generateCorporateLoginId}= require("../utils/generateCorporateLoginId");
+const {generateStrongPassword} = require("../utils/generateStrongPassword");
+
 /**
  * @desc    Create Corporate
  * @route   POST /api/v1/corporates
@@ -16,7 +19,9 @@ exports.createCorporate = asyncHandler(async (req, res) => {
     address,
     logo,
     subscription,
-    billing
+    billing,
+    usage,
+    security
   } = req.body;
 
     /* ================= LOG: REQUEST START ================= */
@@ -89,7 +94,7 @@ exports.createCorporate = asyncHandler(async (req, res) => {
   });
 
   /* 🏢 Create Corporate */
-  const corporate = await Corporate.create({
+  const corporateID = await Corporate.create({
     companyname: trimmedName,
     corporateCode,
     logo,
@@ -97,11 +102,13 @@ exports.createCorporate = asyncHandler(async (req, res) => {
     address,
     subscription,
     billing,
+    usage,
+    security,
     createdBy: req.user.id // ✅ from cookie-auth
   });
 
   logger.info("Corporate created successfully", {
-    corporateId: corporate._id,
+    corporateId: corporateID._id,
     corporateCode,
     createdBy: req.user.id
   });
@@ -111,14 +118,98 @@ exports.createCorporate = asyncHandler(async (req, res) => {
     success: true,
     message: "Corporate created successfully",
     data: {
-      id: corporate._id,
-      name: corporate.name,
-      corporateCode: corporate.corporateCode,
-      status: corporate.status,
-      createdAt: corporate.createdAt
+      id: corporateID._id,
+      name: corporateID.name,
+      corporateCode: corporateID.corporateCode,
+      status: corporateID.status,
+      createdAt: corporateID.createdAt
     }
   });
 });
+
+// controllers/superAdminCorporateUser.controller.js
+// const Corporate = require("../models/corporateModel");
+// const CorporateUser = require("../models/corporateUserModel");
+// const AppError = require("../utils/appError");
+// const asyncHandler = require("../utils/asyncHandler");
+
+/**
+ * @desc    SuperAdmin creates Corporate Admin / Supervisor
+ * @route   POST /api/v1/superadmin/corporate-users
+ * @access  SUPER_ADMIN
+ */
+exports.createCorporateEmployee = asyncHandler(async (req, res) => {
+  /* 🔐 Role Guard */
+  if (!req.user || req.user.role !== "SUPER_ADMIN") {
+    throw new AppError("Unauthorized", 403);
+  }
+
+  const {
+    corporateId,
+    name,
+    role,
+    password // optional
+  } = req.body;
+
+  /* 🧪 Validation */
+  if (!corporateId || !name || !role) {
+    throw new AppError("Missing required fields", 400);
+  }
+
+  if (!["CORPORATE_ADMIN", "CORPORATE_SUPERVISOR"].includes(role)) {
+    throw new AppError("Invalid role", 400);
+  }
+
+  /* 🔍 Corporate Exists */
+  const corporate = await Corporate.findById(corporateId);
+  if (!corporate) {
+    throw new AppError("Corporate not found", 404);
+  }
+
+  /* 🔢 Sequence Count (per role per corporate) */
+  const count = await CorporateUser.countDocuments({
+    corporateId,
+    role
+  });
+
+  /* 🔑 Generate Login ID */
+  const loginId = generateCorporateLoginId({
+    corporateId,
+    role,
+    sequence: count + 1
+  });
+
+  /* 🚫 Prevent Duplicate */
+  const exists = await CorporateUser.findOne({ loginId });
+  if (exists) {
+    throw new AppError("Login ID already exists", 409);
+  }
+
+  /* 🔐 Password */
+  const finalPassword = password || generateStrongPassword();
+
+  /* 🧾 Create User */
+  const user = await CorporateUser.create({
+    corporateId,
+    loginId,
+    name,
+    role,
+    password: finalPassword,
+    createdBy: req.user.id
+  });
+
+  /* ✅ Response (Password returned ONCE) */
+  res.status(201).json({
+    success: true,
+    message: "Corporate employee created successfully",
+    data: {
+      loginId: user.loginId,
+      role: user.role,
+      temporaryPassword: finalPassword
+    }
+  });
+});
+
 
 // exports.getCorporates = asyncHandler(async (req, res) => {
 //   if (req.user.role !== "SUPER_ADMIN") {

@@ -33,3 +33,98 @@ Super Admin (SAAS)
 
 
 
+
+
++------------------+
+|   SUPER_ADMIN    |
++------------------+
+| _id (PK)         |
+| name             |
+| email            |
+| role             |
+| isActive         |
++------------------+
+        |
+        | 1 creates
+        |
+        | N
++------------------+
+|    CORPORATE     |
++------------------+
+| _id (PK)         |
+| corporateId (UK) |
+| companyName      |
+| status           |
+| createdBy (FK)   |
++------------------+
+        |
+        | 1 has
+        |
+        | N
++---------------------------+
+|     CORPORATE_USER        |
++---------------------------+
+| _id (PK)                  |
+| corporateId (FK)          |
+| name                      |
+| email                     |
+| role                      |
+| (ADMIN / SUPERVISOR)      |
+| permissions               |
++---------------------------+
+        |
+        | 1 creates
+        |
+        | N
++------------------+
+|     VENDOR       |
++------------------+
+| _id (PK)         |
+| vendorCode (UK)  |
+| corporateId (FK) |
+| name             |
+| status           |
++------------------+
+        |
+        | 1 has
+        |
+        | N
++---------------------------+
+|      VENDOR_USER          |
++---------------------------+
+| _id (PK)                  |
+| vendorId (FK)             |
+| name                      |
+| email                     |
+| role                      |
+| (VENDOR_ADMIN / SUPV)     |
++---------------------------+
+
+/*==================GLOBAL VISIBILITY===================*/
+
+🔍 AUDIT & TAXATION (GLOBAL VISIBILITY)
++----------------------+
+|      AUDIT_LOG       |
++----------------------+
+| _id (PK)             |
+| actorId              |
+| actorRole            |
+| action               |
+| entityType           |
+| entityId             |
+| timestamp            |
++----------------------+
+
++----------------------+
+|    TAXATION_REPORT   |
++----------------------+
+| _id (PK)             |
+| corporateId (FK)     |
+| vendorId (FK)        |
+| taxPeriod            |
+| totalAmount          |
+| generatedBy          |
++----------------------+
+
+/*==================🔗 RELATIONSHIP SUMMARY ===================*/
+

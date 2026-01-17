@@ -136,3 +136,6 @@
 2026-01-16 17:02:44 [ERROR]: Error: Access denied. SUPER_ADMIN only.
     at F:\development\backend\middlewares\auth.js:65:11
     at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/super-admin/coporate/create/corporateID","method":"POST","user":null}
+2026-01-17 06:01:14 [ERROR]: ReferenceError: corporate is not defined
+    at F:\development\Backend\controllers\corporate.controller.js:108:18
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/super-admin/coporate/create/corporateID","method":"POST","user":"6968ff156a7f8fc7d7ba82e7"}

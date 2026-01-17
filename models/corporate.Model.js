@@ -130,6 +130,36 @@ contact: {
       lastPaymentDate: Date
     },
 
+
+    /* 🔄 Employees */
+    
+    usage: {
+      totalEmployees: {
+        type: Number,
+        default: 0
+      },
+      totalTrips: {
+        type: Number,
+        default: 0
+      },
+      activeVendors: {
+        type: Number,
+        default: 0
+      }
+    },
+    /* 🔄 Security */
+    security: {
+      twoFactorEnabled: {
+        type: Boolean,
+        default: false
+      },
+      ipWhitelist: [String],
+      dataRetentionDays: {
+        type: Number,
+        default: 365
+      }
+    },
+
     /* 🔄 Lifecycle */
     status: {
       type: String,
@@ -152,6 +182,7 @@ contact: {
 
     deletedAt: Date
   },
+  
   {
     timestamps: true,
     versionKey: false
@@ -215,4 +246,4 @@ corporateSchema.methods.toSafeObject = function () {
   return obj;
 };
 
-module.exports = mongoose.model("Corporate", corporateSchema);
+module.exports = mongoose.model("CorporateID", corporateSchema);
