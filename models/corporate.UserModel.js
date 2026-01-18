@@ -90,7 +90,6 @@ corporateUserSchema.pre("save", async function (next) {
   const salt = await bcrypt.genSalt(12);
   this.password = await bcrypt.hash(this.password, salt);
   this.passwordChangedAt = Date.now() - 1000;
-  next();
 });
 corporateUserSchema.methods.correctPassword = async function (
   candidatePassword
@@ -121,7 +120,6 @@ corporateUserSchema.pre(/^find/, function (next) {
     isDeleted: false,
     isActive: true
   });
-  next();
 });
 corporateUserSchema.index(
   { corporateId: 1, role: 1 },
@@ -132,4 +130,4 @@ corporateUserSchema.index(
   { loginId: 1, isDeleted: 1 },
   { unique: true }
 );
-module.exports = mongoose.model("CorporateUser", corporateUserSchema);
+module.exports = mongoose.model("CorporateUserID", corporateUserSchema);

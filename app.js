@@ -3,7 +3,7 @@ const app=express()
 const errorHandler = require("./middlewares/errorHandler");
 const requestLogger = require("./middlewares/requestLogger");
 const superAdminRoutes = require("./routes/superAdmin.routes");
-const corporateRoutes = require("./routes/corporate.Router");
+const corporateRoutes = require("./routes/corporate.Routes");
 const cookieParser = require("cookie-parser");
 
 app.use(express.json());              // ✅ parses JSON body

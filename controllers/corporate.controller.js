@@ -2,6 +2,7 @@ const asyncHandler = require("../utils/asyncHandler");
 const logger = require("../utils/logger");
 const crypto = require("crypto");
 const Corporate = require("../models/corporate.Model");
+const CorporateUser = require("../models/corporate.UserModel");
 const AppError = require("../utils/appError");
 const {generateCorporateLoginId}= require("../utils/generateCorporateLoginId");
 const {generateStrongPassword} = require("../utils/generateStrongPassword");
@@ -129,7 +130,6 @@ exports.createCorporate = asyncHandler(async (req, res) => {
 
 // controllers/superAdminCorporateUser.controller.js
 // const Corporate = require("../models/corporateModel");
-// const CorporateUser = require("../models/corporateUserModel");
 // const AppError = require("../utils/appError");
 // const asyncHandler = require("../utils/asyncHandler");
 
