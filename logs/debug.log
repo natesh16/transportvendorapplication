@@ -346,3 +346,96 @@
     at async model.create (F:\development\Backend\node_modules\mongoose\lib\model.js:2699:11)
     at async F:\development\Backend\controllers\corporate.controller.js:192:16 {"path":"/api/super-admin/coporate/create/corporateLoginID","method":"POST","user":"6968ff156a7f8fc7d7ba82e7"}
 2026-01-18 06:00:40 [INFO]: POST /api/super-admin/coporate/create/corporateLoginID 500 3330.020 ms - body={"corporateId":"696b27860372e799fce8dd99","name":"Ram Kumar S","role":"CORPORATE_ADMIN"} 
+2026-01-18 06:01:20 [INFO]: POST /api/super-admin/coporate/create/corporateLoginID 201 2232.920 ms - body={"corporateId":"696b27860372e799fce8dd99","name":"Ram Kumar S","role":"CORPORATE_ADMIN"} 
+2026-01-18 13:48:17 [ERROR]: ReferenceError: Cannot access 'corporateCode' before initialization
+    at F:\development\Backend\controllers\corporate.controller.js:168:52
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/super-admin/coporate/create/corporateLoginID","method":"POST","user":"6968ff156a7f8fc7d7ba82e7"}
+2026-01-18 13:48:17 [INFO]: POST /api/super-admin/coporate/create/corporateLoginID 500 110.952 ms - body={"corporateId":"696b27860372e799fce8dd99","name":"surya M M","role":"CORPORATE_SUPERVISOR"} 
+2026-01-18 14:02:21 [INFO]: POST /api/super-admin/coporate/create/corporateLoginID 201 1387.191 ms - body={"corporateId":"696b27860372e799fce8dd99","name":"surya M M","role":"CORPORATE_SUPERVISOR"} 
+2026-01-18 14:06:14 [ERROR]: ValidationError: CorporateUserID validation failed: corporateCode: Path `corporateCode` is required.
+    at Document.invalidate (F:\development\Backend\node_modules\mongoose\lib\document.js:3379:32)
+    at validatePath (F:\development\Backend\node_modules\mongoose\lib\document.js:3154:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async Promise.all (index 0)
+    at async model.$__validate (F:\development\Backend\node_modules\mongoose\lib\document.js:3095:3)
+    at async model.validate (F:\development\Backend\node_modules\mongoose\lib\document.js:2672:5)
+    at async model.validateBeforeSave (F:\development\Backend\node_modules\mongoose\lib\plugins\validateBeforeSave.js:34:7)
+    at async Kareem.execPre (F:\development\Backend\node_modules\kareem\index.js:65:24)
+    at async model.$__save (F:\development\Backend\node_modules\mongoose\lib\model.js:369:5)
+    at async model.save (F:\development\Backend\node_modules\mongoose\lib\model.js:609:5) {"path":"/api/super-admin/coporate/create/corporateLoginID","method":"POST","user":"6968ff156a7f8fc7d7ba82e7"}
+2026-01-18 14:06:15 [INFO]: POST /api/super-admin/coporate/create/corporateLoginID 500 817.952 ms - body={"corporateId":"696b27860372e799fce8dd99","name":"surya M M","role":"CORPORATE_SUPERVISOR"} 
+2026-01-18 14:06:43 [INFO]: POST /api/super-admin/coporate/create/corporateLoginID 201 1527.371 ms - body={"corporateId":"696b27860372e799fce8dd99","name":"surya M M","role":"CORPORATE_SUPERVISOR"} 
+2026-01-19 14:29:50 [ERROR]: ValidationError: CorporateUserID validation failed: corporateCode: Path `corporateCode` is required.
+    at Document.invalidate (F:\development\Backend\node_modules\mongoose\lib\document.js:3379:32)
+    at validatePath (F:\development\Backend\node_modules\mongoose\lib\document.js:3154:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async Promise.all (index 5)
+    at async model.$__validate (F:\development\Backend\node_modules\mongoose\lib\document.js:3095:3)
+    at async model.validate (F:\development\Backend\node_modules\mongoose\lib\document.js:2672:5)
+    at async model.validateBeforeSave (F:\development\Backend\node_modules\mongoose\lib\plugins\validateBeforeSave.js:34:7)
+    at async Kareem.execPre (F:\development\Backend\node_modules\kareem\index.js:65:24)
+    at async model.$__save (F:\development\Backend\node_modules\mongoose\lib\model.js:369:5)
+    at async model.save (F:\development\Backend\node_modules\mongoose\lib\model.js:609:5) {"path":"/api/super-admin/coporate/create/corporateLoginID","method":"POST","user":"6968ff156a7f8fc7d7ba82e7"}
+2026-01-19 14:29:50 [INFO]: POST /api/super-admin/coporate/create/corporateLoginID 500 153.377 ms - body={"corporateId":"696b27860372e799fce8dd99","name":"surya M ","role":"CORPORATE_SUPERVISOR"} 
+2026-01-19 14:31:58 [ERROR]: ReferenceError: Cannot access 'corporateCode' before initialization
+    at F:\development\Backend\controllers\corporate.controller.js:168:47
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/super-admin/coporate/create/corporateLoginID","method":"POST","user":"6968ff156a7f8fc7d7ba82e7"}
+2026-01-19 14:31:58 [INFO]: POST /api/super-admin/coporate/create/corporateLoginID 500 122.883 ms - body={"corporateId":"696b27860372e799fce8dd99","name":"surya M ","role":"CORPORATE_SUPERVISOR"} 
+2026-01-19 15:02:39 [INFO]: POST /api/super-admin/coporate/create/corporateLoginID 201 1184.452 ms - body={"corporateId":"696b27860372e799fce8dd99","name":"natesh ","role":"CORPORATE_SUPERVISOR"} 
+2026-01-19 15:04:52 [INFO]: POST /api/super-admin/corpo/login 404 3.079 ms - body={"loginID":"CORP-E8DD99-SUP-003","password":"PLkbsbyf8FNlOTod"} 
+2026-01-19 15:05:35 [INFO]: POST /api/super-admin/corpo/login 404 11.928 ms - body={"loginID":"CORP-E8DD99-SUP-003","password":"PLkbsbyf8FNlOTod"} 
+2026-01-19 15:05:57 [ERROR]: Error: Login ID and password are required
+    at F:\development\Backend\controllers\corporateAuth.User.controller.js:31:11
+    at F:\development\Backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (F:\development\Backend\node_modules\router\lib\route.js:117:3)
+    at handle (F:\development\Backend\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at F:\development\Backend\node_modules\router\index.js:295:15
+    at processParams (F:\development\Backend\node_modules\router\index.js:582:12)
+    at next (F:\development\Backend\node_modules\router\index.js:291:5) {"path":"/api/corpo/login","method":"POST","user":null}
+2026-01-19 15:05:57 [INFO]: POST /api/corpo/login 400 13.396 ms - body={"loginID":"CORP-E8DD99-SUP-003","password":"PLkbsbyf8FNlOTod"} 
+2026-01-19 15:06:28 [ERROR]: TypeError: next is not a function
+    at model.<anonymous> (F:\development\Backend\models\corporate.UserModel.js:74:44)
+    at Kareem.execPre (F:\development\Backend\node_modules\kareem\index.js:63:39)
+    at async model.$__save (F:\development\Backend\node_modules\mongoose\lib\model.js:369:5)
+    at async model.save (F:\development\Backend\node_modules\mongoose\lib\model.js:609:5)
+    at async corporateUserSchema.methods.incrementLoginAttempts (F:\development\Backend\models\corporate.UserModel.js:141:3)
+    at async F:\development\Backend\controllers\corporateAuth.User.controller.js:58:5 {"path":"/api/corpo/login","method":"POST","user":null}
+2026-01-19 15:06:28 [INFO]: POST /api/corpo/login 500 1790.494 ms - body={"loginId":"CORP-E8DD99-SUP-003","password":"PLkbsbyf8FNlOTod"} 
+2026-01-19 15:07:21 [ERROR]: Error: Invalid login credentials
+    at F:\development\Backend\controllers\corporateAuth.User.controller.js:59:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/login","method":"POST","user":null}
+2026-01-19 15:07:21 [INFO]: POST /api/corpo/login 401 2088.658 ms - body={"loginId":"CORP-E8DD99-SUP-003","password":"PLkbsbyf8FNlOTod"} 
+2026-01-19 15:39:01 [INFO]: POST /api/super-admin/coporate/create/corporateLoginID 201 1149.603 ms - body={"corporateId":"696b27860372e799fce8dd99","name":"Suresh Kumar","role":"CORPORATE_SUPERVISOR","password":"Admin@123Strong"} 
+2026-01-19 15:39:51 [INFO]: POST /api/super-admin/coporate/create/corporateLoginID 201 969.101 ms - body={"corporateId":"696b27860372e799fce8dd99","name":"Ram Kumar","role":"CORPORATE_ADMIN"} 
+2026-01-19 15:41:58 [INFO]: POST /api/corpo/login 200 1798.938 ms - body={"loginId":"CORP-E8DD99-ADMIN-001","password":"U32nbRzefI7ilPg5@A1"} 
+2026-01-19 15:42:13 [ERROR]: Error: Invalid login credentials
+    at F:\development\Backend\controllers\corporateAuth.User.controller.js:59:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/login","method":"POST","user":null}
+2026-01-19 15:42:13 [INFO]: POST /api/corpo/login 401 1828.958 ms - body={"loginId":"CORP-E8DD99-ADMIN-001","password":"U32nbRzefI7ilPg5A1"} 
+2026-01-19 15:42:18 [ERROR]: Error: Invalid login credentials
+    at F:\development\Backend\controllers\corporateAuth.User.controller.js:59:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/login","method":"POST","user":null}
+2026-01-19 15:42:18 [INFO]: POST /api/corpo/login 401 1832.202 ms - body={"loginId":"CORP-E8DD99-ADMIN-001","password":"U32nbRzefI7ilPg5A1"} 
+2026-01-19 15:42:22 [ERROR]: Error: Invalid login credentials
+    at F:\development\Backend\controllers\corporateAuth.User.controller.js:59:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/login","method":"POST","user":null}
+2026-01-19 15:42:22 [INFO]: POST /api/corpo/login 401 1851.857 ms - body={"loginId":"CORP-E8DD99-ADMIN-001","password":"U32nbRzefI7ilPg5A1"} 
+2026-01-19 15:42:26 [ERROR]: Error: Invalid login credentials
+    at F:\development\Backend\controllers\corporateAuth.User.controller.js:59:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/login","method":"POST","user":null}
+2026-01-19 15:42:26 [INFO]: POST /api/corpo/login 401 1599.071 ms - body={"loginId":"CORP-E8DD99-ADMIN-001","password":"U32nbRzefI7ilPg5A1"} 
+2026-01-19 15:42:30 [ERROR]: Error: Invalid login credentials
+    at F:\development\Backend\controllers\corporateAuth.User.controller.js:59:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/login","method":"POST","user":null}
+2026-01-19 15:42:30 [INFO]: POST /api/corpo/login 401 1651.666 ms - body={"loginId":"CORP-E8DD99-ADMIN-001","password":"U32nbRzefI7ilPg5A1"} 
+2026-01-19 15:42:32 [ERROR]: Error: Account locked due to multiple failed attempts. Try again in 30 minutes.
+    at F:\development\Backend\controllers\corporateAuth.User.controller.js:48:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/login","method":"POST","user":null}
+2026-01-19 15:42:32 [INFO]: POST /api/corpo/login 423 6.974 ms - body={"loginId":"CORP-E8DD99-ADMIN-001","password":"U32nbRzefI7ilPg5A1"} 
+2026-01-19 15:42:41 [ERROR]: Error: Account locked due to multiple failed attempts. Try again in 30 minutes.
+    at F:\development\Backend\controllers\corporateAuth.User.controller.js:48:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/login","method":"POST","user":null}
+2026-01-19 15:42:41 [INFO]: POST /api/corpo/login 423 5.822 ms - body={"loginId":"CORP-E8DD99-ADMIN-001","password":"U32nbRzefI7ilPg5@A1"} 

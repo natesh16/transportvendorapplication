@@ -33,6 +33,11 @@ const corporateUserSchema = new mongoose.Schema(
       select: false,
       minlength: 12 // enforce strong passwords
     },
+    mustChangePassword: {
+      type: Boolean,
+      default: true
+    },
+    passwordChangedAt: Date,
     passwordChangedAt: Date,
     role: {
       type: String,
@@ -71,7 +76,7 @@ const corporateUserSchema = new mongoose.Schema(
   }
 );
 corporateUserSchema.pre("save", async function (next) {
-  if (!this.isModified("password")) return next();
+  if (!this.isModified("password"));
   if (
     !validator.isStrongPassword(this.password, {
       minLength: 12,
@@ -91,6 +96,10 @@ corporateUserSchema.pre("save", async function (next) {
   this.password = await bcrypt.hash(this.password, salt);
   this.passwordChangedAt = Date.now() - 1000;
 });
+corporateUserSchema.statics.generateTempPassword = function () {
+  const random = crypto.randomBytes(8).toString("hex"); // 32 chars
+  return `${random}@A1`; // adds uppercase, symbol, number
+};
 corporateUserSchema.methods.correctPassword = async function (
   candidatePassword
 ) {
@@ -115,6 +124,32 @@ corporateUserSchema.methods.incrementLoginAttempts = async function () {
 
   await this.save({ validateBeforeSave: false });
 };
+/* 🔒 Check if account is locked */
+corporateUserSchema.methods.isLocked = function () {
+  return !!(this.lockUntil && this.lockUntil > Date.now());
+};
+
+/* 🚨 Increment login attempts */
+corporateUserSchema.methods.incrementLoginAttempts = async function () {
+  const MAX_ATTEMPTS = 5;
+  const LOCK_TIME = 30 * 60 * 1000; // 30 minutes
+
+  // If lock expired → reset
+  if (this.lockUntil && this.lockUntil < Date.now()) {
+    this.loginAttempts = 1;
+    this.lockUntil = undefined;
+  } else {
+    this.loginAttempts += 1;
+
+    // Lock account
+    if (this.loginAttempts >= MAX_ATTEMPTS) {
+      this.lockUntil = Date.now() + LOCK_TIME;
+    }
+  }
+
+  await this.save({ validateBeforeSave: false });
+};
+
 corporateUserSchema.pre(/^find/, function (next) {
   this.find({
     isDeleted: false,
