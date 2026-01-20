@@ -5,20 +5,29 @@ const AppError = require("../utils/appError");
 const getClientIp = require("../utils/getClientIp");
 
 /* 🔐 JWT Helper */
-const signToken = (user) =>
+const signToken = (admin) =>
   jwt.sign(
     {
-      id: user._id,
-      corporateId: user.corporateId,
-      role: user.role,
-      loginId: user.loginId
+      id: admin._id,
+      email: admin.email,
+      role: admin.role || "SUPER_ADMIN"
     },
     process.env.JWT_SECRET,
     {
-      expiresIn: process.env.JWT_EXPIRES_IN || "1d"
+      expiresIn: process.env.JWT_EXPIRES_IN || "7d"
     }
   );
 
+/* ================= COOKIE HELPER ================= */
+
+const sendAuthCookie = (res, token) => {
+  res.cookie("auth_token", token, {
+    httpOnly: true, // 🔐 JS can't access
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "strict",
+    maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
+  });
+};
 /**
  * @desc    Corporate User Login
  * @route   POST /api/v1/corporate/auth/login
@@ -67,7 +76,15 @@ exports.loginCorporateUser = asyncHandler(async (req, res) => {
   await user.save({ validateBeforeSave: false });
 
   /* 🎟️ Token */
-  const token = signToken(user);
+ // Generate JWT bound to created admin
+  const token = signToken(admin);
+  //  Attach cookie → directly linked to admin._id
+  if (process.env.USE_COOKIE_AUTH === "true") {
+    logger.info("Auth cookie set for SuperAdmin", {
+      adminId: admin._id
+    });
+    sendAuthCookie(res, token);
+  }
 
   res.status(200).json({
     success: true,

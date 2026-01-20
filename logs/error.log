@@ -328,3 +328,9 @@
     at corporateUserSchema.statics.generateTempPassword (F:\development\backend\models\corporate.UserModel.js:100:25)
     at F:\development\backend\controllers\corporate.controller.js:188:51
     at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/super-admin/coporate/create/corporateLoginID","method":"POST","user":"6968ff156a7f8fc7d7ba82e7"}
+2026-01-20 15:48:50 [ERROR]: Error: Invalid login credentials
+    at F:\development\backend\controllers\corporateAuth.User.controller.js:67:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/login","method":"POST","user":null}
+2026-01-20 15:50:19 [ERROR]: Error: Invalid login credentials
+    at F:\development\backend\controllers\corporateAuth.User.controller.js:67:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/login","method":"POST","user":null}

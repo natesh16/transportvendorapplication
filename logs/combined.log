@@ -454,3 +454,13 @@
     at F:\development\backend\controllers\corporate.controller.js:188:51
     at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/super-admin/coporate/create/corporateLoginID","method":"POST","user":"6968ff156a7f8fc7d7ba82e7"}
 2026-01-20 14:57:22 [INFO]: POST /api/super-admin/coporate/create/corporateLoginID 500 59.326 ms - body={"corporateId":"696b27860372e799fce8dd99","name":"Ram Kumar","role":"CORPORATE_ADMIN"} 
+2026-01-20 15:18:41 [INFO]: POST /api/super-admin/coporate/create/corporateLoginID 201 1175.976 ms - body={"corporateId":"696b27860372e799fce8dd99","name":"Ram Kumar","role":"CORPORATE_ADMIN"} 
+2026-01-20 15:20:11 [INFO]: POST /api/corpo/login 200 1803.854 ms - body={"loginId":"CORP-E8DD99-ADMIN-001","password":"030780775092fb5a@A1"} 
+2026-01-20 15:48:50 [ERROR]: Error: Invalid login credentials
+    at F:\development\backend\controllers\corporateAuth.User.controller.js:67:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/login","method":"POST","user":null}
+2026-01-20 15:48:50 [INFO]: POST /api/corpo/login 401 2654.773 ms - body={"loginId":"CORP-E8DD99-ADMIN-001","password":"030780775092fb5a@A1"} 
+2026-01-20 15:50:19 [ERROR]: Error: Invalid login credentials
+    at F:\development\backend\controllers\corporateAuth.User.controller.js:67:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/login","method":"POST","user":null}
+2026-01-20 15:50:19 [INFO]: POST /api/corpo/login 401 1847.624 ms - body={"loginId":"CORP-E8DD99-ADMIN-001","password":"030780775092fb5a@A1"} 
