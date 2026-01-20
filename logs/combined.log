@@ -417,3 +417,40 @@
     at F:\development\Backend\controllers\corporateAuth.User.controller.js:48:11
     at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/login","method":"POST","user":null}
 2026-01-19 15:42:41 [INFO]: POST /api/corpo/login 423 5.822 ms - body={"loginId":"CORP-E8DD99-ADMIN-001","password":"U32nbRzefI7ilPg5@A1"} 
+2026-01-20 14:43:39 [ERROR]: Error: Invalid login credentials
+    at F:\development\backend\controllers\corporateAuth.User.controller.js:59:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/login","method":"POST","user":null}
+2026-01-20 14:43:39 [INFO]: POST /api/corpo/login 401 1836.884 ms - body={"loginId":"CORP-E8DD99-ADMIN-001","password":"U32nbRzefI7ilPg5@A1"} 
+2026-01-20 14:44:34 [ERROR]: Error: Invalid login credentials
+    at F:\development\backend\controllers\corporateAuth.User.controller.js:59:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/login","method":"POST","user":null}
+2026-01-20 14:44:34 [INFO]: POST /api/corpo/login 401 1836.958 ms - body={"loginId":"CORP-E8DD99-ADMIN-001","password":"U32nbRzefI7ilPg5@A1"} 
+2026-01-20 14:45:57 [ERROR]: Error: Invalid login credentials
+    at F:\development\backend\controllers\corporateAuth.User.controller.js:59:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/login","method":"POST","user":null}
+2026-01-20 14:45:57 [INFO]: POST /api/corpo/login 401 1858.061 ms - body={"loginId":"CORP-E8DD99-ADMIN-001","password":"U32nbRzefI7ilPg5@A1"} 
+2026-01-20 14:49:07 [ERROR]: Error: Invalid login credentials
+    at F:\development\backend\controllers\corporateAuth.User.controller.js:59:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/login","method":"POST","user":null}
+2026-01-20 14:49:08 [INFO]: POST /api/corpo/login 401 1927.744 ms - body={"loginId":"CORP-E8DD99-ADMIN-001","password":"U32nbRzefI7ilPg5@A1"} 
+2026-01-20 14:56:59 [ERROR]: Error: Not authenticated. Login required.
+    at F:\development\backend\middlewares\auth.js:49:11
+    at F:\development\backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\backend\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (F:\development\backend\node_modules\router\lib\route.js:117:3)
+    at handle (F:\development\backend\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (F:\development\backend\node_modules\router\lib\layer.js:152:17)
+    at F:\development\backend\node_modules\router\index.js:295:15
+    at processParams (F:\development\backend\node_modules\router\index.js:582:12)
+    at next (F:\development\backend\node_modules\router\index.js:291:5) {"path":"/api/super-admin/coporate/create/corporateLoginID","method":"POST","user":null}
+2026-01-20 14:56:59 [INFO]: POST /api/super-admin/coporate/create/corporateLoginID 401 28.274 ms - body={"corporateId":"696b27860372e799fce8dd99","name":"Ram Kumar","role":"CORPORATE_ADMIN"} 
+2026-01-20 14:57:14 [INFO]: Login attempt {"email":"superadmin@company.com","ip":"::1"}
+2026-01-20 14:57:15 [INFO]: Password verified {"adminId":"6968ff156a7f8fc7d7ba82e7"}
+2026-01-20 14:57:15 [INFO]: SuperAdmin login successful {"adminId":"6968ff156a7f8fc7d7ba82e7"}
+2026-01-20 14:57:15 [INFO]: POST /api/super-admin/login/superadmin 200 770.172 ms - body={"email":"superadmin@company.com","password":"Secure@123"} 
+2026-01-20 14:57:22 [ERROR]: TypeError: crypto.randomBytes is not a function
+    at corporateUserSchema.statics.generateTempPassword (F:\development\backend\models\corporate.UserModel.js:100:25)
+    at F:\development\backend\controllers\corporate.controller.js:188:51
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/super-admin/coporate/create/corporateLoginID","method":"POST","user":"6968ff156a7f8fc7d7ba82e7"}
+2026-01-20 14:57:22 [INFO]: POST /api/super-admin/coporate/create/corporateLoginID 500 59.326 ms - body={"corporateId":"696b27860372e799fce8dd99","name":"Ram Kumar","role":"CORPORATE_ADMIN"} 

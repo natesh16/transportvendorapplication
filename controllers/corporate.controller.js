@@ -5,7 +5,6 @@ const Corporate = require("../models/corporate.Model");
 const CorporateUser = require("../models/corporate.UserModel");
 const AppError = require("../utils/appError");
 const {generateCorporateLoginId}= require("../utils/generateCorporateLoginId");
-const {generateStrongPassword} = require("../utils/generateStrongPassword");
 
 /**
  * @desc    Create Corporate
@@ -186,7 +185,7 @@ exports.createCorporateEmployee = asyncHandler(async (req, res) => {
   }
 
   /* 🔐 Password */
-  const finalPassword = password || generateStrongPassword();
+  const finalPassword = password || CorporateUser.generateTempPassword();
 
   /* 🧾 Create User */
   const user = await CorporateUser.create({

@@ -13,7 +13,6 @@ app.use(cookieParser());
 app.use(errorHandler);
 app.use(requestLogger);
 
-app.use("/api/vehicles", require("./routes/vehicle.routes"));
 
 app.use("/api/corpo/",corporateAuthRoutes)
 app.use(require("./middlewares/errorHandler"));

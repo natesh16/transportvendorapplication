@@ -51,7 +51,6 @@ exports.loginCorporateUser = asyncHandler(async (req, res) => {
     );
   }
 
-
   /* 🔑 Password Validation */
   const isMatch = await user.correctPassword(password);
   if (!isMatch) {
