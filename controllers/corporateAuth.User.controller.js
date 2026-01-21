@@ -21,7 +21,7 @@ const signToken = (admin) =>
 /* ================= COOKIE HELPER ================= */
 
 const sendAuthCookie = (res, token) => {
-  res.cookie("auth_token", token, {
+  res.cookie("login_token", token, {
     httpOnly: true, // 🔐 JS can't access
     secure: process.env.NODE_ENV === "production",
     sameSite: "strict",
@@ -61,7 +61,7 @@ exports.loginCorporateUser = asyncHandler(async (req, res) => {
   }
 
   /* 🔑 Password Validation */
-  const isMatch = await user.correctPassword(password);
+  const isMatch = await user.comparePassword(password);
   if (!isMatch) {
     await user.incrementLoginAttempts();
     throw new AppError("Invalid login credentials", 401);
@@ -77,12 +77,10 @@ exports.loginCorporateUser = asyncHandler(async (req, res) => {
 
   /* 🎟️ Token */
  // Generate JWT bound to created admin
-  const token = signToken(admin);
+  const token = signToken(loginId);
   //  Attach cookie → directly linked to admin._id
   if (process.env.USE_COOKIE_AUTH === "true") {
-    logger.info("Auth cookie set for SuperAdmin", {
-      adminId: admin._id
-    });
+    
     sendAuthCookie(res, token);
   }
 

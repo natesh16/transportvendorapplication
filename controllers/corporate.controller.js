@@ -146,6 +146,7 @@ exports.createCorporateEmployee = asyncHandler(async (req, res) => {
   const {
     corporateId,
     name,
+    dob,
     role,
     password // optional
   } = req.body;
@@ -185,15 +186,21 @@ exports.createCorporateEmployee = asyncHandler(async (req, res) => {
   }
 
   /* 🔐 Password */
-  const finalPassword = password || CorporateUser.generateTempPassword();
+  // const finalPassword = password || CorporateUser.generateTempPassword();
+
+  const tempPassword = password || CorporateUser.generateTempPassword(
+    req.body.name,
+    req.body.dob
+  );
 
   /* 🧾 Create User */
   const user = await CorporateUser.create({
     corporateId,
     loginId,
     name,
+    dob,
     role,
-    password: finalPassword,
+    password: tempPassword,
     createdBy: req.user.id
   });
 
@@ -204,7 +211,7 @@ exports.createCorporateEmployee = asyncHandler(async (req, res) => {
     data: {
       loginId: user.loginId,
       role: user.role,
-      temporaryPassword: finalPassword
+      temporaryPassword: tempPassword
     }
   });
 });

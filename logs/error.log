@@ -334,3 +334,106 @@
 2026-01-20 15:50:19 [ERROR]: Error: Invalid login credentials
     at F:\development\backend\controllers\corporateAuth.User.controller.js:67:11
     at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/login","method":"POST","user":null}
+2026-01-21 16:01:14 [ERROR]: Error: Invalid login credentials
+    at F:\development\backend\controllers\corporateAuth.User.controller.js:67:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/login","method":"POST","user":null}
+2026-01-21 16:11:30 [ERROR]: ValidationError: CorporateUserID validation failed: dateOfBirth: Path `dateOfBirth` is required.
+    at Document.invalidate (F:\development\backend\node_modules\mongoose\lib\document.js:3379:32)
+    at validatePath (F:\development\backend\node_modules\mongoose\lib\document.js:3154:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async Promise.all (index 0)
+    at async model.$__validate (F:\development\backend\node_modules\mongoose\lib\document.js:3095:3)
+    at async model.validate (F:\development\backend\node_modules\mongoose\lib\document.js:2672:5)
+    at async model.validateBeforeSave (F:\development\backend\node_modules\mongoose\lib\plugins\validateBeforeSave.js:34:7)
+    at async Kareem.execPre (F:\development\backend\node_modules\kareem\index.js:65:24)
+    at async model.$__save (F:\development\backend\node_modules\mongoose\lib\model.js:369:5)
+    at async model.save (F:\development\backend\node_modules\mongoose\lib\model.js:609:5) {"path":"/api/super-admin/coporate/create/corporateLoginID","method":"POST","user":"6968ff156a7f8fc7d7ba82e7"}
+2026-01-21 16:12:34 [ERROR]: ValidationError: CorporateUserID validation failed: dateOfBirth: Path `dateOfBirth` is required.
+    at Document.invalidate (F:\development\backend\node_modules\mongoose\lib\document.js:3379:32)
+    at validatePath (F:\development\backend\node_modules\mongoose\lib\document.js:3154:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async Promise.all (index 0)
+    at async model.$__validate (F:\development\backend\node_modules\mongoose\lib\document.js:3095:3)
+    at async model.validate (F:\development\backend\node_modules\mongoose\lib\document.js:2672:5)
+    at async model.validateBeforeSave (F:\development\backend\node_modules\mongoose\lib\plugins\validateBeforeSave.js:34:7)
+    at async Kareem.execPre (F:\development\backend\node_modules\kareem\index.js:65:24)
+    at async model.$__save (F:\development\backend\node_modules\mongoose\lib\model.js:369:5)
+    at async model.save (F:\development\backend\node_modules\mongoose\lib\model.js:609:5) {"path":"/api/super-admin/coporate/create/corporateLoginID","method":"POST","user":"6968ff156a7f8fc7d7ba82e7"}
+2026-01-21 16:14:56 [ERROR]: TypeError: Cannot read properties of undefined (reading 'replace')
+    at corporateUserSchema.statics.generateTempPassword (F:\development\backend\models\corporate.UserModel.js:119:6)
+    at F:\development\backend\controllers\corporate.controller.js:189:51
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/super-admin/coporate/create/corporateLoginID","method":"POST","user":"6968ff156a7f8fc7d7ba82e7"}
+2026-01-21 16:17:38 [ERROR]: TypeError: Cannot read properties of undefined (reading 'replace')
+    at corporateUserSchema.statics.generateTempPassword (F:\development\backend\models\corporate.UserModel.js:120:6)
+    at F:\development\backend\controllers\corporate.controller.js:189:51
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/super-admin/coporate/create/corporateLoginID","method":"POST","user":"6968ff156a7f8fc7d7ba82e7"}
+2026-01-21 16:19:50 [ERROR]: Error: Name is required to generate password
+    at corporateUserSchema.statics.generateTempPassword (F:\development\backend\models\corporate.UserModel.js:120:11)
+    at F:\development\backend\controllers\corporate.controller.js:189:51
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/super-admin/coporate/create/corporateLoginID","method":"POST","user":"6968ff156a7f8fc7d7ba82e7"}
+2026-01-21 16:22:43 [ERROR]: ReferenceError: finalPassword is not defined
+    at F:\development\backend\controllers\corporate.controller.js:203:15
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/super-admin/coporate/create/corporateLoginID","method":"POST","user":"6968ff156a7f8fc7d7ba82e7"}
+2026-01-21 16:23:22 [ERROR]: ValidationError: CorporateUserID validation failed: dob: Path `dob` is required.
+    at Document.invalidate (F:\development\backend\node_modules\mongoose\lib\document.js:3379:32)
+    at validatePath (F:\development\backend\node_modules\mongoose\lib\document.js:3154:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async Promise.all (index 3)
+    at async model.$__validate (F:\development\backend\node_modules\mongoose\lib\document.js:3095:3)
+    at async model.validate (F:\development\backend\node_modules\mongoose\lib\document.js:2672:5)
+    at async model.validateBeforeSave (F:\development\backend\node_modules\mongoose\lib\plugins\validateBeforeSave.js:34:7)
+    at async Kareem.execPre (F:\development\backend\node_modules\kareem\index.js:65:24)
+    at async model.$__save (F:\development\backend\node_modules\mongoose\lib\model.js:369:5)
+    at async model.save (F:\development\backend\node_modules\mongoose\lib\model.js:609:5) {"path":"/api/super-admin/coporate/create/corporateLoginID","method":"POST","user":"6968ff156a7f8fc7d7ba82e7"}
+2026-01-21 16:24:17 [ERROR]: TypeError: next is not a function
+    at model.<anonymous> (F:\development\backend\models\corporate.UserModel.js:160:12)
+    at Kareem.execPre (F:\development\backend\node_modules\kareem\index.js:63:39)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async model.$__save (F:\development\backend\node_modules\mongoose\lib\model.js:369:5)
+    at async model.save (F:\development\backend\node_modules\mongoose\lib\model.js:609:5)
+    at async F:\development\backend\node_modules\mongoose\lib\model.js:2714:9
+    at async Promise.all (index 0)
+    at async model.create (F:\development\backend\node_modules\mongoose\lib\model.js:2699:11)
+    at async F:\development\backend\controllers\corporate.controller.js:197:16 {"path":"/api/super-admin/coporate/create/corporateLoginID","method":"POST","user":"6968ff156a7f8fc7d7ba82e7"}
+2026-01-21 16:27:45 [ERROR]: ReferenceError: finalPassword is not defined
+    at F:\development\backend\controllers\corporate.controller.js:214:26
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/super-admin/coporate/create/corporateLoginID","method":"POST","user":"6968ff156a7f8fc7d7ba82e7"}
+2026-01-21 16:36:57 [ERROR]: TypeError: next is not a function
+    at model.<anonymous> (F:\development\backend\models\corporate.UserModel.js:197:3)
+    at async Kareem.execPre (F:\development\backend\node_modules\kareem\index.js:65:24)
+    at async model.$__save (F:\development\backend\node_modules\mongoose\lib\model.js:369:5)
+    at async model.save (F:\development\backend\node_modules\mongoose\lib\model.js:609:5)
+    at async F:\development\backend\node_modules\mongoose\lib\model.js:2714:9
+    at async Promise.all (index 0)
+    at async model.create (F:\development\backend\node_modules\mongoose\lib\model.js:2699:11)
+    at async F:\development\backend\controllers\corporate.controller.js:197:16 {"path":"/api/super-admin/coporate/create/corporateLoginID","method":"POST","user":"6968ff156a7f8fc7d7ba82e7"}
+2026-01-21 16:43:57 [ERROR]: TypeError: user.correctPassword is not a function
+    at F:\development\backend\controllers\corporateAuth.User.controller.js:64:30
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/login","method":"POST","user":null}
+2026-01-21 16:44:49 [ERROR]: TypeError: next is not a function
+    at model.<anonymous> (F:\development\backend\models\corporate.UserModel.js:217:44)
+    at Kareem.execPre (F:\development\backend\node_modules\kareem\index.js:63:39)
+    at async model.$__save (F:\development\backend\node_modules\mongoose\lib\model.js:369:5)
+    at async model.save (F:\development\backend\node_modules\mongoose\lib\model.js:609:5)
+    at async F:\development\backend\controllers\corporateAuth.User.controller.js:76:3 {"path":"/api/corpo/login","method":"POST","user":null}
+2026-01-21 16:45:21 [ERROR]: ReferenceError: admin is not defined
+    at F:\development\backend\controllers\corporateAuth.User.controller.js:80:27
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/login","method":"POST","user":null}
+2026-01-21 16:54:14 [ERROR]: Error: Invalid login credentials
+    at F:\development\backend\controllers\corporateAuth.User.controller.js:67:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/login","method":"POST","user":null}
+2026-01-21 16:54:17 [ERROR]: Error: Invalid login credentials
+    at F:\development\backend\controllers\corporateAuth.User.controller.js:67:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/login","method":"POST","user":null}
+2026-01-21 16:54:21 [ERROR]: Error: Invalid login credentials
+    at F:\development\backend\controllers\corporateAuth.User.controller.js:67:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/login","method":"POST","user":null}
+2026-01-21 16:54:26 [ERROR]: Error: Invalid login credentials
+    at F:\development\backend\controllers\corporateAuth.User.controller.js:67:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/login","method":"POST","user":null}
+2026-01-21 16:54:30 [ERROR]: Error: Invalid login credentials
+    at F:\development\backend\controllers\corporateAuth.User.controller.js:67:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/login","method":"POST","user":null}
+2026-01-21 16:54:32 [ERROR]: Error: Account locked due to multiple failed attempts. Try again in 30 minutes.
+    at F:\development\backend\controllers\corporateAuth.User.controller.js:57:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/login","method":"POST","user":null}
