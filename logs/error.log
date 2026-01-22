@@ -437,3 +437,103 @@
 2026-01-21 16:54:32 [ERROR]: Error: Account locked due to multiple failed attempts. Try again in 30 minutes.
     at F:\development\backend\controllers\corporateAuth.User.controller.js:57:11
     at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/login","method":"POST","user":null}
+2026-01-22 15:30:03 [ERROR]: Error: Invalid login credentials
+    at F:\development\backend\controllers\corporateAuth.User.controller.js:67:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/login","method":"POST","user":null}
+2026-01-22 17:08:50 [ERROR]: Error: Only Corporate Admin or Supervisor can create employees
+    at F:\development\backend\controllers\corporate.employe.controller.js:37:11
+    at F:\development\backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\backend\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (F:\development\backend\node_modules\router\lib\route.js:117:3)
+    at handle (F:\development\backend\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (F:\development\backend\node_modules\router\lib\layer.js:152:17)
+    at F:\development\backend\node_modules\router\index.js:295:15
+    at processParams (F:\development\backend\node_modules\router\index.js:582:12)
+    at next (F:\development\backend\node_modules\router\index.js:291:5)
+    at router.handle (F:\development\backend\node_modules\router\index.js:186:3)
+    at router (F:\development\backend\node_modules\router\index.js:60:12)
+    at Layer.handleRequest (F:\development\backend\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (F:\development\backend\node_modules\router\index.js:342:13)
+    at F:\development\backend\node_modules\router\index.js:297:9
+    at processParams (F:\development\backend\node_modules\router\index.js:582:12) {"path":"/api/corpo/employee/create/employee","method":"POST","user":null}
+2026-01-22 17:13:22 [ERROR]: Error: Only Corporate Admin or Supervisor can create employees
+    at F:\development\backend\controllers\corporate.employeid.controller.js:37:11
+    at F:\development\backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\backend\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (F:\development\backend\node_modules\router\lib\route.js:117:3)
+    at handle (F:\development\backend\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (F:\development\backend\node_modules\router\lib\layer.js:152:17)
+    at F:\development\backend\node_modules\router\index.js:295:15
+    at processParams (F:\development\backend\node_modules\router\index.js:582:12)
+    at next (F:\development\backend\node_modules\router\index.js:291:5)
+    at router.handle (F:\development\backend\node_modules\router\index.js:186:3)
+    at router (F:\development\backend\node_modules\router\index.js:60:12)
+    at Layer.handleRequest (F:\development\backend\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (F:\development\backend\node_modules\router\index.js:342:13)
+    at F:\development\backend\node_modules\router\index.js:297:9
+    at processParams (F:\development\backend\node_modules\router\index.js:582:12) {"path":"/api/corpo/employee/create/employee","method":"POST","user":null}
+2026-01-22 17:15:13 [ERROR]: Error: Not authenticated
+    at F:\development\backend\middlewares\auth.js:25:11
+    at F:\development\backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\backend\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (F:\development\backend\node_modules\router\lib\route.js:117:3)
+    at handle (F:\development\backend\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (F:\development\backend\node_modules\router\lib\layer.js:152:17)
+    at F:\development\backend\node_modules\router\index.js:295:15
+    at processParams (F:\development\backend\node_modules\router\index.js:582:12)
+    at next (F:\development\backend\node_modules\router\index.js:291:5)
+    at router.handle (F:\development\backend\node_modules\router\index.js:186:3)
+    at router (F:\development\backend\node_modules\router\index.js:60:12)
+    at Layer.handleRequest (F:\development\backend\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (F:\development\backend\node_modules\router\index.js:342:13)
+    at F:\development\backend\node_modules\router\index.js:297:9
+    at processParams (F:\development\backend\node_modules\router\index.js:582:12) {"path":"/api/corpo/employee/create/employee","method":"POST","user":null}
+2026-01-22 17:16:58 [ERROR]: Error: Not authenticated
+    at F:\development\backend\middlewares\auth.js:25:11
+    at F:\development\backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\backend\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (F:\development\backend\node_modules\router\lib\route.js:117:3)
+    at handle (F:\development\backend\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (F:\development\backend\node_modules\router\lib\layer.js:152:17)
+    at F:\development\backend\node_modules\router\index.js:295:15
+    at processParams (F:\development\backend\node_modules\router\index.js:582:12)
+    at next (F:\development\backend\node_modules\router\index.js:291:5)
+    at router.handle (F:\development\backend\node_modules\router\index.js:186:3)
+    at router (F:\development\backend\node_modules\router\index.js:60:12)
+    at Layer.handleRequest (F:\development\backend\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (F:\development\backend\node_modules\router\index.js:342:13)
+    at F:\development\backend\node_modules\router\index.js:297:9
+    at processParams (F:\development\backend\node_modules\router\index.js:582:12) {"path":"/api/corpo/employee/create/employee","method":"POST","user":null}
+2026-01-22 17:17:21 [ERROR]: Error: User no longer exists
+    at F:\development\backend\middlewares\auth.js:34:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employee","method":"POST","user":null}
+2026-01-22 17:41:51 [ERROR]: Error: Corporate login required
+    at F:\development\backend\middlewares\corporate.Auth.js:10:11
+    at F:\development\backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\backend\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (F:\development\backend\node_modules\router\lib\route.js:117:3)
+    at handle (F:\development\backend\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (F:\development\backend\node_modules\router\lib\layer.js:152:17)
+    at F:\development\backend\node_modules\router\index.js:295:15
+    at processParams (F:\development\backend\node_modules\router\index.js:582:12)
+    at next (F:\development\backend\node_modules\router\index.js:291:5)
+    at router.handle (F:\development\backend\node_modules\router\index.js:186:3)
+    at router (F:\development\backend\node_modules\router\index.js:60:12)
+    at Layer.handleRequest (F:\development\backend\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (F:\development\backend\node_modules\router\index.js:342:13)
+    at F:\development\backend\node_modules\router\index.js:297:9
+    at processParams (F:\development\backend\node_modules\router\index.js:582:12) {"path":"/api/corpo/employee/create/employee","method":"POST","user":null}
+2026-01-22 17:42:53 [ERROR]: Error: Corporate account inactive or not found
+    at F:\development\backend\middlewares\corporate.Auth.js:30:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employee","method":"POST","user":null}
+2026-01-22 17:49:29 [ERROR]: Error: Corporate account inactive or not found
+    at F:\development\backend\middlewares\corporate.Auth.js:44:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employee","method":"POST","user":null}
+2026-01-22 17:50:16 [ERROR]: TypeError: Cannot read properties of null (reading '_id')
+    at F:\development\backend\middlewares\corporate.Auth.js:52:14
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employee","method":"POST","user":null}

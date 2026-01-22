@@ -1,4 +1,5 @@
 const express = require("express");
+const router = express.Router();
 const { protect } = require("../middlewares/auth");
 // const { createCorporate } = require("../controllers/corporate.controller");
 const { restrictTo } = require("../middlewares/rbac");
@@ -12,7 +13,6 @@ const {
   // updateSuperAdmin,
   // deleteSuperAdmin
 } = require("../controllers/superAdmin.controller");
-const router = express.Router();
 router.route("/create/superadmin")
   .post(createSuperAdmin)
 

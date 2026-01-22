@@ -194,4 +194,4 @@ employeeSchema.methods.softDelete = function (userId, reason) {
   return this.save();
 };
 
-module.exports = mongoose.model("Employee", employeeSchema);
+module.exports = mongoose.model(" CorporateEmployee", employeeSchema);

@@ -6,6 +6,8 @@ const superAdminRoutes = require("./routes/superAdmin.routes");
 const corporateRoutes = require("./routes/corporate.Routes");
 const cookieParser = require("cookie-parser");
 const corporateAuthRoutes = require("./routes/corporateAuth.routes");
+const corporatemployeRoutes = require("./routes/corporate.employe.route");
+const excelemployeinput=require("./routes/excel.employe.upload.route")
 
 app.use(express.json());              // ✅ parses JSON body
 app.use(express.urlencoded({ extended: true })); // optional but safe
@@ -15,8 +17,10 @@ app.use(requestLogger);
 
 
 app.use("/api/corpo/",corporateAuthRoutes)
+app.use("/api/corpo/employee",corporatemployeRoutes)
 app.use(require("./middlewares/errorHandler"));
 app.use("/api/super-admin", superAdminRoutes);
+app.use("/api/emp-excel/input", excelemployeinput);
 app.use("/api/super-admin/coporate/",corporateRoutes);
 
 app.use(errorHandler);
