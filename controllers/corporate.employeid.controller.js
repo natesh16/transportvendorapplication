@@ -4,42 +4,24 @@ const Corporate = require("../models/corporate.Model");
 const asyncHandler = require("../utils/asyncHandler");
 const AppError = require("../utils/apperror");
 const logger = require("../utils/logger");
+const bcrypt = require("bcryptjs");
 
-/* ---------------------------------- */
-/* 🔐 Helpers                          */
-/* ---------------------------------- */
-const generateEmployeeCode = (corporateCode, firstName, lastName = "") => {
-  const namePart = (firstName + lastName)
-    .replace(/\s+/g, "")
-    .toUpperCase()
-    .substring(0, 12);
-
-  const random = crypto.randomBytes(2).toString("hex").toUpperCase();
-  return `EMP-${corporateCode}-${namePart}-${random}`;
-};
-
-/* ---------------------------------- */
-/* 👤 Create Employee                  */
-/* ---------------------------------- */
+const {
+  generateEmployeeLoginId,
+  generateTempPassword,
+  generateEmployeeCode
+} = require("../utils/credentialUtil");
 exports.createEmployee = asyncHandler(async (req, res) => {
-  const log = req.log || logger;
-
-  log.info("Create Employee API called");
-
   /* 🔐 Role Guard */
   if (
     !req.user ||
-    !["CORPORATE_ADMIN", "CORPORATE_SUPERVISOR"].includes(req.user.role)
+    !["CORPORATE_ADMIN", "CORPORATE_SUPERVISOR"].includes(
+      req.user.role
+    )
   ) {
-    log.warn("Unauthorized role attempting to create employee", {
-      role: req.user?.role
-    });
-    throw new AppError(
-      "Only Corporate Admin or Supervisor can create employees",
-      403
-    );
+    throw new AppError("Unauthorized", 403);
   }
-
+  const { corporateId, id: createdBy } = req.user;
   const {
     name,
     email,
@@ -48,92 +30,65 @@ exports.createEmployee = asyncHandler(async (req, res) => {
     designation,
     employmentType,
     joiningDate,
-    gender
+    gender,
+    dateOfBirth
   } = req.body;
-
-  log.debug("Employee input received", {
-    email,
-    phone,
-    department,
-    designation
-  });
-
-  if (!name?.firstName || !employmentType || !joiningDate) {
-    log.warn("Missing required employee fields", { body: req.body });
-    throw new AppError("Required employee fields are missing", 400);
-  }
-
-  /* 🏢 Get Corporate */
-  const corporate = await Corporate.findById(req.user.corporateId);
-  if (!corporate) {
-    log.error("Corporate not found", {
-      corporateId: req.user.corporateId
-    });
-    throw new AppError("Corporate not found", 404);
-  }
-
-  log.debug("Corporate validated", {
-    corporateId: corporate._id,
-    corporateCode: corporate.corporateCode
-  });
-
-  /* 🆔 Generate Employee Code */
-  const employeeCode = generateEmployeeCode(
-    corporate.corporateCode,
-    name.firstName,
-    name.lastName
-  );
-
-  log.debug("Generated employee code", { employeeCode });
-
-  /* 🚫 Duplicate Protection */
-  const exists = await Employee.findOne({
-    corporateId: corporate._id,
-    $or: [{ email }, { phone }],
-    isDeleted: false
-  });
-
-  if (exists) {
-    log.warn("Duplicate employee detected", {
-      email,
-      phone,
-      employeeId: exists._id
-    });
+  if (!name?.firstName || !dateOfBirth || !joiningDate) {
     throw new AppError(
-      "Employee with same email or phone already exists",
-      409
+      "Name, Date of Birth and Joining Date are required",
+      400
     );
   }
-
-  /* ✅ Create Employee */
+  /* 🏢 Corporate */
+  const corporate = await Corporate.findById(corporateId).select(
+    "corporateCode"
+  );
+  if (!corporate) {
+    throw new AppError("Corporate not found", 404);
+  }
+  /* 🔑 Generate Credentials */
+  const loginId = generateEmployeeLoginId(
+    corporate.corporateCode,
+    name.firstName,
+    dateOfBirth
+  );
+  const tempPassword = generateTempPassword(
+    name.firstName,
+    dateOfBirth
+  );
+  const hashedPassword = await bcrypt.hash(tempPassword, 12);
+  /* 🆔 Employee Code */
+  const employeeCode = generateEmployeeCode(
+    corporate.corporateCode,
+    name.firstName
+  );
+  /* 💾 Save */
   const employee = await Employee.create({
-    corporateId: corporate._id,
+    corporateId,
     employeeCode,
+    loginId,
+    password: hashedPassword,
+    mustChangePassword: true,
     name,
     email,
     phone,
-    gender,
     department,
     designation,
     employmentType,
     joiningDate,
-    createdBy: req.user._id
+    gender,
+    dateOfBirth,
+    createdBy
   });
-
-  log.info("Employee created successfully", {
-    employeeId: employee._id,
-    employeeCode: employee.employeeCode
-  });
-
+  /* ✅ Response */
   res.status(201).json({
     success: true,
     message: "Employee created successfully",
     data: {
-      id: employee._id,
       employeeCode: employee.employeeCode,
-      name: employee.name,
-      department: employee.department,
-      designation: employee.designation
+      loginId: employee.loginId,
+      tempPassword // 🔐 show only once
     }
   });
 });
+

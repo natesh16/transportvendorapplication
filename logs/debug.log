@@ -743,3 +743,96 @@
     at F:\development\backend\middlewares\corporate.Auth.js:52:14
     at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employee","method":"POST","user":null}
 2026-01-22 17:50:16 [INFO]: POST /api/corpo/employee/create/employee 500 82.270 ms - body={"name":{"firstName":"Ramesh","lastName":"Kumar"},"email":"ramesh.kumar@corp.com","phone":"9876543210","gender":"MALE","department":"Engineering","designation":"Backend Developer","employmentType":"FULL_TIME","joiningDate":"2024-01-10"} 
+2026-01-24 15:56:05 [INFO]: POST /api/corpo/login 200 1157.586 ms - body={"loginId":"CORP-E8DD99-ADMIN-001","password":"RAMK@15071998"} 
+2026-01-24 15:58:20 [INFO]: POST /api/corpo/employee/create/employees 404 9.895 ms - body={"name":{"firstName":"Ramesh","lastName":"Kumar"},"email":"ramesh.kumar@corp.com","phone":"9876543210","gender":"MALE","department":"Engineering","designation":"Backend Developer","employmentType":"FULL_TIME","joiningDate":"2024-01-10"} 
+2026-01-24 15:58:44 [ERROR]: ReferenceError: CorporateUser is not defined
+    at exports.corporateprotect (F:\development\Backend\middlewares\auth.js:102:16)
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (F:\development\Backend\node_modules\router\lib\route.js:117:3)
+    at handle (F:\development\Backend\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at F:\development\Backend\node_modules\router\index.js:295:15
+    at processParams (F:\development\Backend\node_modules\router\index.js:582:12)
+    at next (F:\development\Backend\node_modules\router\index.js:291:5)
+    at router.handle (F:\development\Backend\node_modules\router\index.js:186:3)
+    at router (F:\development\Backend\node_modules\router\index.js:60:12)
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (F:\development\Backend\node_modules\router\index.js:342:13)
+    at F:\development\Backend\node_modules\router\index.js:297:9
+    at processParams (F:\development\Backend\node_modules\router\index.js:582:12)
+    at next (F:\development\Backend\node_modules\router\index.js:291:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":null}
+2026-01-24 15:58:44 [INFO]: POST /api/corpo/employee/create/employees 500 85.527 ms - body={"name":{"firstName":"Ramesh","lastName":"Kumar"},"email":"ramesh.kumar@corp.com","phone":"9876543210","gender":"MALE","department":"Engineering","designation":"Backend Developer","employmentType":"FULL_TIME","joiningDate":"2024-01-10"} 
+2026-01-24 16:01:57 [ERROR]: Error: User no longer active
+    at exports.corporateprotect (F:\development\Backend\middlewares\auth.js:108:7)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":null}
+2026-01-24 16:01:57 [INFO]: POST /api/corpo/employee/create/employees 401 115.063 ms - body={"name":{"firstName":"Ramesh","lastName":"Kumar"},"email":"ramesh.kumar@corp.com","phone":"9876543210","gender":"MALE","department":"Engineering","designation":"Backend Developer","employmentType":"FULL_TIME","joiningDate":"2024-01-10"} 
+2026-01-24 16:03:51 [ERROR]: Error: Invalid login credentials
+    at F:\development\Backend\controllers\corporateAuth.User.controller.js:67:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/login","method":"POST","user":null}
+2026-01-24 16:03:51 [INFO]: POST /api/corpo/login 401 2831.835 ms - body={"loginId":"CORP-E8DD99-ADMIN-001","password":"RAMK@1507198"} 
+2026-01-24 16:04:05 [INFO]: POST /api/corpo/login 200 859.386 ms - body={"loginId":"CORP-E8DD99-ADMIN-001","password":"RAMK@15071998"} 
+2026-01-24 16:05:22 [ERROR]: Error: User no longer active
+    at exports.corporateprotect (F:\development\Backend\middlewares\auth.js:108:7)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":null}
+2026-01-24 16:05:22 [INFO]: POST /api/corpo/employee/create/employees 401 7.357 ms - body={"name":{"firstName":"Ramesh","lastName":"Kumar"},"email":"ramesh.kumar@corp.com","phone":"9876543210","gender":"MALE","department":"Engineering","designation":"Backend Developer","employmentType":"FULL_TIME","joiningDate":"2024-01-10"} 
+2026-01-24 16:06:45 [ERROR]: Error: User not found
+    at exports.corporateprotect (F:\development\Backend\middlewares\auth.js:107:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":null}
+2026-01-24 16:06:45 [INFO]: POST /api/corpo/employee/create/employees 401 142.830 ms - body={"name":{"firstName":"Ramesh","lastName":"Kumar"},"email":"ramesh.kumar@corp.com","phone":"9876543210","gender":"MALE","department":"Engineering","designation":"Backend Developer","employmentType":"FULL_TIME","joiningDate":"2024-01-10"} 
+2026-01-24 16:07:42 [ERROR]: Error: User not found
+    at exports.corporateprotect (F:\development\Backend\middlewares\auth.js:107:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":null}
+2026-01-24 16:07:42 [INFO]: POST /api/corpo/employee/create/employees 401 163.340 ms - body={"name":{"firstName":"Ramesh","lastName":"Kumar"},"email":"ramesh.kumar@corp.com","phone":"9876543210","gender":"MALE","department":"Engineering","designation":"Backend Developer","employmentType":"FULL_TIME","joiningDate":"2024-01-10"} 
+2026-01-24 16:14:33 [ERROR]: Error: User not found
+    at exports.corporateprotect (F:\development\Backend\middlewares\auth.js:110:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":null}
+2026-01-24 16:14:33 [INFO]: POST /api/corpo/employee/create/employees 401 245.280 ms - body={"name":{"firstName":"Ramesh","lastName":"Kumar"},"email":"ramesh.kumar@corp.com","phone":"9876543210","gender":"MALE","department":"Engineering","designation":"Backend Developer","employmentType":"FULL_TIME","joiningDate":"2024-01-10"} 
+2026-01-24 16:36:56 [ERROR]: TypeError: res.cookie is not a function
+    at sendAuthCookie (F:\development\Backend\controllers\corporateAuth.User.controller.js:24:9)
+    at F:\development\Backend\controllers\corporateAuth.User.controller.js:91:3
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/login","method":"POST","user":null}
+2026-01-24 16:36:56 [INFO]: POST /api/corpo/login 500 1146.018 ms - body={"loginId":"CORP-E8DD99-ADMIN-001","password":"RAMK@15071998"} 
+2026-01-24 16:43:24 [INFO]: POST /api/corpo/login 200 1420.466 ms - body={"loginId":"CORP-E8DD99-ADMIN-001","password":"RAMK@15071998"} 
+2026-01-24 16:43:44 [ERROR]: Error: Name, Date of Birth and Joining Date are required
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:36:11
+    at F:\development\Backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at F:\development\Backend\middlewares\auth.js:150:5
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at exports.corporateprotect (F:\development\Backend\middlewares\auth.js:127:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-24 16:43:44 [INFO]: POST /api/corpo/employee/create/employees 400 27.973 ms - body={"name":{"firstName":"Ramesh","lastName":"Kumar"},"email":"ramesh.kumar@corp.com","phone":"9876543210","gender":"MALE","department":"Engineering","designation":"Backend Developer","employmentType":"FULL_TIME","joiningDate":"2024-01-10"} 
+2026-01-24 16:45:05 [ERROR]: ReferenceError: generateEmployeeCode is not defined
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:60:24 {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-24 16:45:05 [INFO]: POST /api/corpo/employee/create/employees 500 1058.455 ms - body={"name":{"firstName":"Ramesh","lastName":"Kumar"},"dateOfBirth":"1998-07-15","email":"ramesh.kumar@corp.com","phone":"9876543210","gender":"MALE","department":"Engineering","designation":"Backend Developer","employmentType":"FULL_TIME","joiningDate":"2024-01-10"} 
+2026-01-24 16:48:06 [ERROR]: TypeError: generateEmployeeLoginId is not a function
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:49:19
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-24 16:48:06 [INFO]: POST /api/corpo/employee/create/employees 500 238.314 ms - body={"name":{"firstName":"Ramesh","lastName":"Kumar"},"dateOfBirth":"1998-07-15","email":"ramesh.kumar@corp.com","phone":"9876543210","gender":"MALE","department":"Engineering","designation":"Backend Developer","employmentType":"FULL_TIME","joiningDate":"2024-01-10"} 
+2026-01-24 16:50:53 [ERROR]: TypeError: generateEmployeeLoginId is not a function
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:49:19
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-24 16:50:53 [INFO]: POST /api/corpo/employee/create/employees 500 222.714 ms - body={"name":{"firstName":"Ramesh","lastName":"Kumar"},"dateOfBirth":"1998-07-15","email":"ramesh.kumar@corp.com","phone":"9876543210","gender":"MALE","department":"Engineering","designation":"Backend Developer","employmentType":"FULL_TIME","joiningDate":"2024-01-10"} 
+2026-01-24 16:52:13 [ERROR]: TypeError: generateEmployeeLoginId is not a function
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:50:19
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-24 16:52:13 [INFO]: POST /api/corpo/employee/create/employees 500 478.740 ms - body={"name":{"firstName":"Ramesh","lastName":"Kumar"},"dateOfBirth":"1998-07-15","email":"ramesh.kumar@corp.com","phone":"9876543210","gender":"MALE","department":"Engineering","designation":"Backend Developer","employmentType":"FULL_TIME","joiningDate":"2024-01-10"} 
+2026-01-24 16:54:52 [ERROR]: TypeError: generateEmployeeLoginId is not a function
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:50:19
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-24 16:54:52 [INFO]: POST /api/corpo/employee/create/employees 500 209.920 ms - body={"name":{"firstName":"Ramesh","lastName":"Kumar"},"dateOfBirth":"1998-07-15","email":"ramesh.kumar@corp.com","phone":"9876543210","gender":"MALE","department":"Engineering","designation":"Backend Developer","employmentType":"FULL_TIME","joiningDate":"2024-01-10"} 
+2026-01-24 16:54:55 [ERROR]: TypeError: generateEmployeeLoginId is not a function
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:50:19
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-24 16:54:55 [INFO]: POST /api/corpo/employee/create/employees 500 62.392 ms - body={"name":{"firstName":"Ramesh","lastName":"Kumar"},"dateOfBirth":"1998-07-15","email":"ramesh.kumar@corp.com","phone":"9876543210","gender":"MALE","department":"Engineering","designation":"Backend Developer","employmentType":"FULL_TIME","joiningDate":"2024-01-10"} 
+2026-01-24 17:00:18 [ERROR]: TypeError: generateEmployeeLoginId is not a function
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:50:19
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-24 17:00:18 [INFO]: POST /api/corpo/employee/create/employees 500 235.738 ms - body={"name":{"firstName":"Ramesh","lastName":"Kumar"},"dateOfBirth":"1998-07-15","email":"ramesh.kumar@corp.com","phone":"9876543210","gender":"MALE","department":"Engineering","designation":"Backend Developer","employmentType":"FULL_TIME","joiningDate":"2024-01-10"} 
+2026-01-24 17:02:47 [ERROR]: TypeError: generateEmployeeLoginId is not a function
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:50:19
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-24 17:02:47 [INFO]: POST /api/corpo/employee/create/employees 500 189.941 ms - body={"name":{"firstName":"Ramesh","lastName":"Kumar"},"dateOfBirth":"1998-07-15","email":"ramesh.kumar@corp.com","phone":"9876543210","gender":"MALE","department":"Engineering","designation":"Backend Developer","employmentType":"FULL_TIME","joiningDate":"2024-01-10"} 

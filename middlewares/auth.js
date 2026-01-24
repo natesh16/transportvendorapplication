@@ -2,6 +2,7 @@ const jwt = require("jsonwebtoken");
 const asyncHandler = require("../utils/asyncHandler");
 const AppError = require("../utils/appError");
 const SuperAdmin = require("../models/superAdmin.model");
+const CorporateUser=require('../models/corporate.UserModel');
 
 exports.protect = asyncHandler(async (req, res, next) => {
   let token;
@@ -77,3 +78,75 @@ exports.protectSuperAdmin = asyncHandler(async (req, res, next) => {
 
   next();
 });
+
+exports.corporateprotect = async (req, res, next) => {
+  let token;
+
+  // 🍪 Read JWT from cookie
+  if (req.cookies?.login_token) {
+    token = req.cookies.login_token;
+  }
+
+  if (!token) {
+    return next(
+      new AppError("Authentication required", 401)
+    );
+  }
+
+  // 🔓 Verify token
+  const decoded = jwt.verify(
+    token,
+    process.env.JWT_SECRET
+  );
+
+  // 🔍 DEBUG (temporarily)
+  console.log("JWT decoded id:", decoded.id);
+
+  // 👤 Fetch user
+  const user = await CorporateUser.findById(decoded.id)
+    .select("+role +corporateId +loginId +isActive");
+
+if (!user) {
+    return next(new AppError("User not found", 401));
+  }
+
+  // ✅ FIX: only block if explicitly false
+  if (user.isActive === false) {
+    return next(
+      new AppError("User account is deactivated", 401)
+    );
+  }
+  // Inject into request
+  req.user = {
+    id: user._id,
+    role: user.role,
+    corporateId: user.corporateId,
+    loginId: user.loginId
+  };
+
+  next();
+};
+
+/* ------------------------------------------------ */
+/* 🛡️ Role-Based Access Control (FIX ADDED)          */
+/* ------------------------------------------------ */
+exports.allowRoles = (...allowedRoles) => {
+  return (req, res, next) => {
+    if (!req.user) {
+      return next(
+        new AppError("Authentication required", 401)
+      );
+    }
+
+    if (!allowedRoles.includes(req.user.role)) {
+      return next(
+        new AppError(
+          "You do not have permission to perform this action",
+          403
+        )
+      );
+    }
+
+    next();
+  };
+};

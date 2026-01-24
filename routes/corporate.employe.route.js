@@ -4,10 +4,13 @@ const router = express.Router();
 const {
   createEmployee
 } = require("../controllers/corporate.employeid.controller");
-// const { protect } = require("../middlewares/auth");
-const { protectCorporate } = require("../middlewares/corporate.Auth");
-const { corporateRBAC } = require("../middlewares/corporateRbac");
+const { corporateprotect,allowRoles } = require("../middlewares/auth");
 
-router.route("/create/employee").post(protectCorporate,corporateRBAC,createEmployee);
+router.post(
+  "/create/employees",
+  corporateprotect,
+  allowRoles("CORPORATE_ADMIN", "CORPORATE_SUPERVISOR"),
+  createEmployee
+);
 
 module.exports = router;

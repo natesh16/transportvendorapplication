@@ -14,6 +14,7 @@ app.use(express.urlencoded({ extended: true })); // optional but safe
 app.use(cookieParser());
 app.use(errorHandler);
 app.use(requestLogger);
+app.set("trust proxy", 1);
 
 
 app.use("/api/corpo/",corporateAuthRoutes)
