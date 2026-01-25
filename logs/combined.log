@@ -1200,3 +1200,11 @@
     at async model.create (F:\development\Backend\node_modules\mongoose\lib\model.js:2699:11)
     at async F:\development\Backend\controllers\corporate.employeid.controller.js:78:20 {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
 2026-01-25 17:28:55 [INFO]: POST /api/corpo/employee/create/employees 500 4498.273 ms - body={"name":{"firstName":"Ramesh","lastName":"Kumar"},"gender":"MALE","dateOfBirth":"1996-05-14","email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer","employmentType":"FULL_TIME","joiningDate":"2024-07-01","location":{"region":"Chennai","pickupPoint":{"name":"T Nagar Bus Stop","geo":{"type":"Point","coordinates":[80.2337,13.0405]}}},"shift":{"shiftName":"Day Shift","loginTime":"09:00","logoutTime":"18:00","isOvernight":false}} 
+2026-01-25 17:29:51 [INFO]: Create Employee API called 
+2026-01-25 17:29:51 [INFO]: Employee credentials generated {"employeeCode":"EMP-CORP-ACMETE-B8D0E0-RAMESH-64D8","loginId":"ECORRAMES96"}
+2026-01-25 17:29:53 [INFO]: Employee created successfully {"employeeId":"6976531179ebda189825756d"}
+2026-01-25 17:29:53 [INFO]: POST /api/corpo/employee/create/employees 201 1606.384 ms - body={"name":{"firstName":"Ramesh","lastName":"Kumar"},"gender":"MALE","dateOfBirth":"1996-05-14","email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer","employmentType":"FULL_TIME","joiningDate":"2024-07-01","location":{"region":"Chennai","pickupPoint":{"name":"T Nagar Bus Stop","geo":{"type":"Point","coordinates":[80.2337,13.0405]}}},"shift":{"shiftName":"Day Shift","loginTime":"09:00","logoutTime":"18:00","isOvernight":false}} 
+2026-01-25 17:46:59 [ERROR]: ReferenceError: validateLoginPassword is not defined
+    at exports.employeeLogin (F:\development\Backend\controllers\corporate.employeid.controller.js:132:27)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/login","method":"POST","user":null}
+2026-01-25 17:46:59 [INFO]: POST /api/corpo/employee/login 500 113.563 ms - body={"loginId":"ECORRAMES96","Password":"rame1405@A1"} 

@@ -8,7 +8,7 @@ const bcrypt = require("bcryptjs");
 const {
   generateEmployeeLoginId,
   generateTempPassword,
-  generateEmployeeCode
+  generateEmployeeCode,validateLoginPassword
 } = require("../utils/credentialUtil");
 // controllers/employee.controller.js
 
@@ -115,3 +115,59 @@ res.status(201).json({
   }
 });
 });
+
+exports.employeeLogin = async (req, res) => {
+  const { loginId, password } = req.body;
+
+  const employee = await Employee.findOne({ loginId }).select("+password");
+
+  if (!employee) {
+    return res.status(401).json({ message: "Invalid credentials" });
+  }
+
+  if (employee.isAccountLocked()) {
+    return res.status(423).json({ message: "Account locked" });
+  }
+
+  const isPasswordValid = await validateLoginPassword(
+    password,
+    employee.password
+  );
+
+  // Login audit
+  employee.loginAudit.push({
+    ipAddress: getClientIp(req),
+    userAgent: req.headers["user-agent"],
+    device: getDeviceInfo(req),
+    success: isPasswordValid
+  });
+
+  if (!isPasswordValid) {
+    employee.loginAttempts += 1;
+
+    if (employee.loginAttempts >= 5) {
+      employee.lockUntil = Date.now() + 30 * 60 * 1000;
+    }
+
+    await employee.save();
+    return res.status(401).json({ message: "Invalid credentials" });
+  }
+
+  // Success
+  employee.loginAttempts = 0;
+  employee.lockUntil = undefined;
+  employee.lastLoginAt = new Date();
+
+  await employee.save();
+
+  if (employee.mustChangePassword) {
+    return res.json({
+      mustChangePassword: true
+    });
+  }
+
+  res.json({
+    success: true,
+    employeeId: employee._id
+  });
+};

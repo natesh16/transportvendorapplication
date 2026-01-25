@@ -931,3 +931,6 @@
     at async Promise.all (index 0)
     at async model.create (F:\development\Backend\node_modules\mongoose\lib\model.js:2699:11)
     at async F:\development\Backend\controllers\corporate.employeid.controller.js:78:20 {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 17:46:59 [ERROR]: ReferenceError: validateLoginPassword is not defined
+    at exports.employeeLogin (F:\development\Backend\controllers\corporate.employeid.controller.js:132:27)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/login","method":"POST","user":null}

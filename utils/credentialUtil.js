@@ -65,6 +65,20 @@ const generateTempPassword = (firstName, dob) => {
   return `${cleanName}${dd}${mm}@A1`;
 };
 
+const validateLoginPassword = async (
+  inputPassword,
+  hashedPassword
+) => {
+  if (!inputPassword || !hashedPassword) {
+    throw new Error("Password validation inputs missing");
+  }
+
+  return bcrypt.compare(inputPassword, hashedPassword);
+};
+
+module.exports = {
+  validateLoginPassword
+};
 /* ---------------------------------- */
 /* 🆔 Generate Employee Code           */
 /* ---------------------------------- */
@@ -108,5 +122,5 @@ module.exports = {
   generateEmployeeCode,
   generateEmployeeLoginId,
   generateTempPassword,
-  validateLoginPassword
+  validateLoginPassword,validateLoginPassword
 };
