@@ -27,6 +27,23 @@ const employeeSchema = new mongoose.Schema(
       uppercase: true,
       index: true,
     },
+  loginId: {
+      type: String,
+      unique: true,
+      uppercase: true,
+      index: true
+    },
+
+    /* 🔐 Authentication */
+    password: {
+      type: String,
+      select: false
+    },
+
+    mustChangePassword: {
+      type: Boolean,
+      default: true
+    },
 
     /* 👤 Identity */
     name: {
@@ -50,7 +67,10 @@ const employeeSchema = new mongoose.Schema(
       type: String,
       enum: ["MALE", "FEMALE", "OTHER"]
     },
-
+dateOfBirth: {
+  type: Date,
+  required: true,
+  index: true},
     /* 📧 Contact (Protected) */
     email: {
       type: String,
@@ -176,13 +196,11 @@ employeeSchema.pre("save", function (next) {
   if (this.email) this.email = this.email.toLowerCase();
   if (this.employeeCode)
     this.employeeCode = this.employeeCode.toUpperCase();
-  next();
 });
 
 /* 🛡️ Hide soft-deleted records by default */
 employeeSchema.pre(/^find/, function (next) {
   this.where({ isDeleted: false });
-  next();
 });
 
 /* 🔁 Soft Delete Method */

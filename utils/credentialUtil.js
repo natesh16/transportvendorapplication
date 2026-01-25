@@ -1,19 +1,27 @@
 const crypto = require("crypto");
-
 /* ---------------------------------- */
 /* 🔑 Generate Employee Login ID        */
 /* ---------------------------------- */
-exports.generateEmployeeLoginId = (
+const generateEmployeeLoginId = (
   corporateCode,
   firstName,
   dob
 ) => {
-  const namePart = firstName
+  if (!corporateCode || !firstName || !dob) {
+    throw new Error("corporateCode, firstName, and dob are required");
+  }
+
+  const namePart = String(firstName)
     .replace(/\s+/g, "")
     .toUpperCase()
     .substring(0, 6);
 
-  const year = new Date(dob)
+  const date = new Date(dob);
+  if (isNaN(date.getTime())) {
+    throw new Error("Invalid DOB");
+  }
+
+  const year = date
     .getFullYear()
     .toString()
     .slice(-2);
@@ -24,16 +32,21 @@ exports.generateEmployeeLoginId = (
 /* ---------------------------------- */
 /* 🔐 Generate Temporary Password      */
 /* ---------------------------------- */
-exports.generateTempPassword = (
-  firstName,
-  dob
-) => {
-  const cleanName = firstName
+const generateTempPassword = (firstName, dob) => {
+  if (!firstName || !dob) {
+    throw new Error("firstName and dob are required");
+  }
+
+  const cleanName = String(firstName)
     .replace(/\s+/g, "")
     .toLowerCase()
     .substring(0, 4);
 
   const date = new Date(dob);
+  if (isNaN(date.getTime())) {
+    throw new Error("Invalid DOB");
+  }
+
   const dd = String(date.getDate()).padStart(2, "0");
   const mm = String(date.getMonth() + 1).padStart(2, "0");
 
@@ -65,5 +78,6 @@ const generateEmployeeCode = (
 };
 
 module.exports = {
-  generateEmployeeCode
+  generateEmployeeCode,generateEmployeeLoginId,generateTempPassword
+
 };

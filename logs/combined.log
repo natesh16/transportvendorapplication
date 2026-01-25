@@ -812,3 +812,34 @@
     at F:\development\Backend\controllers\corporate.employeid.controller.js:50:19
     at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
 2026-01-24 17:02:47 [INFO]: POST /api/corpo/employee/create/employees 500 189.941 ms - body={"name":{"firstName":"Ramesh","lastName":"Kumar"},"dateOfBirth":"1998-07-15","email":"ramesh.kumar@corp.com","phone":"9876543210","gender":"MALE","department":"Engineering","designation":"Backend Developer","employmentType":"FULL_TIME","joiningDate":"2024-01-10"} 
+2026-01-25 15:40:10 [INFO]: POST /api/corpo/login 200 8141.601 ms - body={"loginId":"CORP-E8DD99-ADMIN-001","password":"RAMK@15071998"} 
+2026-01-25 15:42:07 [ERROR]: StrictModeError: Field `loginId` is not in schema and strict mode is set to throw.
+    at model.$set (F:\development\Backend\node_modules\mongoose\lib\document.js:1166:19)
+    at model.Document (F:\development\Backend\node_modules\mongoose\lib\document.js:178:12)
+    at model.Model (F:\development\Backend\node_modules\mongoose\lib\model.js:129:12)
+    at new model (F:\development\Backend\node_modules\mongoose\lib\model.js:4668:15)
+    at F:\development\Backend\node_modules\mongoose\lib\model.js:2711:20
+    at Array.map (<anonymous>)
+    at model.create (F:\development\Backend\node_modules\mongoose\lib\model.js:2699:34)
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:66:35 {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 15:42:07 [INFO]: POST /api/corpo/employee/create/employees 500 1838.524 ms - body={"name":{"firstName":"Ramesh","lastName":"Kumar"},"dateOfBirth":"1998-07-15","email":"ramesh.kumar@corp.com","phone":"9876543210","gender":"MALE","department":"Engineering","designation":"Backend Developer","employmentType":"FULL_TIME","joiningDate":"2024-01-10"} 
+2026-01-25 15:45:20 [ERROR]: StrictModeError: Field `dateOfBirth` is not in schema and strict mode is set to throw.
+    at model.$set (F:\development\Backend\node_modules\mongoose\lib\document.js:1166:19)
+    at model.Document (F:\development\Backend\node_modules\mongoose\lib\document.js:178:12)
+    at model.Model (F:\development\Backend\node_modules\mongoose\lib\model.js:129:12)
+    at new model (F:\development\Backend\node_modules\mongoose\lib\model.js:4668:15)
+    at F:\development\Backend\node_modules\mongoose\lib\model.js:2711:20
+    at Array.map (<anonymous>)
+    at model.create (F:\development\Backend\node_modules\mongoose\lib\model.js:2699:34)
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:66:35 {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 15:45:20 [INFO]: POST /api/corpo/employee/create/employees 500 11152.148 ms - body={"name":{"firstName":"Ramesh","lastName":"Kumar"},"dateOfBirth":"1998-07-15","email":"ramesh.kumar@corp.com","phone":"9876543210","gender":"MALE","department":"Engineering","designation":"Backend Developer","employmentType":"FULL_TIME","joiningDate":"2024-01-10"} 
+2026-01-25 15:47:26 [ERROR]: TypeError: next is not a function
+    at model.<anonymous> (F:\development\Backend\models\corporate.employeeModel.js:199:3)
+    at Kareem.execPre (F:\development\Backend\node_modules\kareem\index.js:63:39)
+    at async model.$__save (F:\development\Backend\node_modules\mongoose\lib\model.js:369:5)
+    at async model.save (F:\development\Backend\node_modules\mongoose\lib\model.js:609:5)
+    at async F:\development\Backend\node_modules\mongoose\lib\model.js:2714:9
+    at async Promise.all (index 0)
+    at async model.create (F:\development\Backend\node_modules\mongoose\lib\model.js:2699:11)
+    at async F:\development\Backend\controllers\corporate.employeid.controller.js:66:20 {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 15:47:26 [INFO]: POST /api/corpo/employee/create/employees 500 2708.423 ms - body={"name":{"firstName":"Ramesh","lastName":"Kumar"},"dateOfBirth":"1998-07-15","email":"ramesh.kumar@corp.com","phone":"9876543210","gender":"MALE","department":"Engineering","designation":"Backend Developer","employmentType":"FULL_TIME","joiningDate":"2024-01-10"} 
