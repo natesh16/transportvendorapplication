@@ -4,6 +4,7 @@ const Corporate = require("../models/corporate.Model");
 const asyncHandler = require("../utils/asyncHandler");
 const AppError = require("../utils/apperror");
 const logger = require("../utils/logger");
+const { getClientIp , getDeviceInfo }=require('../utils/getClientIp')
 const bcrypt = require("bcryptjs");
 const {
   generateEmployeeLoginId,
@@ -135,12 +136,16 @@ exports.employeeLogin = async (req, res) => {
   );
 
   // Login audit
-  employee.loginAudit.push({
-    ipAddress: getClientIp(req),
-    userAgent: req.headers["user-agent"],
-    device: getDeviceInfo(req),
-    success: isPasswordValid
-  });
+ /* ---------------------------------- */
+/* 🌐 Client IP & Device Helpers       */
+/* ---------------------------------- */
+const getClientIp = (req) =>
+  req.headers["x-forwarded-for"]?.split(",")[0] ||
+  req.socket.remoteAddress ||
+  "UNKNOWN_IP";
+
+const getDeviceInfo = (req) =>
+  req.headers["user-agent"] || "UNKNOWN_DEVICE";
 
   if (!isPasswordValid) {
     employee.loginAttempts += 1;
@@ -160,11 +165,11 @@ exports.employeeLogin = async (req, res) => {
 
   await employee.save();
 
-  if (employee.mustChangePassword) {
-    return res.json({
-      mustChangePassword: true
-    });
-  }
+  // if (employee.mustChangePassword) {
+  //   return res.json({
+  //     mustChangePassword: true
+  //   });
+  // }
 
   res.json({
     success: true,

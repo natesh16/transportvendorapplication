@@ -1259,3 +1259,18 @@
     at exports.employeeLogin (F:\development\Backend\controllers\corporate.employeid.controller.js:132:27)
     at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/login","method":"POST","user":null}
 2026-01-25 17:46:59 [INFO]: POST /api/corpo/employee/login 500 113.563 ms - body={"loginId":"ECORRAMES96","Password":"rame1405@A1"} 
+2026-01-25 17:55:17 [ERROR]: Error: Password validation inputs are required
+    at validateLoginPassword (F:\development\Backend\utils\credentialUtil.js:101:11)
+    at exports.employeeLogin (F:\development\Backend\controllers\corporate.employeid.controller.js:132:33)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/login","method":"POST","user":null}
+2026-01-25 17:55:17 [INFO]: POST /api/corpo/employee/login 500 142.107 ms - body={"loginId":"ECORRAMES96","Password":"rame1405@A1"} 
+2026-01-25 17:55:31 [ERROR]: ReferenceError: getClientIp is not defined
+    at exports.employeeLogin (F:\development\Backend\controllers\corporate.employeid.controller.js:139:16) {"path":"/api/corpo/employee/login","method":"POST","user":null}
+2026-01-25 17:55:31 [INFO]: POST /api/corpo/employee/login 500 1099.147 ms - body={"loginId":"ECORRAMES96","password":"rame1405@A1"} 
+2026-01-25 17:57:21 [ERROR]: ReferenceError: getClientIp is not defined
+    at exports.employeeLogin (F:\development\Backend\controllers\corporate.employeid.controller.js:139:16) {"path":"/api/corpo/employee/login","method":"POST","user":null}
+2026-01-25 17:57:21 [INFO]: POST /api/corpo/employee/login 500 865.222 ms - body={"loginId":"ECORRAMES96","password":"rame1405@A1"} 
+2026-01-25 18:02:41 [INFO]: POST /api/corpo/employee/login 200 1122.857 ms - body={"loginId":"ECORRAMES96","password":"rame1405@A1"} 
+2026-01-25 18:02:51 [INFO]: POST /api/corpo/employee/login 200 988.938 ms - body={"loginId":"ECORRAMES96","password":"rame1405@A1"} 
+2026-01-25 18:03:23 [INFO]: POST /api/corpo/employee/login 200 1594.988 ms - body={"loginId":"ECORRAMES96","password":"rame1405@A1"} 
+2026-01-25 18:03:28 [INFO]: POST /api/corpo/employee/login 200 1717.108 ms - body={"loginId":"ECORRAMES96","password":"rame1405@A1"} 

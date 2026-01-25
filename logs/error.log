@@ -934,3 +934,11 @@
 2026-01-25 17:46:59 [ERROR]: ReferenceError: validateLoginPassword is not defined
     at exports.employeeLogin (F:\development\Backend\controllers\corporate.employeid.controller.js:132:27)
     at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/login","method":"POST","user":null}
+2026-01-25 17:55:17 [ERROR]: Error: Password validation inputs are required
+    at validateLoginPassword (F:\development\Backend\utils\credentialUtil.js:101:11)
+    at exports.employeeLogin (F:\development\Backend\controllers\corporate.employeid.controller.js:132:33)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/login","method":"POST","user":null}
+2026-01-25 17:55:31 [ERROR]: ReferenceError: getClientIp is not defined
+    at exports.employeeLogin (F:\development\Backend\controllers\corporate.employeid.controller.js:139:16) {"path":"/api/corpo/employee/login","method":"POST","user":null}
+2026-01-25 17:57:21 [ERROR]: ReferenceError: getClientIp is not defined
+    at exports.employeeLogin (F:\development\Backend\controllers\corporate.employeid.controller.js:139:16) {"path":"/api/corpo/employee/login","method":"POST","user":null}
