@@ -1,33 +1,45 @@
 const crypto = require("crypto");
+const bcrypt = require("bcryptjs");
+
 /* ---------------------------------- */
-/* 🔑 Generate Employee Login ID        */
+/* 🔑 Generate Employee Login ID (≤12) */
 /* ---------------------------------- */
 const generateEmployeeLoginId = (
   corporateCode,
   firstName,
   dob
 ) => {
-  if (!corporateCode || !firstName || !dob) {
+  if (!corporateCode|| !firstName || !dob) {
     throw new Error("corporateCode, firstName, and dob are required");
   }
 
+  /* 🏢 Corporate Part (max 3) */
+  const corpPart = String(corporateCode)
+    .replace(/[^a-zA-Z0-9]/g, "")
+    .toUpperCase()
+    .substring(0, 3);
+
+  /* 👤 Name Part (max 5) */
   const namePart = String(firstName)
     .replace(/\s+/g, "")
     .toUpperCase()
-    .substring(0, 6);
+    .substring(0, 5);
 
+  /* 📅 DOB Year (2 digits) */
   const date = new Date(dob);
   if (isNaN(date.getTime())) {
     throw new Error("Invalid DOB");
   }
 
-  const year = date
+  const yearPart = date
     .getFullYear()
     .toString()
     .slice(-2);
 
-  return `EMP-${corporateCode}-${namePart}${year}`;
+  /* 🔐 Final Login ID (≤ 12 chars) */
+  return `E${corpPart}${namePart}${yearPart}`;
 };
+
 
 /* ---------------------------------- */
 /* 🔐 Generate Temporary Password      */
@@ -53,6 +65,9 @@ const generateTempPassword = (firstName, dob) => {
   return `${cleanName}${dd}${mm}@A1`;
 };
 
+/* ---------------------------------- */
+/* 🆔 Generate Employee Code           */
+/* ---------------------------------- */
 const generateEmployeeCode = (
   corporateCode,
   firstName,
@@ -62,13 +77,11 @@ const generateEmployeeCode = (
     throw new Error("Corporate code and first name are required");
   }
 
-  /* 🧹 Normalize Name */
   const namePart = `${firstName}${lastName}`
     .replace(/[^a-zA-Z]/g, "")
     .toUpperCase()
     .substring(0, 6);
 
-  /* 🔐 Random Suffix (collision-safe) */
   const randomPart = crypto
     .randomBytes(2)
     .toString("hex")
@@ -77,7 +90,23 @@ const generateEmployeeCode = (
   return `EMP-${corporateCode}-${namePart}-${randomPart}`;
 };
 
-module.exports = {
-  generateEmployeeCode,generateEmployeeLoginId,generateTempPassword
+/* ---------------------------------- */
+/* 🔐 Validate Password for Login      */
+/* ---------------------------------- */
+const validateLoginPassword = async (
+  candidatePassword,
+  hashedPassword
+) => {
+  if (!candidatePassword || !hashedPassword) {
+    throw new Error("Password validation inputs are required");
+  }
 
+  return bcrypt.compare(candidatePassword, hashedPassword);
+};
+
+module.exports = {
+  generateEmployeeCode,
+  generateEmployeeLoginId,
+  generateTempPassword,
+  validateLoginPassword
 };

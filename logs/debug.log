@@ -867,3 +867,386 @@
     at async model.create (F:\development\Backend\node_modules\mongoose\lib\model.js:2699:11)
     at async F:\development\Backend\controllers\corporate.employeid.controller.js:66:20 {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
 2026-01-25 15:47:26 [INFO]: POST /api/corpo/employee/create/employees 500 2708.423 ms - body={"name":{"firstName":"Ramesh","lastName":"Kumar"},"dateOfBirth":"1998-07-15","email":"ramesh.kumar@corp.com","phone":"9876543210","gender":"MALE","department":"Engineering","designation":"Backend Developer","employmentType":"FULL_TIME","joiningDate":"2024-01-10"} 
+2026-01-25 15:48:10 [INFO]: POST /api/corpo/employee/create/employees 201 1617.936 ms - body={"name":{"firstName":"Ramesh","lastName":"Kumar"},"dateOfBirth":"1998-07-15","email":"ramesh.kumar@corp.com","phone":"9876543210","gender":"MALE","department":"Engineering","designation":"Backend Developer","employmentType":"FULL_TIME","joiningDate":"2024-01-10"} 
+2026-01-25 16:49:34 [INFO]: Create Employee API called 
+2026-01-25 16:49:34 [DEBUG]: Employee input received {"email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer"}
+2026-01-25 16:49:34 [ERROR]: Error: Corporate code and first name are required
+    at generateEmployeeCode (F:\development\Backend\utils\credentialUtil.js:80:11)
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:41:24
+    at F:\development\Backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at F:\development\Backend\middlewares\auth.js:150:5
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at exports.corporateprotect (F:\development\Backend\middlewares\auth.js:127:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 16:49:34 [INFO]: POST /api/corpo/employee/create/employees 500 461.642 ms - body={"name":{"firstName":"Ramesh","lastName":"Kumar"},"gender":"MALE","dateOfBirth":"1996-05-14","email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer","employmentType":"FULL_TIME","joiningDate":"2024-07-01","createdBy":"6968ff156a7f8fc7d7ba82e7","location":{"region":"Chennai","pickupPoint":{"name":"T Nagar Bus Stop","geo":{"type":"Point","coordinates":[80.2337,13.0405]}}},"shift":{"shiftName":"Day Shift","loginTime":"09:00","logoutTime":"18:00","isOvernight":false}} 
+2026-01-25 16:51:04 [INFO]: Create Employee API called 
+2026-01-25 16:51:04 [DEBUG]: Employee input received {"email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer"}
+2026-01-25 16:51:04 [ERROR]: Error: Corporate code and first name are required
+    at generateEmployeeCode (F:\development\Backend\utils\credentialUtil.js:80:11)
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:41:24
+    at F:\development\Backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at F:\development\Backend\middlewares\auth.js:150:5
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at exports.corporateprotect (F:\development\Backend\middlewares\auth.js:127:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 16:51:04 [INFO]: POST /api/corpo/employee/create/employees 500 340.185 ms - body={"name":{"firstName":"Ramesh","lastName":"Kumar"},"gender":"MALE","dateOfBirth":"1996-05-14","email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer","employmentType":"FULL_TIME","joiningDate":"2024-07-01","createdBy":"6968ff156a7f8fc7d7ba82e7","location":{"region":"Chennai","pickupPoint":{"name":"T Nagar Bus Stop","geo":{"type":"Point","coordinates":[80.2337,13.0405]}}},"shift":{"shiftName":"Day Shift","loginTime":"09:00","logoutTime":"18:00","isOvernight":false}} 
+2026-01-25 16:52:00 [INFO]: Create Employee API called 
+2026-01-25 16:52:00 [DEBUG]: Employee input received {"email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer"}
+2026-01-25 16:52:00 [ERROR]: Error: Corporate code and first name are required
+    at generateEmployeeCode (F:\development\Backend\utils\credentialUtil.js:80:11)
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:41:24
+    at F:\development\Backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at F:\development\Backend\middlewares\auth.js:150:5
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at exports.corporateprotect (F:\development\Backend\middlewares\auth.js:127:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 16:52:00 [INFO]: POST /api/corpo/employee/create/employees 500 216.003 ms - body={"name":{"firstName":"Ramesh","lastName":"Kumar"},"gender":"MALE","dateOfBirth":"1996-05-14","email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer","employmentType":"FULL_TIME","joiningDate":"2024-07-01","createdBy":"6968ff156a7f8fc7d7ba82e7","location":{"region":"Chennai","pickupPoint":{"name":"T Nagar Bus Stop","geo":{"type":"Point","coordinates":[80.2337,13.0405]}}},"shift":{"shiftName":"Day Shift","loginTime":"09:00","logoutTime":"18:00","isOvernight":false}} 
+2026-01-25 16:52:04 [INFO]: Create Employee API called 
+2026-01-25 16:52:04 [DEBUG]: Employee input received {"email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer"}
+2026-01-25 16:52:04 [ERROR]: Error: Corporate code and first name are required
+    at generateEmployeeCode (F:\development\Backend\utils\credentialUtil.js:80:11)
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:41:24
+    at F:\development\Backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at F:\development\Backend\middlewares\auth.js:150:5
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at exports.corporateprotect (F:\development\Backend\middlewares\auth.js:127:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 16:52:04 [INFO]: POST /api/corpo/employee/create/employees 500 18.081 ms - body={"name":{"firstName":"Ramesh","lastName":"Kumar"},"gender":"MALE","dateOfBirth":"1996-05-14","email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer","employmentType":"FULL_TIME","joiningDate":"2024-07-01","createdBy":"6968ff156a7f8fc7d7ba82e7","location":{"region":"Chennai","pickupPoint":{"name":"T Nagar Bus Stop","geo":{"type":"Point","coordinates":[80.2337,13.0405]}}},"shift":{"shiftName":"Day Shift","loginTime":"09:00","logoutTime":"18:00","isOvernight":false}} 
+2026-01-25 16:53:03 [INFO]: Create Employee API called 
+2026-01-25 16:53:03 [DEBUG]: Employee input received {"email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer"}
+2026-01-25 16:53:03 [ERROR]: Error: Corporate code and first name are required
+    at generateEmployeeCode (F:\development\Backend\utils\credentialUtil.js:80:11)
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:41:24
+    at F:\development\Backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at F:\development\Backend\middlewares\auth.js:150:5
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at exports.corporateprotect (F:\development\Backend\middlewares\auth.js:127:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 16:53:03 [INFO]: POST /api/corpo/employee/create/employees 500 116.370 ms - body={"name":{"firstname":"Ramesh","lastname":"Kumar"},"gender":"MALE","dateOfBirth":"1996-05-14","email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer","employmentType":"FULL_TIME","joiningDate":"2024-07-01","createdBy":"6968ff156a7f8fc7d7ba82e7","location":{"region":"Chennai","pickupPoint":{"name":"T Nagar Bus Stop","geo":{"type":"Point","coordinates":[80.2337,13.0405]}}},"shift":{"shiftName":"Day Shift","loginTime":"09:00","logoutTime":"18:00","isOvernight":false}} 
+2026-01-25 16:53:18 [ERROR]: Error: Authentication required
+    at exports.corporateprotect (F:\development\Backend\middlewares\auth.js:92:7)
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (F:\development\Backend\node_modules\router\lib\route.js:117:3)
+    at handle (F:\development\Backend\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at F:\development\Backend\node_modules\router\index.js:295:15
+    at processParams (F:\development\Backend\node_modules\router\index.js:582:12)
+    at next (F:\development\Backend\node_modules\router\index.js:291:5)
+    at router.handle (F:\development\Backend\node_modules\router\index.js:186:3)
+    at router (F:\development\Backend\node_modules\router\index.js:60:12)
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (F:\development\Backend\node_modules\router\index.js:342:13)
+    at F:\development\Backend\node_modules\router\index.js:297:9
+    at processParams (F:\development\Backend\node_modules\router\index.js:582:12)
+    at next (F:\development\Backend\node_modules\router\index.js:291:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":null}
+2026-01-25 16:53:18 [INFO]: POST /api/corpo/employee/create/employees 401 6.844 ms - body={"name":{"firstname":"Ramesh","lastname":"Kumar"},"gender":"MALE","dateOfBirth":"1996-05-14","email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer","employmentType":"FULL_TIME","joiningDate":"2024-07-01","createdBy":"6968ff156a7f8fc7d7ba82e7","location":{"region":"Chennai","pickupPoint":{"name":"T Nagar Bus Stop","geo":{"type":"Point","coordinates":[80.2337,13.0405]}}},"shift":{"shiftName":"Day Shift","loginTime":"09:00","logoutTime":"18:00","isOvernight":false}} 
+2026-01-25 16:53:28 [INFO]: POST /api/corpo/login 200 1251.848 ms - body={"loginId":"CORP-E8DD99-ADMIN-001","password":"RAMK@15071998"} 
+2026-01-25 16:54:24 [INFO]: Create Employee API called 
+2026-01-25 16:54:24 [DEBUG]: Employee input received {"email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer"}
+2026-01-25 16:54:24 [ERROR]: Error: Corporate code and first name are required
+    at generateEmployeeCode (F:\development\Backend\utils\credentialUtil.js:80:11)
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:41:24
+    at F:\development\Backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at F:\development\Backend\middlewares\auth.js:150:5
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at exports.corporateprotect (F:\development\Backend\middlewares\auth.js:127:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 16:54:24 [INFO]: POST /api/corpo/employee/create/employees 500 14.034 ms - body={"corporateId":"696b27860372e799fce8dd99","name":{"firstname":"Ramesh","lastname":"Kumar"},"gender":"MALE","dateOfBirth":"1996-05-14","email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer","employmentType":"FULL_TIME","joiningDate":"2024-07-01","createdBy":"6968ff156a7f8fc7d7ba82e7","location":{"region":"Chennai","pickupPoint":{"name":"T Nagar Bus Stop","geo":{"type":"Point","coordinates":[80.2337,13.0405]}}},"shift":{"shiftName":"Day Shift","loginTime":"09:00","logoutTime":"18:00","isOvernight":false}} 
+2026-01-25 16:56:08 [INFO]: Create Employee API called 
+2026-01-25 16:56:08 [DEBUG]: Employee input received {"email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer"}
+2026-01-25 16:56:08 [ERROR]: Error: Corporate code and first name are required
+    at generateEmployeeCode (F:\development\Backend\utils\credentialUtil.js:80:11)
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:41:24
+    at F:\development\Backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at F:\development\Backend\middlewares\auth.js:150:5
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at exports.corporateprotect (F:\development\Backend\middlewares\auth.js:127:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 16:56:08 [INFO]: POST /api/corpo/employee/create/employees 500 222.409 ms - body={"corporateId":"696b27860372e799fce8dd99","name":{"firstname":"Ramesh","lastname":"Kumar"},"gender":"MALE","dateOfBirth":"1996-05-14","email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer","employmentType":"FULL_TIME","joiningDate":"2024-07-01","createdBy":"6968ff156a7f8fc7d7ba82e7","location":{"region":"Chennai","pickupPoint":{"name":"T Nagar Bus Stop","geo":{"type":"Point","coordinates":[80.2337,13.0405]}}},"shift":{"shiftName":"Day Shift","loginTime":"09:00","logoutTime":"18:00","isOvernight":false}} 
+2026-01-25 16:57:19 [INFO]: Create Employee API called 
+2026-01-25 16:57:19 [DEBUG]: Employee input received {"email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer"}
+2026-01-25 16:57:19 [ERROR]: Error: Corporate code and first name are required
+    at generateEmployeeCode (F:\development\Backend\utils\credentialUtil.js:77:11)
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:41:24
+    at F:\development\Backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at F:\development\Backend\middlewares\auth.js:150:5
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at exports.corporateprotect (F:\development\Backend\middlewares\auth.js:127:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 16:57:19 [INFO]: POST /api/corpo/employee/create/employees 500 200.182 ms - body={"corporateId":"696b27860372e799fce8dd99","name":{"firstname":"Ramesh","lastname":"Kumar"},"gender":"MALE","dateOfBirth":"1996-05-14","email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer","employmentType":"FULL_TIME","joiningDate":"2024-07-01","createdBy":"6968ff156a7f8fc7d7ba82e7","location":{"region":"Chennai","pickupPoint":{"name":"T Nagar Bus Stop","geo":{"type":"Point","coordinates":[80.2337,13.0405]}}},"shift":{"shiftName":"Day Shift","loginTime":"09:00","logoutTime":"18:00","isOvernight":false}} 
+2026-01-25 17:00:15 [INFO]: Create Employee API called 
+2026-01-25 17:00:15 [DEBUG]: Employee input received {"email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer"}
+2026-01-25 17:00:15 [ERROR]: Error: Corporate code and first name are required
+    at generateEmployeeCode (F:\development\Backend\utils\credentialUtil.js:77:11)
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:41:24
+    at F:\development\Backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at F:\development\Backend\middlewares\auth.js:150:5
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at exports.corporateprotect (F:\development\Backend\middlewares\auth.js:127:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 17:00:15 [INFO]: POST /api/corpo/employee/create/employees 500 227.643 ms - body={"corporateCode":"696b27860372e799fce8dd99","name":{"firstName":"Ramesh","lastName":"Kumar"},"gender":"MALE","dateOfBirth":"1996-05-14","email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer","employmentType":"FULL_TIME","joiningDate":"2024-07-01","createdBy":"6968ff156a7f8fc7d7ba82e7","location":{"region":"Chennai","pickupPoint":{"name":"T Nagar Bus Stop","geo":{"type":"Point","coordinates":[80.2337,13.0405]}}},"shift":{"shiftName":"Day Shift","loginTime":"09:00","logoutTime":"18:00","isOvernight":false}} 
+2026-01-25 17:00:17 [INFO]: Create Employee API called 
+2026-01-25 17:00:17 [DEBUG]: Employee input received {"email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer"}
+2026-01-25 17:00:17 [ERROR]: Error: Corporate code and first name are required
+    at generateEmployeeCode (F:\development\Backend\utils\credentialUtil.js:77:11)
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:41:24
+    at F:\development\Backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at F:\development\Backend\middlewares\auth.js:150:5
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at exports.corporateprotect (F:\development\Backend\middlewares\auth.js:127:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 17:00:17 [INFO]: POST /api/corpo/employee/create/employees 500 25.712 ms - body={"corporateCode":"696b27860372e799fce8dd99","name":{"firstName":"Ramesh","lastName":"Kumar"},"gender":"MALE","dateOfBirth":"1996-05-14","email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer","employmentType":"FULL_TIME","joiningDate":"2024-07-01","createdBy":"6968ff156a7f8fc7d7ba82e7","location":{"region":"Chennai","pickupPoint":{"name":"T Nagar Bus Stop","geo":{"type":"Point","coordinates":[80.2337,13.0405]}}},"shift":{"shiftName":"Day Shift","loginTime":"09:00","logoutTime":"18:00","isOvernight":false}} 
+2026-01-25 17:01:38 [INFO]: Create Employee API called 
+2026-01-25 17:01:38 [DEBUG]: Employee input received {"email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer"}
+2026-01-25 17:01:38 [ERROR]: Error: Corporate code and first name are required
+    at generateEmployeeCode (F:\development\Backend\utils\credentialUtil.js:77:11)
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:41:24
+    at F:\development\Backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at F:\development\Backend\middlewares\auth.js:150:5
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at exports.corporateprotect (F:\development\Backend\middlewares\auth.js:127:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 17:01:38 [INFO]: POST /api/corpo/employee/create/employees 500 354.716 ms - body={"corporateCode":"696b27860372e799fce8dd99","name":{"firstName":"Ramesh","lastName":"Kumar"},"gender":"MALE","dateOfBirth":"1996-05-14","email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer","employmentType":"FULL_TIME","joiningDate":"2024-07-01","createdBy":"6968ff156a7f8fc7d7ba82e7","location":{"region":"Chennai","pickupPoint":{"name":"T Nagar Bus Stop","geo":{"type":"Point","coordinates":[80.2337,13.0405]}}},"shift":{"shiftName":"Day Shift","loginTime":"09:00","logoutTime":"18:00","isOvernight":false}} 
+2026-01-25 17:06:15 [INFO]: Create Employee API called 
+2026-01-25 17:06:15 [DEBUG]: Employee input received {"email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer"}
+2026-01-25 17:06:15 [ERROR]: ReferenceError: corporate is not defined
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:45:6
+    at F:\development\Backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at F:\development\Backend\middlewares\auth.js:150:5
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at exports.corporateprotect (F:\development\Backend\middlewares\auth.js:127:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 17:06:15 [INFO]: POST /api/corpo/employee/create/employees 500 320.338 ms - body={"corporateCode":"696b27860372e799fce8dd99","name":{"firstName":"Ramesh","lastName":"Kumar"},"gender":"MALE","dateOfBirth":"1996-05-14","email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer","employmentType":"FULL_TIME","joiningDate":"2024-07-01","createdBy":"6968ff156a7f8fc7d7ba82e7","location":{"region":"Chennai","pickupPoint":{"name":"T Nagar Bus Stop","geo":{"type":"Point","coordinates":[80.2337,13.0405]}}},"shift":{"shiftName":"Day Shift","loginTime":"09:00","logoutTime":"18:00","isOvernight":false}} 
+2026-01-25 17:06:48 [INFO]: Create Employee API called 
+2026-01-25 17:06:48 [DEBUG]: Employee input received {"email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer"}
+2026-01-25 17:06:48 [ERROR]: Error: Corporate code and first name are required
+    at generateEmployeeCode (F:\development\Backend\utils\credentialUtil.js:77:11)
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:41:24
+    at F:\development\Backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at F:\development\Backend\middlewares\auth.js:150:5
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at exports.corporateprotect (F:\development\Backend\middlewares\auth.js:127:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 17:06:48 [INFO]: POST /api/corpo/employee/create/employees 500 310.029 ms - body={"corporateCode":"696b27860372e799fce8dd99","name":{"firstName":"Ramesh","lastName":"Kumar"},"gender":"MALE","dateOfBirth":"1996-05-14","email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer","employmentType":"FULL_TIME","joiningDate":"2024-07-01","createdBy":"6968ff156a7f8fc7d7ba82e7","location":{"region":"Chennai","pickupPoint":{"name":"T Nagar Bus Stop","geo":{"type":"Point","coordinates":[80.2337,13.0405]}}},"shift":{"shiftName":"Day Shift","loginTime":"09:00","logoutTime":"18:00","isOvernight":false}} 
+2026-01-25 17:09:12 [INFO]: Create Employee API called 
+2026-01-25 17:09:12 [DEBUG]: Employee input received {"email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer"}
+2026-01-25 17:09:12 [ERROR]: ReferenceError: corporateId is not defined
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:47:46
+    at F:\development\Backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at F:\development\Backend\middlewares\auth.js:150:5
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at exports.corporateprotect (F:\development\Backend\middlewares\auth.js:127:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 17:09:13 [INFO]: POST /api/corpo/employee/create/employees 500 1066.851 ms - body={"corporateId":"696b27860372e799fce8dd99","name":{"firstName":"Ramesh","lastName":"Kumar"},"gender":"MALE","dateOfBirth":"1996-05-14","email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer","employmentType":"FULL_TIME","joiningDate":"2024-07-01","createdBy":"6968ff156a7f8fc7d7ba82e7","location":{"region":"Chennai","pickupPoint":{"name":"T Nagar Bus Stop","geo":{"type":"Point","coordinates":[80.2337,13.0405]}}},"shift":{"shiftName":"Day Shift","loginTime":"09:00","logoutTime":"18:00","isOvernight":false}} 
+2026-01-25 17:09:58 [INFO]: Create Employee API called 
+2026-01-25 17:09:58 [DEBUG]: Employee input received {"email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer"}
+2026-01-25 17:09:58 [ERROR]: ReferenceError: corporateId is not defined
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:47:46
+    at F:\development\Backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at F:\development\Backend\middlewares\auth.js:150:5
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at exports.corporateprotect (F:\development\Backend\middlewares\auth.js:127:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 17:09:58 [INFO]: POST /api/corpo/employee/create/employees 500 12.625 ms - body={"corporateId":"696b27860372e799fce8dd99","name":{"firstName":"Ramesh","lastName":"Kumar"},"gender":"MALE","dateOfBirth":"1996-05-14","email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer","employmentType":"FULL_TIME","joiningDate":"2024-07-01","createdBy":"6968ff156a7f8fc7d7ba82e7","location":{"region":"Chennai","pickupPoint":{"name":"T Nagar Bus Stop","geo":{"type":"Point","coordinates":[80.2337,13.0405]}}},"shift":{"shiftName":"Day Shift","loginTime":"09:00","logoutTime":"18:00","isOvernight":false}} 
+2026-01-25 17:11:03 [INFO]: Create Employee API called 
+2026-01-25 17:11:03 [DEBUG]: Employee input received {"email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer"}
+2026-01-25 17:11:03 [ERROR]: ReferenceError: corporateId is not defined
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:47:46
+    at F:\development\Backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at F:\development\Backend\middlewares\auth.js:150:5
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at exports.corporateprotect (F:\development\Backend\middlewares\auth.js:127:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 17:11:03 [INFO]: POST /api/corpo/employee/create/employees 500 68.592 ms - body={"name":{"firstName":"Ramesh","lastName":"Kumar"},"gender":"MALE","dateOfBirth":"1996-05-14","email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer","employmentType":"FULL_TIME","joiningDate":"2024-07-01","createdBy":"6968ff156a7f8fc7d7ba82e7","location":{"region":"Chennai","pickupPoint":{"name":"T Nagar Bus Stop","geo":{"type":"Point","coordinates":[80.2337,13.0405]}}},"shift":{"shiftName":"Day Shift","loginTime":"09:00","logoutTime":"18:00","isOvernight":false}} 
+2026-01-25 17:14:58 [INFO]: Create Employee API called 
+2026-01-25 17:14:58 [DEBUG]: Employee input received {"email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer"}
+2026-01-25 17:14:58 [ERROR]: ReferenceError: corporateId is not defined
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:48:44
+    at F:\development\Backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at F:\development\Backend\middlewares\auth.js:150:5
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at exports.corporateprotect (F:\development\Backend\middlewares\auth.js:127:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 17:14:58 [INFO]: POST /api/corpo/employee/create/employees 500 382.137 ms - body={"corporateId":"696b27860372e799fce8dd99","name":{"firstName":"Ramesh","lastName":"Kumar"},"gender":"MALE","dateOfBirth":"1996-05-14","email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer","employmentType":"FULL_TIME","joiningDate":"2024-07-01","createdBy":"6968ff156a7f8fc7d7ba82e7","location":{"region":"Chennai","pickupPoint":{"name":"T Nagar Bus Stop","geo":{"type":"Point","coordinates":[80.2337,13.0405]}}},"shift":{"shiftName":"Day Shift","loginTime":"09:00","logoutTime":"18:00","isOvernight":false}} 
+2026-01-25 17:19:22 [INFO]: Create Employee API called 
+2026-01-25 17:19:22 [DEBUG]: Employee input received {"email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer"}
+2026-01-25 17:19:22 [ERROR]: Error: corporateCode, firstName, and dob are required
+    at generateEmployeeLoginId (F:\development\Backend\utils\credentialUtil.js:13:11)
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:62:19
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 17:19:22 [INFO]: POST /api/corpo/employee/create/employees 500 205.010 ms - body={"corporateId":"696b27860372e799fce8dd99","name":{"firstName":"Ramesh","lastName":"Kumar"},"gender":"MALE","dateOfBirth":"1996-05-14","email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer","employmentType":"FULL_TIME","joiningDate":"2024-07-01","createdBy":"6968ff156a7f8fc7d7ba82e7","location":{"region":"Chennai","pickupPoint":{"name":"T Nagar Bus Stop","geo":{"type":"Point","coordinates":[80.2337,13.0405]}}},"shift":{"shiftName":"Day Shift","loginTime":"09:00","logoutTime":"18:00","isOvernight":false}} 
+2026-01-25 17:21:42 [INFO]: Create Employee API called 
+2026-01-25 17:21:42 [DEBUG]: Employee input received {"email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer"}
+2026-01-25 17:21:42 [ERROR]: Error: corporateCode, firstName, and dob are required
+    at generateEmployeeLoginId (F:\development\Backend\utils\credentialUtil.js:13:11)
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:62:19
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 17:21:42 [INFO]: POST /api/corpo/employee/create/employees 500 78.429 ms - body={"name":{"firstName":"Ramesh","lastName":"Kumar"},"gender":"MALE","dateOfBirth":"1996-05-14","email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer","employmentType":"FULL_TIME","joiningDate":"2024-07-01","createdBy":"6968ff156a7f8fc7d7ba82e7","location":{"region":"Chennai","pickupPoint":{"name":"T Nagar Bus Stop","geo":{"type":"Point","coordinates":[80.2337,13.0405]}}},"shift":{"shiftName":"Day Shift","loginTime":"09:00","logoutTime":"18:00","isOvernight":false}} 
+2026-01-25 17:23:00 [INFO]: Create Employee API called 
+2026-01-25 17:23:00 [DEBUG]: Employee input received {"email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer"}
+2026-01-25 17:23:00 [INFO]: Employee credentials generated {"employeeCode":"EMP-CORP-ACMETE-B8D0E0-RAMESH-6525","loginId":"ECORRAMES96"}
+2026-01-25 17:23:02 [ERROR]: StrictModeError: Field `password` is not in schema and strict mode is set to throw.
+    at model.$set (F:\development\Backend\node_modules\mongoose\lib\document.js:1166:19)
+    at model.Document (F:\development\Backend\node_modules\mongoose\lib\document.js:178:12)
+    at model.Model (F:\development\Backend\node_modules\mongoose\lib\model.js:129:12)
+    at new model (F:\development\Backend\node_modules\mongoose\lib\model.js:4668:15)
+    at F:\development\Backend\node_modules\mongoose\lib\model.js:2711:20
+    at Array.map (<anonymous>)
+    at model.create (F:\development\Backend\node_modules\mongoose\lib\model.js:2699:34)
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:78:35 {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 17:23:02 [INFO]: POST /api/corpo/employee/create/employees 500 3144.715 ms - body={"name":{"firstName":"Ramesh","lastName":"Kumar"},"gender":"MALE","dateOfBirth":"1996-05-14","email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer","employmentType":"FULL_TIME","joiningDate":"2024-07-01","createdBy":"6968ff156a7f8fc7d7ba82e7","location":{"region":"Chennai","pickupPoint":{"name":"T Nagar Bus Stop","geo":{"type":"Point","coordinates":[80.2337,13.0405]}}},"shift":{"shiftName":"Day Shift","loginTime":"09:00","logoutTime":"18:00","isOvernight":false}} 
+2026-01-25 17:25:18 [INFO]: Create Employee API called 
+2026-01-25 17:25:18 [DEBUG]: Employee input received {"email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer"}
+2026-01-25 17:25:19 [INFO]: Employee credentials generated {"employeeCode":"EMP-CORP-ACMETE-B8D0E0-RAMESH-EAA9","loginId":"ECORRAMES96"}
+2026-01-25 17:25:20 [ERROR]: ValidationError: CorporateEmployee validation failed: createdBy: Path `createdBy` is required.
+    at Document.invalidate (F:\development\Backend\node_modules\mongoose\lib\document.js:3385:32)
+    at validatePath (F:\development\Backend\node_modules\mongoose\lib\document.js:3160:13)
+    at async Promise.all (index 12)
+    at async model.$__validate (F:\development\Backend\node_modules\mongoose\lib\document.js:3101:3)
+    at async model.validate (F:\development\Backend\node_modules\mongoose\lib\document.js:2672:5)
+    at async model.validateBeforeSave (F:\development\Backend\node_modules\mongoose\lib\plugins\validateBeforeSave.js:34:7)
+    at async Kareem.execPre (F:\development\Backend\node_modules\kareem\index.js:65:24)
+    at async model.$__save (F:\development\Backend\node_modules\mongoose\lib\model.js:369:5)
+    at async model.save (F:\development\Backend\node_modules\mongoose\lib\model.js:609:5)
+    at async F:\development\Backend\node_modules\mongoose\lib\model.js:2714:9
+    at async Promise.all (index 0)
+    at async model.create (F:\development\Backend\node_modules\mongoose\lib\model.js:2699:11)
+    at async F:\development\Backend\controllers\corporate.employeid.controller.js:78:20 {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 17:25:20 [INFO]: POST /api/corpo/employee/create/employees 500 2385.656 ms - body={"name":{"firstName":"Ramesh","lastName":"Kumar"},"gender":"MALE","dateOfBirth":"1996-05-14","email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer","employmentType":"FULL_TIME","joiningDate":"2024-07-01","createdBy":"6968ff156a7f8fc7d7ba82e7","location":{"region":"Chennai","pickupPoint":{"name":"T Nagar Bus Stop","geo":{"type":"Point","coordinates":[80.2337,13.0405]}}},"shift":{"shiftName":"Day Shift","loginTime":"09:00","logoutTime":"18:00","isOvernight":false}} 
+2026-01-25 17:25:28 [INFO]: Create Employee API called 
+2026-01-25 17:25:28 [DEBUG]: Employee input received {"email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer"}
+2026-01-25 17:25:28 [INFO]: Employee credentials generated {"employeeCode":"EMP-CORP-ACMETE-B8D0E0-RAMESH-E375","loginId":"ECORRAMES96"}
+2026-01-25 17:25:30 [ERROR]: ValidationError: CorporateEmployee validation failed: createdBy: Path `createdBy` is required.
+    at Document.invalidate (F:\development\Backend\node_modules\mongoose\lib\document.js:3385:32)
+    at validatePath (F:\development\Backend\node_modules\mongoose\lib\document.js:3160:13)
+    at async Promise.all (index 12)
+    at async model.$__validate (F:\development\Backend\node_modules\mongoose\lib\document.js:3101:3)
+    at async model.validate (F:\development\Backend\node_modules\mongoose\lib\document.js:2672:5)
+    at async model.validateBeforeSave (F:\development\Backend\node_modules\mongoose\lib\plugins\validateBeforeSave.js:34:7)
+    at async Kareem.execPre (F:\development\Backend\node_modules\kareem\index.js:65:24)
+    at async model.$__save (F:\development\Backend\node_modules\mongoose\lib\model.js:369:5)
+    at async model.save (F:\development\Backend\node_modules\mongoose\lib\model.js:609:5)
+    at async F:\development\Backend\node_modules\mongoose\lib\model.js:2714:9
+    at async Promise.all (index 0)
+    at async model.create (F:\development\Backend\node_modules\mongoose\lib\model.js:2699:11)
+    at async F:\development\Backend\controllers\corporate.employeid.controller.js:78:20 {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 17:25:30 [INFO]: POST /api/corpo/employee/create/employees 500 1469.198 ms - body={"name":{"firstName":"Ramesh","lastName":"Kumar"},"gender":"MALE","dateOfBirth":"1996-05-14","email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer","employmentType":"FULL_TIME","joiningDate":"2024-07-01","createdBy":"6968ff156a7f8fc7d7ba82e7","location":{"region":"Chennai","pickupPoint":{"name":"T Nagar Bus Stop","geo":{"type":"Point","coordinates":[80.2337,13.0405]}}},"shift":{"shiftName":"Day Shift","loginTime":"09:00","logoutTime":"18:00","isOvernight":false}} 
+2026-01-25 17:26:32 [INFO]: Create Employee API called 
+2026-01-25 17:26:32 [DEBUG]: Employee input received {"email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer"}
+2026-01-25 17:26:32 [INFO]: Employee credentials generated {"employeeCode":"EMP-CORP-ACMETE-B8D0E0-RAMESH-1734","loginId":"ECORRAMES96"}
+2026-01-25 17:26:33 [ERROR]: ValidationError: CorporateEmployee validation failed: createdBy: Path `createdBy` is required.
+    at Document.invalidate (F:\development\Backend\node_modules\mongoose\lib\document.js:3385:32)
+    at validatePath (F:\development\Backend\node_modules\mongoose\lib\document.js:3160:13)
+    at async Promise.all (index 12)
+    at async model.$__validate (F:\development\Backend\node_modules\mongoose\lib\document.js:3101:3)
+    at async model.validate (F:\development\Backend\node_modules\mongoose\lib\document.js:2672:5)
+    at async model.validateBeforeSave (F:\development\Backend\node_modules\mongoose\lib\plugins\validateBeforeSave.js:34:7)
+    at async Kareem.execPre (F:\development\Backend\node_modules\kareem\index.js:65:24)
+    at async model.$__save (F:\development\Backend\node_modules\mongoose\lib\model.js:369:5)
+    at async model.save (F:\development\Backend\node_modules\mongoose\lib\model.js:609:5)
+    at async F:\development\Backend\node_modules\mongoose\lib\model.js:2714:9
+    at async Promise.all (index 0)
+    at async model.create (F:\development\Backend\node_modules\mongoose\lib\model.js:2699:11)
+    at async F:\development\Backend\controllers\corporate.employeid.controller.js:78:20 {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 17:26:33 [INFO]: POST /api/corpo/employee/create/employees 500 1385.643 ms - body={"name":{"firstName":"Ramesh","lastName":"Kumar"},"gender":"MALE","dateOfBirth":"1996-05-14","email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer","employmentType":"FULL_TIME","joiningDate":"2024-07-01","location":{"region":"Chennai","pickupPoint":{"name":"T Nagar Bus Stop","geo":{"type":"Point","coordinates":[80.2337,13.0405]}}},"shift":{"shiftName":"Day Shift","loginTime":"09:00","logoutTime":"18:00","isOvernight":false}} 
+2026-01-25 17:26:43 [INFO]: Create Employee API called 
+2026-01-25 17:26:43 [DEBUG]: Employee input received {"email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer"}
+2026-01-25 17:26:43 [INFO]: Employee credentials generated {"employeeCode":"EMP-CORP-ACMETE-B8D0E0-RAMESH-B67C","loginId":"ECORRAMES96"}
+2026-01-25 17:26:44 [ERROR]: ValidationError: CorporateEmployee validation failed: createdBy: Path `createdBy` is required.
+    at Document.invalidate (F:\development\Backend\node_modules\mongoose\lib\document.js:3385:32)
+    at validatePath (F:\development\Backend\node_modules\mongoose\lib\document.js:3160:13)
+    at async Promise.all (index 12)
+    at async model.$__validate (F:\development\Backend\node_modules\mongoose\lib\document.js:3101:3)
+    at async model.validate (F:\development\Backend\node_modules\mongoose\lib\document.js:2672:5)
+    at async model.validateBeforeSave (F:\development\Backend\node_modules\mongoose\lib\plugins\validateBeforeSave.js:34:7)
+    at async Kareem.execPre (F:\development\Backend\node_modules\kareem\index.js:65:24)
+    at async model.$__save (F:\development\Backend\node_modules\mongoose\lib\model.js:369:5)
+    at async model.save (F:\development\Backend\node_modules\mongoose\lib\model.js:609:5)
+    at async F:\development\Backend\node_modules\mongoose\lib\model.js:2714:9
+    at async Promise.all (index 0)
+    at async model.create (F:\development\Backend\node_modules\mongoose\lib\model.js:2699:11)
+    at async F:\development\Backend\controllers\corporate.employeid.controller.js:78:20 {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 17:26:44 [INFO]: POST /api/corpo/employee/create/employees 500 1500.357 ms - body={"name":{"firstName":"Ramesh","lastName":"Kumar"},"gender":"MALE","dateOfBirth":"1996-05-14","email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer","employmentType":"FULL_TIME","joiningDate":"2024-07-01","location":{"region":"Chennai","pickupPoint":{"name":"T Nagar Bus Stop","geo":{"type":"Point","coordinates":[80.2337,13.0405]}}},"shift":{"shiftName":"Day Shift","loginTime":"09:00","logoutTime":"18:00","isOvernight":false}} 
+2026-01-25 17:27:49 [INFO]: Create Employee API called 
+2026-01-25 17:27:49 [DEBUG]: Employee input received {"email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer"}
+2026-01-25 17:27:49 [INFO]: Employee credentials generated {"employeeCode":"EMP-CORP-ACMETE-B8D0E0-RAMESH-71D3","loginId":"ECORRAMES96"}
+2026-01-25 17:27:50 [ERROR]: ValidationError: CorporateEmployee validation failed: createdBy: Path `createdBy` is required.
+    at Document.invalidate (F:\development\Backend\node_modules\mongoose\lib\document.js:3385:32)
+    at validatePath (F:\development\Backend\node_modules\mongoose\lib\document.js:3160:13)
+    at async Promise.all (index 12)
+    at async model.$__validate (F:\development\Backend\node_modules\mongoose\lib\document.js:3101:3)
+    at async model.validate (F:\development\Backend\node_modules\mongoose\lib\document.js:2672:5)
+    at async model.validateBeforeSave (F:\development\Backend\node_modules\mongoose\lib\plugins\validateBeforeSave.js:34:7)
+    at async Kareem.execPre (F:\development\Backend\node_modules\kareem\index.js:65:24)
+    at async model.$__save (F:\development\Backend\node_modules\mongoose\lib\model.js:369:5)
+    at async model.save (F:\development\Backend\node_modules\mongoose\lib\model.js:609:5)
+    at async F:\development\Backend\node_modules\mongoose\lib\model.js:2714:9
+    at async Promise.all (index 0)
+    at async model.create (F:\development\Backend\node_modules\mongoose\lib\model.js:2699:11)
+    at async F:\development\Backend\controllers\corporate.employeid.controller.js:78:20 {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 17:27:50 [INFO]: POST /api/corpo/employee/create/employees 500 1323.697 ms - body={"name":{"firstName":"Ramesh","lastName":"Kumar"},"gender":"MALE","dateOfBirth":"1996-05-14","email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer","employmentType":"FULL_TIME","joiningDate":"2024-07-01","location":{"region":"Chennai","pickupPoint":{"name":"T Nagar Bus Stop","geo":{"type":"Point","coordinates":[80.2337,13.0405]}}},"shift":{"shiftName":"Day Shift","loginTime":"09:00","logoutTime":"18:00","isOvernight":false}} 
+2026-01-25 17:28:52 [INFO]: Create Employee API called 
+2026-01-25 17:28:52 [DEBUG]: Employee input received {"email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer"}
+2026-01-25 17:28:52 [INFO]: Employee credentials generated {"employeeCode":"EMP-CORP-ACMETE-B8D0E0-RAMESH-7E49","loginId":"ECORRAMES96"}
+2026-01-25 17:28:55 [ERROR]: TypeError: next is not a function
+    at model.<anonymous> (F:\development\Backend\models\corporate.employeeModel.js:329:3)
+    at Kareem.execPre (F:\development\Backend\node_modules\kareem\index.js:63:39)
+    at async model.$__save (F:\development\Backend\node_modules\mongoose\lib\model.js:369:5)
+    at async model.save (F:\development\Backend\node_modules\mongoose\lib\model.js:609:5)
+    at async F:\development\Backend\node_modules\mongoose\lib\model.js:2714:9
+    at async Promise.all (index 0)
+    at async model.create (F:\development\Backend\node_modules\mongoose\lib\model.js:2699:11)
+    at async F:\development\Backend\controllers\corporate.employeid.controller.js:78:20 {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 17:28:55 [INFO]: POST /api/corpo/employee/create/employees 500 4498.273 ms - body={"name":{"firstName":"Ramesh","lastName":"Kumar"},"gender":"MALE","dateOfBirth":"1996-05-14","email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer","employmentType":"FULL_TIME","joiningDate":"2024-07-01","location":{"region":"Chennai","pickupPoint":{"name":"T Nagar Bus Stop","geo":{"type":"Point","coordinates":[80.2337,13.0405]}}},"shift":{"shiftName":"Day Shift","loginTime":"09:00","logoutTime":"18:00","isOvernight":false}} 

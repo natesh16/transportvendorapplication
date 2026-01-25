@@ -9,7 +9,10 @@ const validator = require("validator");
 
 const employeeSchema = new mongoose.Schema(
   {
-    /* 🔗 Corporate Mapping */
+    /* ===================================================== */
+    /* 🔗 EXISTING FIELDS (UNCHANGED)                         */
+    /* ===================================================== */
+
     corporateId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Corporate",
@@ -17,35 +20,38 @@ const employeeSchema = new mongoose.Schema(
       index: true,
       immutable: true
     },
-
-    /* 🆔 System Generated Employee Code */
     employeeCode: {
       type: String,
       required: true,
       unique: true,
       immutable: true,
       uppercase: true,
-      index: true,
+      index: true
     },
-  loginId: {
+
+    loginId: {
       type: String,
       unique: true,
       uppercase: true,
       index: true
     },
+password: {
+  type: String,
+  required: true,
+  select: false, // ❗ never return password in queries
+  // minlength: 12
+},
+    passwordChangedAt: Date,
 
-    /* 🔐 Authentication */
-    password: {
-      type: String,
-      select: false
+    passwordExpiresAt: {
+      type: Date,
+      index: true
     },
 
     mustChangePassword: {
       type: Boolean,
       default: true
     },
-
-    /* 👤 Identity */
     name: {
       firstName: {
         type: String,
@@ -67,11 +73,13 @@ const employeeSchema = new mongoose.Schema(
       type: String,
       enum: ["MALE", "FEMALE", "OTHER"]
     },
-dateOfBirth: {
-  type: Date,
-  required: true,
-  index: true},
-    /* 📧 Contact (Protected) */
+
+    dateOfBirth: {
+      type: Date,
+      required: true,
+      index: true
+    },
+
     email: {
       type: String,
       lowercase: true,
@@ -89,7 +97,6 @@ dateOfBirth: {
       match: [/^[6-9]\d{9}$/, "Invalid phone number"]
     },
 
-    /* 🏢 Employment */
     department: {
       type: String,
       trim: true,
@@ -119,7 +126,6 @@ dateOfBirth: {
       }
     },
 
-    /* ✅ Verification */
     isVerified: {
       type: Boolean,
       default: false
@@ -127,7 +133,6 @@ dateOfBirth: {
 
     lastVerifiedAt: Date,
 
-    /* 🚦 Status */
     isActive: {
       type: Boolean,
       default: true,
@@ -146,19 +151,143 @@ dateOfBirth: {
       maxlength: 200
     },
 
-    /* 🧾 Audit */
     createdBy: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "CorporateUser",
-      required: true,
+      // required: true,
       immutable: true
     },
 
     updatedBy: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "CorporateUser"
-    }
+    },
+
+    /* ===================================================== */
+    /* 🆕 EMPLOYEE LOCATION DETAILS                           */
+    /* ===================================================== */
+
+    location: {
+      region: {
+        type: String,
+        trim: true,
+        maxlength: 100,
+        index: true
+      },
+
+      pickupPoint: {
+        name: {
+          type: String,
+          trim: true,
+          maxlength: 120
+        },
+
+        geo: {
+          type: {
+            type: String,
+            enum: ["Point"],
+            default: "Point"
+          },
+          coordinates: {
+            type: [Number], // [longitude, latitude]
+            index: "2dsphere"
+          }
+        }
+      }
+    },
+
+    /* ===================================================== */
+    /* 🆕 SHIFT CONFIGURATION                                 */
+    /* ===================================================== */
+
+    loginAudit: [
+      {
+        loginAt: {
+          type: Date,
+          default: Date.now
+        },
+
+        ipAddress: String,
+
+        userAgent: String,
+
+        device: String,
+
+        success: Boolean
+      }
+    ],
+
+    shift: {
+      shiftName: {
+        type: String,
+        trim: true,
+        maxlength: 50
+      },
+
+      loginTime: {
+        type: String, // "09:00"
+        match: [/^\d{2}:\d{2}$/, "Invalid login time format"]
+      },
+
+      logoutTime: {
+        type: String, // "18:00"
+        match: [/^\d{2}:\d{2}$/, "Invalid logout time format"]
+      },
+
+      isOvernight: {
+        type: Boolean,
+        default: false
+      }
+    },
+    /* 🔐 Login Security */
+    loginAttempts: {
+      type: Number,
+      default: 0
+    },
+
+    lockUntil: {
+      type: Date
+    },
+
+    lastLoginAt: Date,
+
+    /* ===================================================== */
+    /* 🆕 SHIFT LOGIN / LOGOUT LOGS (AUDITABLE)               */
+    /* ===================================================== */
+
+    attendanceLogs: [
+      {
+        date: {
+          type: Date,
+          required: true,
+          index: true
+        },
+
+        loginAt: Date,
+        logoutAt: Date,
+
+        status: {
+          type: String,
+          enum: ["ON_TIME", "LATE", "EARLY_EXIT", "ABSENT"]
+        },
+
+        loginGeo: {
+          type: {
+            type: String,
+            enum: ["Point"],
+            default: "Point"
+          },
+          coordinates: [Number]
+        },
+
+        deviceInfo: {
+          ip: String,
+          device: String
+        }
+      }
+    ]
   },
+
   {
     timestamps: true,
     strict: "throw",
@@ -167,7 +296,10 @@ dateOfBirth: {
   }
 );
 
-/* 🔐 Prevent Duplicate Email per Corporate (Soft Delete Safe) */
+/* ===================================================== */
+/* 🔐 EXISTING INDEXES & MIDDLEWARE (UNCHANGED)           */
+/* ===================================================== */
+
 employeeSchema.index(
   { corporateId: 1, email: 1 },
   {
@@ -179,7 +311,6 @@ employeeSchema.index(
   }
 );
 
-/* 🔐 Prevent Duplicate Phone per Corporate */
 employeeSchema.index(
   { corporateId: 1, phone: 1 },
   {
@@ -191,19 +322,16 @@ employeeSchema.index(
   }
 );
 
-/* 🧼 Normalize Data */
 employeeSchema.pre("save", function (next) {
   if (this.email) this.email = this.email.toLowerCase();
   if (this.employeeCode)
     this.employeeCode = this.employeeCode.toUpperCase();
 });
 
-/* 🛡️ Hide soft-deleted records by default */
 employeeSchema.pre(/^find/, function (next) {
   this.where({ isDeleted: false });
 });
 
-/* 🔁 Soft Delete Method */
 employeeSchema.methods.softDelete = function (userId, reason) {
   this.isDeleted = true;
   this.isActive = false;
@@ -211,5 +339,47 @@ employeeSchema.methods.softDelete = function (userId, reason) {
   this.updatedBy = userId;
   return this.save();
 };
+employeeSchema.methods.isAccountLocked = function () {
+  return this.lockUntil && this.lockUntil > Date.now();
+};
+employeeSchema.methods.incrementLoginAttempts = async function () {
+  const MAX_ATTEMPTS = 5;
+  const LOCK_TIME = 30 * 60 * 1000; // 30 minutes
 
-module.exports = mongoose.model(" CorporateEmployee", employeeSchema);
+  if (this.lockUntil && this.lockUntil < Date.now()) {
+    this.loginAttempts = 1;
+    this.lockUntil = undefined;
+  } else {
+    this.loginAttempts += 1;
+    if (this.loginAttempts >= MAX_ATTEMPTS) {
+      this.lockUntil = Date.now() + LOCK_TIME;
+    }
+  }
+
+  await this.save({ validateBeforeSave: false });
+};
+employeeSchema.methods.addLoginAudit = async function ({
+  req,
+  success
+}) {
+  const ip =
+    req.headers["x-forwarded-for"]?.split(",")[0] ||
+    req.socket.remoteAddress;
+
+  this.loginAudit.push({
+    ipAddress: ip,
+    userAgent: req.headers["user-agent"],
+    device: req.headers["user-agent"] || "Unknown",
+    success
+  });
+
+  if (success) {
+    this.loginAttempts = 0;
+    this.lockUntil = undefined;
+    this.lastLoginAt = new Date();
+  }
+
+  await this.save({ validateBeforeSave: false });
+};
+
+module.exports = mongoose.model("CorporateEmployee", employeeSchema);

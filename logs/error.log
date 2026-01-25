@@ -636,3 +636,298 @@
     at async Promise.all (index 0)
     at async model.create (F:\development\Backend\node_modules\mongoose\lib\model.js:2699:11)
     at async F:\development\Backend\controllers\corporate.employeid.controller.js:66:20 {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 16:49:34 [ERROR]: Error: Corporate code and first name are required
+    at generateEmployeeCode (F:\development\Backend\utils\credentialUtil.js:80:11)
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:41:24
+    at F:\development\Backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at F:\development\Backend\middlewares\auth.js:150:5
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at exports.corporateprotect (F:\development\Backend\middlewares\auth.js:127:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 16:51:04 [ERROR]: Error: Corporate code and first name are required
+    at generateEmployeeCode (F:\development\Backend\utils\credentialUtil.js:80:11)
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:41:24
+    at F:\development\Backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at F:\development\Backend\middlewares\auth.js:150:5
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at exports.corporateprotect (F:\development\Backend\middlewares\auth.js:127:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 16:52:00 [ERROR]: Error: Corporate code and first name are required
+    at generateEmployeeCode (F:\development\Backend\utils\credentialUtil.js:80:11)
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:41:24
+    at F:\development\Backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at F:\development\Backend\middlewares\auth.js:150:5
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at exports.corporateprotect (F:\development\Backend\middlewares\auth.js:127:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 16:52:04 [ERROR]: Error: Corporate code and first name are required
+    at generateEmployeeCode (F:\development\Backend\utils\credentialUtil.js:80:11)
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:41:24
+    at F:\development\Backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at F:\development\Backend\middlewares\auth.js:150:5
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at exports.corporateprotect (F:\development\Backend\middlewares\auth.js:127:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 16:53:03 [ERROR]: Error: Corporate code and first name are required
+    at generateEmployeeCode (F:\development\Backend\utils\credentialUtil.js:80:11)
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:41:24
+    at F:\development\Backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at F:\development\Backend\middlewares\auth.js:150:5
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at exports.corporateprotect (F:\development\Backend\middlewares\auth.js:127:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 16:53:18 [ERROR]: Error: Authentication required
+    at exports.corporateprotect (F:\development\Backend\middlewares\auth.js:92:7)
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (F:\development\Backend\node_modules\router\lib\route.js:117:3)
+    at handle (F:\development\Backend\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at F:\development\Backend\node_modules\router\index.js:295:15
+    at processParams (F:\development\Backend\node_modules\router\index.js:582:12)
+    at next (F:\development\Backend\node_modules\router\index.js:291:5)
+    at router.handle (F:\development\Backend\node_modules\router\index.js:186:3)
+    at router (F:\development\Backend\node_modules\router\index.js:60:12)
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (F:\development\Backend\node_modules\router\index.js:342:13)
+    at F:\development\Backend\node_modules\router\index.js:297:9
+    at processParams (F:\development\Backend\node_modules\router\index.js:582:12)
+    at next (F:\development\Backend\node_modules\router\index.js:291:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":null}
+2026-01-25 16:54:24 [ERROR]: Error: Corporate code and first name are required
+    at generateEmployeeCode (F:\development\Backend\utils\credentialUtil.js:80:11)
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:41:24
+    at F:\development\Backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at F:\development\Backend\middlewares\auth.js:150:5
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at exports.corporateprotect (F:\development\Backend\middlewares\auth.js:127:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 16:56:08 [ERROR]: Error: Corporate code and first name are required
+    at generateEmployeeCode (F:\development\Backend\utils\credentialUtil.js:80:11)
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:41:24
+    at F:\development\Backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at F:\development\Backend\middlewares\auth.js:150:5
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at exports.corporateprotect (F:\development\Backend\middlewares\auth.js:127:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 16:57:19 [ERROR]: Error: Corporate code and first name are required
+    at generateEmployeeCode (F:\development\Backend\utils\credentialUtil.js:77:11)
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:41:24
+    at F:\development\Backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at F:\development\Backend\middlewares\auth.js:150:5
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at exports.corporateprotect (F:\development\Backend\middlewares\auth.js:127:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 17:00:15 [ERROR]: Error: Corporate code and first name are required
+    at generateEmployeeCode (F:\development\Backend\utils\credentialUtil.js:77:11)
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:41:24
+    at F:\development\Backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at F:\development\Backend\middlewares\auth.js:150:5
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at exports.corporateprotect (F:\development\Backend\middlewares\auth.js:127:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 17:00:17 [ERROR]: Error: Corporate code and first name are required
+    at generateEmployeeCode (F:\development\Backend\utils\credentialUtil.js:77:11)
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:41:24
+    at F:\development\Backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at F:\development\Backend\middlewares\auth.js:150:5
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at exports.corporateprotect (F:\development\Backend\middlewares\auth.js:127:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 17:01:38 [ERROR]: Error: Corporate code and first name are required
+    at generateEmployeeCode (F:\development\Backend\utils\credentialUtil.js:77:11)
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:41:24
+    at F:\development\Backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at F:\development\Backend\middlewares\auth.js:150:5
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at exports.corporateprotect (F:\development\Backend\middlewares\auth.js:127:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 17:06:15 [ERROR]: ReferenceError: corporate is not defined
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:45:6
+    at F:\development\Backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at F:\development\Backend\middlewares\auth.js:150:5
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at exports.corporateprotect (F:\development\Backend\middlewares\auth.js:127:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 17:06:48 [ERROR]: Error: Corporate code and first name are required
+    at generateEmployeeCode (F:\development\Backend\utils\credentialUtil.js:77:11)
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:41:24
+    at F:\development\Backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at F:\development\Backend\middlewares\auth.js:150:5
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at exports.corporateprotect (F:\development\Backend\middlewares\auth.js:127:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 17:09:12 [ERROR]: ReferenceError: corporateId is not defined
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:47:46
+    at F:\development\Backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at F:\development\Backend\middlewares\auth.js:150:5
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at exports.corporateprotect (F:\development\Backend\middlewares\auth.js:127:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 17:09:58 [ERROR]: ReferenceError: corporateId is not defined
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:47:46
+    at F:\development\Backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at F:\development\Backend\middlewares\auth.js:150:5
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at exports.corporateprotect (F:\development\Backend\middlewares\auth.js:127:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 17:11:03 [ERROR]: ReferenceError: corporateId is not defined
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:47:46
+    at F:\development\Backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at F:\development\Backend\middlewares\auth.js:150:5
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at exports.corporateprotect (F:\development\Backend\middlewares\auth.js:127:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 17:14:58 [ERROR]: ReferenceError: corporateId is not defined
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:48:44
+    at F:\development\Backend\utils\asyncHandler.js:3:21
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at F:\development\Backend\middlewares\auth.js:150:5
+    at Layer.handleRequest (F:\development\Backend\node_modules\router\lib\layer.js:152:17)
+    at next (F:\development\Backend\node_modules\router\lib\route.js:157:13)
+    at exports.corporateprotect (F:\development\Backend\middlewares\auth.js:127:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 17:19:22 [ERROR]: Error: corporateCode, firstName, and dob are required
+    at generateEmployeeLoginId (F:\development\Backend\utils\credentialUtil.js:13:11)
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:62:19
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 17:21:42 [ERROR]: Error: corporateCode, firstName, and dob are required
+    at generateEmployeeLoginId (F:\development\Backend\utils\credentialUtil.js:13:11)
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:62:19
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 17:23:02 [ERROR]: StrictModeError: Field `password` is not in schema and strict mode is set to throw.
+    at model.$set (F:\development\Backend\node_modules\mongoose\lib\document.js:1166:19)
+    at model.Document (F:\development\Backend\node_modules\mongoose\lib\document.js:178:12)
+    at model.Model (F:\development\Backend\node_modules\mongoose\lib\model.js:129:12)
+    at new model (F:\development\Backend\node_modules\mongoose\lib\model.js:4668:15)
+    at F:\development\Backend\node_modules\mongoose\lib\model.js:2711:20
+    at Array.map (<anonymous>)
+    at model.create (F:\development\Backend\node_modules\mongoose\lib\model.js:2699:34)
+    at F:\development\Backend\controllers\corporate.employeid.controller.js:78:35 {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 17:25:20 [ERROR]: ValidationError: CorporateEmployee validation failed: createdBy: Path `createdBy` is required.
+    at Document.invalidate (F:\development\Backend\node_modules\mongoose\lib\document.js:3385:32)
+    at validatePath (F:\development\Backend\node_modules\mongoose\lib\document.js:3160:13)
+    at async Promise.all (index 12)
+    at async model.$__validate (F:\development\Backend\node_modules\mongoose\lib\document.js:3101:3)
+    at async model.validate (F:\development\Backend\node_modules\mongoose\lib\document.js:2672:5)
+    at async model.validateBeforeSave (F:\development\Backend\node_modules\mongoose\lib\plugins\validateBeforeSave.js:34:7)
+    at async Kareem.execPre (F:\development\Backend\node_modules\kareem\index.js:65:24)
+    at async model.$__save (F:\development\Backend\node_modules\mongoose\lib\model.js:369:5)
+    at async model.save (F:\development\Backend\node_modules\mongoose\lib\model.js:609:5)
+    at async F:\development\Backend\node_modules\mongoose\lib\model.js:2714:9
+    at async Promise.all (index 0)
+    at async model.create (F:\development\Backend\node_modules\mongoose\lib\model.js:2699:11)
+    at async F:\development\Backend\controllers\corporate.employeid.controller.js:78:20 {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 17:25:30 [ERROR]: ValidationError: CorporateEmployee validation failed: createdBy: Path `createdBy` is required.
+    at Document.invalidate (F:\development\Backend\node_modules\mongoose\lib\document.js:3385:32)
+    at validatePath (F:\development\Backend\node_modules\mongoose\lib\document.js:3160:13)
+    at async Promise.all (index 12)
+    at async model.$__validate (F:\development\Backend\node_modules\mongoose\lib\document.js:3101:3)
+    at async model.validate (F:\development\Backend\node_modules\mongoose\lib\document.js:2672:5)
+    at async model.validateBeforeSave (F:\development\Backend\node_modules\mongoose\lib\plugins\validateBeforeSave.js:34:7)
+    at async Kareem.execPre (F:\development\Backend\node_modules\kareem\index.js:65:24)
+    at async model.$__save (F:\development\Backend\node_modules\mongoose\lib\model.js:369:5)
+    at async model.save (F:\development\Backend\node_modules\mongoose\lib\model.js:609:5)
+    at async F:\development\Backend\node_modules\mongoose\lib\model.js:2714:9
+    at async Promise.all (index 0)
+    at async model.create (F:\development\Backend\node_modules\mongoose\lib\model.js:2699:11)
+    at async F:\development\Backend\controllers\corporate.employeid.controller.js:78:20 {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 17:26:33 [ERROR]: ValidationError: CorporateEmployee validation failed: createdBy: Path `createdBy` is required.
+    at Document.invalidate (F:\development\Backend\node_modules\mongoose\lib\document.js:3385:32)
+    at validatePath (F:\development\Backend\node_modules\mongoose\lib\document.js:3160:13)
+    at async Promise.all (index 12)
+    at async model.$__validate (F:\development\Backend\node_modules\mongoose\lib\document.js:3101:3)
+    at async model.validate (F:\development\Backend\node_modules\mongoose\lib\document.js:2672:5)
+    at async model.validateBeforeSave (F:\development\Backend\node_modules\mongoose\lib\plugins\validateBeforeSave.js:34:7)
+    at async Kareem.execPre (F:\development\Backend\node_modules\kareem\index.js:65:24)
+    at async model.$__save (F:\development\Backend\node_modules\mongoose\lib\model.js:369:5)
+    at async model.save (F:\development\Backend\node_modules\mongoose\lib\model.js:609:5)
+    at async F:\development\Backend\node_modules\mongoose\lib\model.js:2714:9
+    at async Promise.all (index 0)
+    at async model.create (F:\development\Backend\node_modules\mongoose\lib\model.js:2699:11)
+    at async F:\development\Backend\controllers\corporate.employeid.controller.js:78:20 {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 17:26:44 [ERROR]: ValidationError: CorporateEmployee validation failed: createdBy: Path `createdBy` is required.
+    at Document.invalidate (F:\development\Backend\node_modules\mongoose\lib\document.js:3385:32)
+    at validatePath (F:\development\Backend\node_modules\mongoose\lib\document.js:3160:13)
+    at async Promise.all (index 12)
+    at async model.$__validate (F:\development\Backend\node_modules\mongoose\lib\document.js:3101:3)
+    at async model.validate (F:\development\Backend\node_modules\mongoose\lib\document.js:2672:5)
+    at async model.validateBeforeSave (F:\development\Backend\node_modules\mongoose\lib\plugins\validateBeforeSave.js:34:7)
+    at async Kareem.execPre (F:\development\Backend\node_modules\kareem\index.js:65:24)
+    at async model.$__save (F:\development\Backend\node_modules\mongoose\lib\model.js:369:5)
+    at async model.save (F:\development\Backend\node_modules\mongoose\lib\model.js:609:5)
+    at async F:\development\Backend\node_modules\mongoose\lib\model.js:2714:9
+    at async Promise.all (index 0)
+    at async model.create (F:\development\Backend\node_modules\mongoose\lib\model.js:2699:11)
+    at async F:\development\Backend\controllers\corporate.employeid.controller.js:78:20 {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 17:27:50 [ERROR]: ValidationError: CorporateEmployee validation failed: createdBy: Path `createdBy` is required.
+    at Document.invalidate (F:\development\Backend\node_modules\mongoose\lib\document.js:3385:32)
+    at validatePath (F:\development\Backend\node_modules\mongoose\lib\document.js:3160:13)
+    at async Promise.all (index 12)
+    at async model.$__validate (F:\development\Backend\node_modules\mongoose\lib\document.js:3101:3)
+    at async model.validate (F:\development\Backend\node_modules\mongoose\lib\document.js:2672:5)
+    at async model.validateBeforeSave (F:\development\Backend\node_modules\mongoose\lib\plugins\validateBeforeSave.js:34:7)
+    at async Kareem.execPre (F:\development\Backend\node_modules\kareem\index.js:65:24)
+    at async model.$__save (F:\development\Backend\node_modules\mongoose\lib\model.js:369:5)
+    at async model.save (F:\development\Backend\node_modules\mongoose\lib\model.js:609:5)
+    at async F:\development\Backend\node_modules\mongoose\lib\model.js:2714:9
+    at async Promise.all (index 0)
+    at async model.create (F:\development\Backend\node_modules\mongoose\lib\model.js:2699:11)
+    at async F:\development\Backend\controllers\corporate.employeid.controller.js:78:20 {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
+2026-01-25 17:28:55 [ERROR]: TypeError: next is not a function
+    at model.<anonymous> (F:\development\Backend\models\corporate.employeeModel.js:329:3)
+    at Kareem.execPre (F:\development\Backend\node_modules\kareem\index.js:63:39)
+    at async model.$__save (F:\development\Backend\node_modules\mongoose\lib\model.js:369:5)
+    at async model.save (F:\development\Backend\node_modules\mongoose\lib\model.js:609:5)
+    at async F:\development\Backend\node_modules\mongoose\lib\model.js:2714:9
+    at async Promise.all (index 0)
+    at async model.create (F:\development\Backend\node_modules\mongoose\lib\model.js:2699:11)
+    at async F:\development\Backend\controllers\corporate.employeid.controller.js:78:20 {"path":"/api/corpo/employee/create/employees","method":"POST","user":"697101ebfe0592696967dd16"}
