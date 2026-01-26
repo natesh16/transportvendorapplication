@@ -7,9 +7,12 @@ const protect = require("../middlewares/auth");
 const  corporateprotect  = require("../middlewares/auth");
 const { allowRoles }  = require("../middlewares/rbac");
 // const { restrictTo } = require("../middewares/rbac");
+
 const {
   createEmployee,
-  employeeLogin
+  employeeLogin,
+  changePassword
+
 } = require("../controllers/corporate.employeid.controller");
 
 router.post(
@@ -27,8 +30,25 @@ router.post(
   uploadExcel.single("file"),
   bulkUploadEmployees
 );
-/*==================BULK EMPLOYEE PUSH=============*/
+/*==================EMPLOYE PASSWORD =============*/
+/**
+ * @route   PATCH /api/employees/change-password
+ * @desc    Change employee password
+ * @access  Private (Employee)
+ */
+router.patch(
+  "/change-password",
+  protect,
+  allowRoles(
+    "EMPLOYEE",
+    "CORPORATE_ADMIN",
+    "CORPORATE_SUPERVISOR"
+  ),
+  changePassword
+);
 
+
+/*==================BULK EMPLOYEE PUSH=============*/
 router.post(
   "/bulk-upload",
   corporateprotect,
@@ -36,7 +56,6 @@ router.post(
   uploadExcel.single("file"),
   bulkUploadEmployees
 );
-
 router.get(
   "/bulk-upload/status/:jobId",
   corporateprotect,
@@ -45,7 +64,5 @@ router.get(
     res.json({ success: true, data: job });
   })
 );
-
-
 
 module.exports = router;

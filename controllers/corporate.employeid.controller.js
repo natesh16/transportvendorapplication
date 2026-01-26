@@ -13,12 +13,13 @@ const {
 } = require("../utils/credentialUtil");
 // controllers/employee.controller.js
 
+/*=============CREATE EMPLOYEE==================*/
 exports.createEmployee = asyncHandler(async (req, res) => {
   const log = req.log || logger;
-
+  
   log.info("Create Employee API called");
   const corporateId = req.user?.corporateId;
-const {
+  const {
     name,
     dateOfBirth,
     email,
@@ -56,7 +57,7 @@ if (!corporate) {
      corporate.corporateCode,
     name.firstName
   );
-
+  
   const loginId = generateEmployeeLoginId(
     corporate.corporateCode,
     name.firstName,
@@ -72,9 +73,9 @@ if (!corporate) {
     employeeCode,
     loginId
   });
-
+  
   const hashedPassword = await bcrypt.hash(tempPassword, 12);
-
+  
   /* 💾 Create Employee */
   const employee = await Employee.create({
     corporateId: req.user.corporateId,
@@ -96,27 +97,28 @@ if (!corporate) {
     shift,
     createdBy: req.user._id
   });
-
+  
   log.info("Employee created successfully", {
     employeeId: employee._id
   });
-
-res.status(201).json({
-  success: true,
-  message: "Employee created successfully",
-  data: {
-    employeeId: employee._id,
-    employeeCode: employee.employeeCode,
-    loginId: employee.loginId,
-    mustChangePassword: employee.mustChangePassword,
-    passwordExpiresAt: employee.passwordExpiresAt
-  },
-  credentials: {
-    tempPassword // ⚠️ send only on create
-  }
+  
+  res.status(201).json({
+    success: true,
+    message: "Employee created successfully",
+    data: {
+      employeeId: employee._id,
+      employeeCode: employee.employeeCode,
+      loginId: employee.loginId,
+      mustChangePassword: employee.mustChangePassword,
+      passwordExpiresAt: employee.passwordExpiresAt
+    },
+    credentials: {
+      tempPassword // ⚠️ send only on create
+    }
+  });
 });
-});
 
+/*=============lOGIN EMPLOYEE==================*/
 exports.employeeLogin = async (req, res) => {
   const { loginId, password } = req.body;
   /* ---------------------------------- */
@@ -212,3 +214,70 @@ exports.employeeLogin = async (req, res) => {
     device: deviceInfo
   });
 };
+
+/*=============CHANGE EMPLOYEE PASSWORD==================*/
+
+/**
+ * @route   PATCH /api/employees/change-password
+ * @desc    Change employee password
+ * @access  Private (Employee)
+ */
+
+exports.changePassword  = asyncHandler(async (req, res) => {
+  const log = req.log || logger;
+  const { currentPassword, newPassword, confirmPassword } = req.body;
+  /* ---------------- Validation ---------------- */
+  if (!currentPassword || !newPassword || !confirmPassword) {
+    throw new AppError(
+      "Current password, new password and confirm password are required",
+      400
+    );
+  }
+  if (newPassword !== confirmPassword) {
+    throw new AppError("New password and confirm password do not match", 400);
+  }
+  /* ---------------- Fetch Employee ---------------- */
+  const employee = await Employee.findById(req.user.id).select("+password");
+  if (!employee) {
+    throw new AppError("Employee not found", 404);
+  }
+  /* ---------------- Verify Current Password ---------------- */
+  const isMatch = await bcrypt.compare(
+    currentPassword,
+    employee.password
+  );
+  if (!isMatch) {
+    log.warn("Invalid current password attempt", {
+      employeeId: req.user.id
+    });
+    throw new AppError("Current password is incorrect", 401);
+  }
+  /* ---------------- Prevent Same Password ---------------- */
+  const isSamePassword = await bcrypt.compare(
+    newPassword,
+    employee.password
+  );
+  if (isSamePassword) {
+    throw new AppError(
+      "New password must be different from current password",
+      400
+    );
+  }
+  /* ---------------- Update Password ---------------- */
+  employee.password = await bcrypt.hash(newPassword, 12);
+  employee.passwordChangedAt = new Date();
+  employee.passwordExpiresAt = new Date(
+    Date.now() + 90 * 24 * 60 * 60 * 1000 // 90 days
+  );
+  employee.mustChangePassword = false;
+  await employee.save();
+  log.info("Password changed successfully", {
+    employeeId: employee._id
+  });
+  /* ---------------- Response ---------------- */
+  res.status(200).json({
+    success: true,
+    message: "Password updated successfully"
+  });
+});
+
