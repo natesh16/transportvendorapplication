@@ -119,60 +119,96 @@ res.status(201).json({
 
 exports.employeeLogin = async (req, res) => {
   const { loginId, password } = req.body;
-
-  const employee = await Employee.findOne({ loginId }).select("+password");
+  /* ---------------------------------- */
+  /* 🔍 Fetch Employee                  */
+  /* ---------------------------------- */
+  const employee = await Employee.findOne({ loginId })
+    .select("+password +loginAttempts +lockUntil");
 
   if (!employee) {
-    return res.status(401).json({ message: "Invalid credentials" });
+    return res.status(401).json({
+      success: false,
+      message: "Invalid credentials"
+    });
   }
-
+  /* ---------------------------------- */
+  /* 🔒 Account Lock Check              */
+  /* ---------------------------------- */
   if (employee.isAccountLocked()) {
-    return res.status(423).json({ message: "Account locked" });
+    return res.status(423).json({
+      success: false,
+      message: "Account is locked. Try again later."
+    });
   }
-
+  /* ---------------------------------- */
+  /* 🔐 Password Validation             */
+  /* ---------------------------------- */
   const isPasswordValid = await validateLoginPassword(
     password,
     employee.password
   );
 
-  // Login audit
- /* ---------------------------------- */
-/* 🌐 Client IP & Device Helpers       */
-/* ---------------------------------- */
-const getClientIp = (req) =>
-  req.headers["x-forwarded-for"]?.split(",")[0] ||
-  req.socket.remoteAddress ||
-  "UNKNOWN_IP";
+  /* ---------------------------------- */
+  /* 🌐 Client Info                     */
+  /* ---------------------------------- */
+  const ipAddress = getClientIp(req);
+  const deviceInfo = getDeviceInfo(req);
 
-const getDeviceInfo = (req) =>
-  req.headers["user-agent"] || "UNKNOWN_DEVICE";
-
+  /* ---------------------------------- */
+  /* ❌ Failed Login                    */
+  /* ---------------------------------- */
   if (!isPasswordValid) {
-    employee.loginAttempts += 1;
-
-    if (employee.loginAttempts >= 5) {
-      employee.lockUntil = Date.now() + 30 * 60 * 1000;
-    }
-
+    await handleFailedLogin(employee);
+    employee.loginAudit.push({
+      ipAddress,
+      device: deviceInfo,
+      success: false,
+      attemptedAt: new Date()
+    });
     await employee.save();
-    return res.status(401).json({ message: "Invalid credentials" });
+    return res.status(401).json({
+      success: false,
+      message: "Invalid credentials",
+      ipAddress
+    });
   }
-
-  // Success
+  /* ---------------------------------- */
+  /* ✅ Successful Login                */
+  /* ---------------------------------- */
   employee.loginAttempts = 0;
   employee.lockUntil = undefined;
   employee.lastLoginAt = new Date();
 
+  employee.loginAudit.push({
+    ipAddress,
+    device: deviceInfo,
+    success: true,
+    attemptedAt: new Date()
+  });
+
   await employee.save();
 
-  // if (employee.mustChangePassword) {
-  //   return res.json({
-  //     mustChangePassword: true
-  //   });
-  // }
+  /* ---------------------------------- */
+  /* 🔁 Force Password Change (Optional)*/
+  /* ---------------------------------- */
+  if (employee.mustChangePassword) {
+    return res.status(200).json({
+      success: true,
+      mustChangePassword: true,
+      employeeId: employee._id,
+      ipAddress,
+      device: deviceInfo
+    });
+  }
 
-  res.json({
+  /* ---------------------------------- */
+  /* 🎉 Final Response                  */
+  /* ---------------------------------- */
+  res.status(200).json({
     success: true,
-    employeeId: employee._id
+    employeeId: employee._id,
+    lastLoginAt: employee.lastLoginAt,
+    ipAddress,
+    device: deviceInfo
   });
 };

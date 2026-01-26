@@ -28,9 +28,32 @@ const corporateUserSchema = new mongoose.Schema(
       minlength: 3,
       maxlength: 80
     },
-    dob: {
+    gender: {
+      type: String,
+      enum: ["MALE", "FEMALE", "OTHER"]
+    },
+
+    dateOfBirth: {
       type: Date,
-      required: true
+      required: true,
+      index: true
+    },
+
+    email: {
+      type: String,
+      lowercase: true,
+      trim: true,
+      validate: {
+        validator: validator.isEmail,
+        message: "Invalid email address"
+      },
+      index: true
+    },
+
+    phone: {
+      type: String,
+      trim: true,
+      match: [/^[6-9]\d{9}$/, "Invalid phone number"]
     },
     password: {
       type: String,
@@ -81,140 +104,11 @@ const corporateUserSchema = new mongoose.Schema(
   }
 );
 
-// corporateUserSchema.pre("save", async function (next) {
-//   if (!this.isModified("password"));
-//   if (
-//     !validator.isStrongPassword(this.password, {
-//       minLength: 12,
-//       minLowercase: 1,
-//       minUppercase: 1,
-//       minNumbers: 1,
-//       minSymbols: 1
-//     })
-//   ) {
-//     return next(
-//       new Error(
-//         "Password must contain uppercase, lowercase, number, and symbol"
-//       )
-//     );
-//   }
-//   const salt = await bcrypt.genSalt(12);
-//   this.password = await bcrypt.hash(this.password, salt);
-//   this.passwordChangedAt = Date.now() - 1000;
-// });
-// corporateUserSchema.statics.generateTempPassword = function () {
-//   const random = crypto.randomBytes(8).toString("hex"); // 32 chars
-//   return `${random}@A1`; // adds uppercase, symbol, number
-// };
-// corporateUserSchema.methods.correctPassword = async function (
-//   candidatePassword
-// ) {
-//   return bcrypt.compare(candidatePassword, this.password);
-// };
-
-// corporateUserSchema.statics.generateTempPassword = function (
-//   name,
-//   dob
-// ) {
-//   if (!name || typeof name !== "string") {
-//     throw new Error("Name is required to generate password");
-//   }
-
-//   if (!dob) {
-//     throw new Error("Date of birth is required to generate password");
-//   }
-
-//   const namePart = name
-//     .trim()
-//     .replace(/\s+/g, "")
-//     .substring(0, 3)
-//     .toUpperCase();
-
-//   const dobPart = new Date(dob)
-//     .toISOString()
-//     .slice(0, 10)
-//     .replace(/-/g, "");
-
-//   return `${namePart}${dobPart}@A1`;
-
-//   const salt = await bcrypt.genSalt(12);
-//   this.password = await bcrypt.hash(this.password, salt);
-//   this.passwordChangedAt = Date.now() - 1000;
-
-// };
-
-
-// corporateUserSchema.methods.correctPassword = async function (
-//   candidatePassword
-// ) {
-//   return await bcrypt.compare(candidatePassword, this.password);
-// };
-
-// corporateUserSchema.pre("save", async function (next) {
-//   if (!this.isModified("password")) return next();
-
-//   if (
-//     !validator.isStrongPassword(this.password, {
-//       minLength: 12,
-//       minLowercase: 1,
-//       minUppercase: 1,
-//       minNumbers: 1,
-//       minSymbols: 1
-//     })
-//   ) {
-//     return 
-//       new Error(
-//         "Password must contain uppercase, lowercase, number, and symbol"
-//       )
-//   }
-
-//   const salt = await bcrypt.genSalt(12);
-//   this.password = await bcrypt.hash(this.password, salt);
-
-//   this.passwordChangedAt = Date.now() - 1000;
-//   next();
-// });
-
-// corporateUserSchema.statics.generateTempPassword = function (
-//   username,
-//   dob
-// ) {
-//   const date = new Date(dob);
-//   const dd = String(date.getDate()).padStart(2, "0");
-//   const mm = String(date.getMonth() + 1).padStart(2, "0");
-//   const yyyy = date.getFullYear();
-
-//   return `${username.toUpperCase()}@${dd}${mm}${yyyy}`;
-// };
-
-corporateUserSchema.statics.generateTempPassword = function (
-  username,
-  dob
-) {
-  // 1️⃣ Remove spaces and trim
-  const cleanedUsername = username.replace(/\s+/g, "").trim();
-
-  // 2️⃣ Take first 4 characters
-  const shortName = cleanedUsername
-    .substring(0, 4)
-    .toUpperCase();
-
-  // 3️⃣ Format DOB as DDMMYYYY
-  const date = new Date(dob);
-  const dd = String(date.getDate()).padStart(2, "0");
-  const mm = String(date.getMonth() + 1).padStart(2, "0");
-  const yyyy = date.getFullYear();
-
-  // 4️⃣ Final password
-  return `${shortName}@${dd}${mm}${yyyy}`;
-};
-
-
 /* ---------------------------------- */
 /* 🔐 Hash Password (Pre Save)         */
 /* ---------------------------------- */
 corporateUserSchema.pre("save", async function (next) {
-  if (!this.isModified("password")) return ;
+  if (!this.isModified("password")) return;
 
   this.password = await bcrypt.hash(this.password, 12);
   // next();
@@ -223,16 +117,11 @@ corporateUserSchema.pre("save", async function (next) {
 /* ---------------------------------- */
 /* 🔑 Compare Password (Login)         */
 /* ---------------------------------- */
-corporateUserSchema.methods.comparePassword = async function (
-  candidatePassword
-) {
-  return await bcrypt.compare(candidatePassword, this.password);
-};
-
 
 corporateUserSchema.methods.isLocked = function () {
   return !!(this.lockUntil && this.lockUntil > Date.now());
 };
+
 corporateUserSchema.methods.incrementLoginAttempts = async function () {
   const MAX_ATTEMPTS = 5;
   const LOCK_TIME = 30 * 60 * 1000; // 30 minutes

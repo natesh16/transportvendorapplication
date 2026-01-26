@@ -1,15 +1,24 @@
-module.exports = function getClientIp(req) {
-  // 1️⃣ Cloud / Proxy headers (trusted only because trust proxy = true)
-  const forwarded = req.headers["x-forwarded-for"];
-  if (forwarded) {
-    return forwarded.split(",")[0].trim();
-  }
 
-  // 2️⃣ NGINX / Apache
-  if (req.headers["x-real-ip"]) {
-    return req.headers["x-real-ip"];
-  }
+/**
+ * 🌐 Get Client IP (proxy-safe)
+ */
+const getClientIp = (req) =>
+  req.headers["x-forwarded-for"]?.split(",")[0]?.trim() ||
+  req.socket?.remoteAddress ||
+  req.ip ||
+  "UNKNOWN_IP";
 
-  // 3️⃣ Express / Node fallback
-  return req.ip || req.connection.remoteAddress;
+/**
+ * 💻 Get Device / User-Agent info
+ */
+const getDeviceInfo = (req) =>
+  req.headers["user-agent"] || "UNKNOWN_DEVICE";
+
+module.exports = {
+  getClientIp,
+  getDeviceInfo
 };
+
+module.exports={
+  getClientIp,getDeviceInfo
+}

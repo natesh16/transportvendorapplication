@@ -7,7 +7,7 @@ const { restrictTo } = require("../middlewares/rbac");
 const {
   createSuperAdmin,
   loginSuperAdmin,
-  getAllSuperAdmins,
+  // getAllSuperAdmins,
   // getSuperAdmins,
   // getSuperAdminById,
   // updateSuperAdmin,
@@ -16,7 +16,7 @@ const {
 router.route("/create/superadmin")
   .post(createSuperAdmin)
 
-router.route("/Admin&details/superadmin").get(protect,restrictTo("SUPER_ADMIN"),getAllSuperAdmins);
+// router.route("/Admin&details/superadmin").get(protect,restrictTo("SUPER_ADMIN"),getAllSuperAdmins);
 router.route("/login/superadmin").post(loginSuperAdmin);
 
 // router.get(

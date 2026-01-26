@@ -130,23 +130,19 @@ if (!user) {
 /* ------------------------------------------------ */
 /* 🛡️ Role-Based Access Control (FIX ADDED)          */
 /* ------------------------------------------------ */
-exports.allowRoles = (...allowedRoles) => {
-  return (req, res, next) => {
-    if (!req.user) {
-      return next(
-        new AppError("Authentication required", 401)
-      );
-    }
-
-    if (!allowedRoles.includes(req.user.role)) {
-      return next(
-        new AppError(
-          "You do not have permission to perform this action",
-          403
-        )
-      );
-    }
-
-    next();
-  };
+const allowRoles = (...roles) => (req, res, next) => {
+  if (!req.user) {
+    return next(new AppError("Unauthorized – login required", 401));
+  }
+  if (!roles.includes(req.user.role)) {
+    return next(
+      new AppError(
+        `Access denied for role: ${req.user.role}`,
+        403
+      )
+    );
+  }
+  next();
 };
+
+module.exports = allowRoles;

@@ -1223,3 +1223,39 @@
 2026-01-25 18:02:51 [INFO]: POST /api/corpo/employee/login 200 988.938 ms - body={"loginId":"ECORRAMES96","password":"rame1405@A1"} 
 2026-01-25 18:03:23 [INFO]: POST /api/corpo/employee/login 200 1594.988 ms - body={"loginId":"ECORRAMES96","password":"rame1405@A1"} 
 2026-01-25 18:03:28 [INFO]: POST /api/corpo/employee/login 200 1717.108 ms - body={"loginId":"ECORRAMES96","password":"rame1405@A1"} 
+2026-01-25 18:04:15 [INFO]: POST /api/corpo/employee/login 200 1543.079 ms - body={"loginId":"ECORRAMES96","password":"rame1405@A1"} 
+2026-01-25 18:04:24 [INFO]: POST /api/corpo/employee/login 200 949.908 ms - body={"loginId":"ECORRAMES96","password":"rame1405@A1"} 
+2026-01-26 03:43:13 [INFO]: POST /api/corpo/employee/login 200 1092.664 ms - body={"loginId":"ECORRAMES96","password":"rame1405@A1"} 
+2026-01-26 03:45:32 [ERROR]: StrictModeError: Field `attemptedAt` is not in schema and strict mode is set to throw.
+    at EmbeddedDocument.$set (F:\development\Backend\node_modules\mongoose\lib\document.js:1166:19)
+    at EmbeddedDocument.Document (F:\development\Backend\node_modules\mongoose\lib\document.js:178:12)
+    at EmbeddedDocument.Subdocument (F:\development\Backend\node_modules\mongoose\lib\types\subdocument.js:29:12)
+    at EmbeddedDocument.ArraySubdocument [as constructor] (F:\development\Backend\node_modules\mongoose\lib\types\arraySubdocument.js:44:15)
+    at new EmbeddedDocument (F:\development\Backend\node_modules\mongoose\lib\schema\documentArray.js:143:17)
+    at Proxy._cast (F:\development\Backend\node_modules\mongoose\lib\types\documentArray\methods\index.js:109:17)
+    at Proxy._mapCast (F:\development\Backend\node_modules\mongoose\lib\types\array\methods\index.js:300:17)
+    at Arguments.map (<anonymous>)
+    at Proxy.push (F:\development\Backend\node_modules\mongoose\lib\types\array\methods\index.js:734:21)
+    at Proxy.push (F:\development\Backend\node_modules\mongoose\lib\types\documentArray\methods\index.js:223:35)
+    at exports.employeeLogin (F:\development\Backend\controllers\corporate.employeid.controller.js:189:23) {"path":"/api/corpo/employee/login","method":"POST","user":null}
+2026-01-26 03:45:32 [INFO]: POST /api/corpo/employee/login 500 1127.517 ms - body={"loginId":"ECORRAMES96","password":"rame1405@A1"} 
+2026-01-26 03:45:43 [ERROR]: StrictModeError: Field `attemptedAt` is not in schema and strict mode is set to throw.
+    at EmbeddedDocument.$set (F:\development\Backend\node_modules\mongoose\lib\document.js:1166:19)
+    at EmbeddedDocument.Document (F:\development\Backend\node_modules\mongoose\lib\document.js:178:12)
+    at EmbeddedDocument.Subdocument (F:\development\Backend\node_modules\mongoose\lib\types\subdocument.js:29:12)
+    at EmbeddedDocument.ArraySubdocument [as constructor] (F:\development\Backend\node_modules\mongoose\lib\types\arraySubdocument.js:44:15)
+    at new EmbeddedDocument (F:\development\Backend\node_modules\mongoose\lib\schema\documentArray.js:143:17)
+    at Proxy._cast (F:\development\Backend\node_modules\mongoose\lib\types\documentArray\methods\index.js:109:17)
+    at Proxy._mapCast (F:\development\Backend\node_modules\mongoose\lib\types\array\methods\index.js:300:17)
+    at Arguments.map (<anonymous>)
+    at Proxy.push (F:\development\Backend\node_modules\mongoose\lib\types\array\methods\index.js:734:21)
+    at Proxy.push (F:\development\Backend\node_modules\mongoose\lib\types\documentArray\methods\index.js:223:35)
+    at exports.employeeLogin (F:\development\Backend\controllers\corporate.employeid.controller.js:189:23) {"path":"/api/corpo/employee/login","method":"POST","user":null}
+2026-01-26 03:45:43 [INFO]: POST /api/corpo/employee/login 500 989.021 ms - body={"loginId":"ECORRAMES96","password":"rame1405@A1"} 
+2026-01-26 03:47:46 [INFO]: POST /api/corpo/employee/login 200 1401.032 ms - body={"loginId":"ECORRAMES96","password":"rame1405@A1"} 
+2026-01-26 03:47:57 [INFO]: POST /api/corpo/employee/login 200 1024.320 ms - body={"loginId":"ECORRAMES96","password":"rame1405@A1"} 
+2026-01-26 13:29:21 [INFO]: POST /api/corpo/employee/%20bulk-upload 404 12.067 ms - body=- 
+2026-01-26 13:35:48 [INFO]: POST /api/corpo/employee/bulk-upload - - ms - body=- 
+2026-01-26 13:36:00 [INFO]: POST /api/corpo/employee/bulk-upload - - ms - body=- 
+2026-01-26 13:37:34 [INFO]: POST /api/corpo/employee/bulk-upload - - ms - body=- 
+2026-01-26 14:03:30 [INFO]: POST /api/corpo/employee/bulk-upload - - ms - body=- 

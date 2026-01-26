@@ -191,7 +191,6 @@ exports.loginSuperAdmin = asyncHandler(async (req, res) => {
 });
 
 /* ================= GET ALL SUPER ADMINS ================= */
-
 exports.getAllSuperAdmins = asyncHandler(async (req, res) => {
   /* Pagination */
   const page = parseInt(req.query.page, 10) || 1;

@@ -1,5 +1,5 @@
 const express = require("express");
-const {protectSuperAdmin}=require('../middlewares/auth')
+const protectSuperAdmin=require('../middlewares/auth')
 const { createCorporate,createCorporateEmployee } = require("../controllers/corporate.controller");
 const router = express.Router();
 router.route("/create/corporateID")

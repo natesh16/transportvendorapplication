@@ -4,7 +4,10 @@ const crypto = require("crypto");
 const Corporate = require("../models/corporate.Model");
 const CorporateUser = require("../models/corporate.UserModel");
 const AppError = require("../utils/appError");
-const {generateCorporateLoginId}= require("../utils/generateCorporateLoginId");
+const {
+  generateCorporateLoginId,
+  generateTempPassword,
+}= require("../utils/credentialUtil");
 
 /**
  * @desc    Create Corporate
@@ -146,13 +149,15 @@ exports.createCorporateEmployee = asyncHandler(async (req, res) => {
   const {
     corporateId,
     name,
-    dob,
+    dateOfBirth,
+    email,
+    phone,
     role,
     password // optional
   } = req.body;
 
   /* 🧪 Validation */
-  if (!corporateId || !name || !role) {
+  if (!corporateId || !name || !role ||!email) {
     throw new AppError("Missing required fields", 400);
   }
 
@@ -188,9 +193,9 @@ exports.createCorporateEmployee = asyncHandler(async (req, res) => {
   /* 🔐 Password */
   // const finalPassword = password || CorporateUser.generateTempPassword();
 
-  const tempPassword = password || CorporateUser.generateTempPassword(
+  const tempPassword = password || generateTempPassword(
     req.body.name,
-    req.body.dob
+    req.body.dateOfBirth
   );
 
   /* 🧾 Create User */
@@ -198,7 +203,9 @@ exports.createCorporateEmployee = asyncHandler(async (req, res) => {
     corporateId,
     loginId,
     name,
-    dob,
+    dateOfBirth,
+    email,
+    phone,
     role,
     password: tempPassword,
     createdBy: req.user.id
@@ -211,6 +218,8 @@ exports.createCorporateEmployee = asyncHandler(async (req, res) => {
     data: {
       loginId: user.loginId,
       role: user.role,
+      email:user.email,
+      phone:user.phone,
       temporaryPassword: tempPassword
     }
   });

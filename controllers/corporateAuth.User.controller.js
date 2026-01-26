@@ -2,8 +2,8 @@ const jwt = require("jsonwebtoken");
 const CorporateUser = require("../models/corporate.UserModel");
 const asyncHandler = require("../utils/asyncHandler");
 const AppError = require("../utils/appError");
-const getClientIp = require("../utils/getClientIp");
-
+const { getClientIp , getDeviceInfo }=require('../utils/getClientIp')
+const { validateLoginPassword}=require('../utils/credentialUtil')
 /* 🔐 JWT Helper */
 const signToken = (user) =>
   jwt.sign(
@@ -44,13 +44,12 @@ const sendAuthCookie = (res, token) => {
    * @route   POST /api/v1/corporate/auth/login
    * @access  Public
   */
+
  exports.loginCorporateUser = asyncHandler(async (req, res) => {
   const { loginId, password } = req.body;
-
   if (!loginId || !password) {
     throw new AppError("Login ID and password are required", 400);
   }
-  
   const user = await CorporateUser.findOne({
     loginId: loginId.toUpperCase()
   }).select("+password");
@@ -58,31 +57,34 @@ const sendAuthCookie = (res, token) => {
   if (!user) {
     throw new AppError("Invalid login credentials", 401);
   }
-  
   /* 🔒 Account Lock Check */
   if (user.isLocked()) {
     const waitTime = Math.ceil(
       (user.lockUntil - Date.now()) / (60 * 1000)
     );
-
     throw new AppError(
       `Account locked due to multiple failed attempts. Try again in ${waitTime} minutes.`,
       423
     );
   }
-
-  /* 🔑 Password Validation */
-  const isMatch = await user.comparePassword(password);
-  if (!isMatch) {
-    await user.incrementLoginAttempts();
-    throw new AppError("Invalid login credentials", 401);
-  }
+  /* ---------------------------------- */
+  /* 🔐 Password Validation             */
+  /* ---------------------------------- */
+  const isPasswordValid = await validateLoginPassword(
+    password,
+    employee.password
+  );
   
   /* 🌐 Track Login Metadata */
   user.loginAttempts = 0;
   user.lockUntil = undefined;
-  user.lastLogin = new Date();
-  user.lastLoginIp = getClientIp(req);
+
+  /* ---------------------------------- */
+  /* 🌐 Client Info                     */
+  /* ---------------------------------- */
+
+  const ipAddress = getClientIp(req);
+  const deviceInfo = getDeviceInfo(req);
 
   await user.save({ validateBeforeSave: false });
   
@@ -94,9 +96,8 @@ const sendAuthCookie = (res, token) => {
     
   //     sendAuthCookie(res, token);
   //   }
-  
-const token = signToken(user);
 
+const token = signToken(user);
 /* 🍪 Attach Cookie */
 if (process.env.USE_COOKIE_AUTH === "true") {
   sendAuthCookie(res, token); // ✅ MUST pass res
@@ -111,8 +112,8 @@ console.log("res keys:", Object.keys(res));
       loginId: user.loginId,
       role: user.role,
       corporateId: user.corporateId,
-      lastLogin: user.lastLogin,
-      lastLoginIp: user.lastLoginIp,
+      ipAddress,
+      deviceInfo,
       token
     }
   });
