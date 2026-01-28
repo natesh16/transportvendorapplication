@@ -149,6 +149,8 @@ const handleFailedLogin = async (
   await employee.save();
 };
 
+
+
 module.exports = {
   generateEmployeeCode,
   generateEmployeeLoginId,

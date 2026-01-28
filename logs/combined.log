@@ -1263,3 +1263,4 @@
 2026-01-26 14:06:11 [INFO]: POST /api/corpo/employee/bulk-upload - - ms - body=- 
 2026-01-26 14:18:53 [INFO]: POST /api/corpo/employee/bulk-upload - - ms - body=- 
 2026-01-26 14:21:21 [INFO]: POST /api/corpo/employee/bulk-upload - - ms - body=- 
+2026-01-26 14:55:14 [INFO]: POST /api/corpo/employee/create/employees - - ms - body={"name":{"firstName":"Ramesh","lastName":"Kumar"},"gender":"MALE","dateOfBirth":"1996-05-14","email":"ramesh.kumar@company.com","phone":"9876543210","department":"Engineering","designation":"Software Engineer","employmentType":"FULL_TIME","joiningDate":"2024-07-01","location":{"region":"Chennai","pickupPoint":{"name":"T Nagar Bus Stop","geo":{"type":"Point","coordinates":[80.2337,13.0405]}}},"shift":{"shiftName":"Day Shift","loginTime":"09:00","logoutTime":"18:00","isOvernight":false}} 
