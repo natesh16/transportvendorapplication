@@ -129,3 +129,43 @@ exports.createTransportVendor = asyncHandler(async (req, res, next) => {
     }
   });
 });
+
+
+/*============== vendor Approvel ===========*/
+exports.approveVendor = asyncHandler(async (req, res, next) => {
+  const { vendorId } = req.params;
+  const { complianceStatus = "VERIFIED" } = req.body;
+
+  if (!["VERIFIED", "PARTIAL"].includes(complianceStatus)) {
+    return next(new AppError("Invalid compliance status", 400));
+  }
+
+  const vendor = await TransportVendor.findOne({
+    _id: vendorId,
+    corporateId: req.user.corporateId,
+    isDeleted: false
+  });
+
+  if (!vendor) {
+    return next(new AppError("Vendor not found", 404));
+  }
+
+  vendor.complianceStatus = complianceStatus;
+
+  if (complianceStatus === "VERIFIED") {
+    vendor.lifecycleStatus = "ACTIVE";
+  }
+
+  vendor.updatedBy = req.user._id;
+  await vendor.save();
+
+  res.json({
+    success: true,
+    message: "Vendor verified successfully",
+    data: {
+      vendorId: vendor._id,
+      lifecycleStatus: vendor.lifecycleStatus,
+      complianceStatus: vendor.complianceStatus
+    }
+  });
+});
