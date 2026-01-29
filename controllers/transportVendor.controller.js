@@ -1,6 +1,8 @@
 const TransportVendor = require("../models/transportVendor.model");
 const asyncHandler = require("../utils/asyncHandler");
 const AppError = require("../utils/appError");
+const { generateVendorCode } = require("../services/vendorCode.service");
+
 
 /* ===================================================== */
 /* 🔐 Allowed Corporate Roles                             */
@@ -9,56 +11,25 @@ const AppError = require("../utils/appError");
 const ALLOWED_ROLES = ["CORPORATE_ADMIN", "CORPORATE_SUPERVISOR"];
 
 /* ===================================================== */
-/* 🧠 Vendor Code Generator (Corporate Scoped)             */
-/* ===================================================== */
-
-const generateVendorCode = async (corporateId, vendorName) => {
-  if (!vendorName) {
-    throw new AppError("Vendor name is required", 400);
-  }
-
-  const words = vendorName
-    .replace(/[^a-zA-Z ]/g, "")
-    .trim()
-    .split(/\s+/)
-    .slice(0, 2);
-
-  const namePart = words
-    .map(word => word.substring(0, 4).toUpperCase())
-    .join("-");
-
-  const count = await TransportVendor.countDocuments({
-    corporateId,
-    isDeleted: false
-  });
-
-  const sequence = String(count + 1).padStart(3, "0");
-
-  return `VND-${namePart}-${sequence}`;
-};
-
-/* ===================================================== */
-/* 🚚 Create Transport Vendor                              */
+/* 🚚 Create Transport Vendor                             */
 /* ===================================================== */
 
 exports.createTransportVendor = asyncHandler(async (req, res, next) => {
-  /* ---------- Auth Context (From Cookie) ---------- */
+  /* ---------- Auth Context (Cookie Based) ---------- */
   if (!req.user) {
-    return next(new AppError("Authentication required", 401));
+    throw new AppError("Authentication required", 401);
   }
 
   const { _id: userId, role, corporateId } = req.user;
 
-  if (!ALLOWED_ROLES.includes(role)) {
-    return next(
-      new AppError(
-        "Only Corporate Admin or Supervisor can create transport vendors",
-        403
-      )
+  if (!["CORPORATE_ADMIN", "CORPORATE_SUPERVISOR"].includes(role)) {
+    throw new AppError(
+      "Only Corporate Admin or Supervisor can create transport vendors",
+      403
     );
   }
 
-  /* ---------- Request Body ---------- */
+  /* ---------- Input ---------- */
   const {
     vendorName,
     legalEntityName,
@@ -75,23 +46,18 @@ exports.createTransportVendor = asyncHandler(async (req, res, next) => {
     documents
   } = req.body;
 
-  /* ---------- Mandatory Validation ---------- */
   if (!vendorName || !legalEntityName || !vendorType) {
-    return next(
-      new AppError(
-        "vendorName, legalEntityName and vendorType are required",
-        400
-      )
+    throw new AppError(
+      "vendorName, legalEntityName and vendorType are required",
+      400
     );
   }
 
   if (!Array.isArray(documents) || documents.length === 0) {
-    return next(
-      new AppError("At least one vendor document is required", 400)
-    );
+    throw new AppError("At least one vendor document is required", 400);
   }
 
-  /* ---------- Generate Vendor Code ---------- */
+  /* ---------- Vendor Code ---------- */
   const vendorCode = await generateVendorCode(corporateId, vendorName);
 
   /* ---------- Create Vendor ---------- */
@@ -115,7 +81,6 @@ exports.createTransportVendor = asyncHandler(async (req, res, next) => {
     lifecycleStatus: "ONBOARDING",
     createdBy: userId
   });
-
   /* ---------- Response ---------- */
   res.status(201).json({
     success: true,
@@ -129,7 +94,6 @@ exports.createTransportVendor = asyncHandler(async (req, res, next) => {
     }
   });
 });
-
 
 /*============== vendor Approvel ===========*/
 exports.approveVendor = asyncHandler(async (req, res, next) => {
