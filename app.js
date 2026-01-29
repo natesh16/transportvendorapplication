@@ -3,6 +3,7 @@ const app=express()
 const errorHandler = require("./middlewares/errorHandler");
 const requestLogger = require("./middlewares/requestLogger");
 const superAdminRoutes = require("./routes/superAdmin.routes");
+const corpovendor = require("./routes/corporate.vendor.route");
 const corporateRoutes = require("./routes/corporate.Routes");
 const cookieParser = require("cookie-parser");
 const corporateAuthRoutes = require("./routes/corporateAuth.routes");
@@ -20,6 +21,7 @@ app.use("/api/corpo/",corporateAuthRoutes)
 app.use("/api/corpo/employee",corporatemployeRoutes)
 app.use(require("./middlewares/errorHandler"));
 app.use("/api/super-admin", superAdminRoutes);
+app.use("/api/corpo", corpovendor);
 app.use("/api/super-admin/coporate/",corporateRoutes);
 
 app.use(errorHandler);

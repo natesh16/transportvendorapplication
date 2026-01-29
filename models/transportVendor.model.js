@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const vendorDocumentSchema = require("./vendorDocument.schema");
+const vendorDocumentSchema = require("./vendorDocumentschema");
 
 /**
  * 🚚 Transport Vendor Schema
