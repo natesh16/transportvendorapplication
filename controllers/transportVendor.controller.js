@@ -3,32 +3,22 @@ const asyncHandler = require("../utils/asyncHandler");
 const AppError = require("../utils/appError");
 const { generateVendorCode } = require("../services/vendorCode.service");
 
-
-/* ===================================================== */
-/* 🔐 Allowed Corporate Roles                             */
-/* ===================================================== */
-
-const ALLOWED_ROLES = ["CORPORATE_ADMIN", "CORPORATE_SUPERVISOR"];
-
 /* ===================================================== */
 /* 🚚 Create Transport Vendor                             */
 /* ===================================================== */
 
-exports.createTransportVendor = asyncHandler(async (req, res, next) => {
+exports.createTransportVendor = asyncHandler(async (req, res) => {
   /* ---------- Auth Context (Cookie Based) ---------- */
   if (!req.user) {
     throw new AppError("Authentication required", 401);
   }
-
   const { _id: userId, role, corporateId } = req.user;
-
-  if (!["CORPORATE_ADMIN", "CORPORATE_SUPERVISOR"].includes(role)) {
+  if (!ALLOWED_ROLES.includes(role)) {
     throw new AppError(
       "Only Corporate Admin or Supervisor can create transport vendors",
       403
     );
   }
-
   /* ---------- Input ---------- */
   const {
     vendorName,
@@ -45,21 +35,17 @@ exports.createTransportVendor = asyncHandler(async (req, res, next) => {
     shiftSupport,
     documents
   } = req.body;
-
   if (!vendorName || !legalEntityName || !vendorType) {
     throw new AppError(
       "vendorName, legalEntityName and vendorType are required",
       400
     );
   }
-
   if (!Array.isArray(documents) || documents.length === 0) {
     throw new AppError("At least one vendor document is required", 400);
   }
-
   /* ---------- Vendor Code ---------- */
   const vendorCode = await generateVendorCode(corporateId, vendorName);
-
   /* ---------- Create Vendor ---------- */
   const vendor = await TransportVendor.create({
     corporateId,
@@ -95,13 +81,20 @@ exports.createTransportVendor = asyncHandler(async (req, res, next) => {
   });
 });
 
-/*============== vendor Approvel ===========*/
-exports.approveVendor = asyncHandler(async (req, res, next) => {
+/* ===================================================== */
+/* ✅ Approve / Verify Vendor                              */
+/* ===================================================== */
+
+exports.approveVendor = asyncHandler(async (req, res) => {
+  if (!req.user) {
+    throw new AppError("Authentication required", 401);
+  }
+
   const { vendorId } = req.params;
   const { complianceStatus = "VERIFIED" } = req.body;
 
   if (!["VERIFIED", "PARTIAL"].includes(complianceStatus)) {
-    return next(new AppError("Invalid compliance status", 400));
+    throw new AppError("Invalid compliance status", 400);
   }
 
   const vendor = await TransportVendor.findOne({
@@ -111,7 +104,7 @@ exports.approveVendor = asyncHandler(async (req, res, next) => {
   });
 
   if (!vendor) {
-    return next(new AppError("Vendor not found", 404));
+    throw new AppError("Vendor not found", 404);
   }
 
   vendor.complianceStatus = complianceStatus;

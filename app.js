@@ -21,7 +21,7 @@ app.use("/api/corpo/",corporateAuthRoutes)
 app.use("/api/corpo/employee",corporatemployeRoutes)
 app.use(require("./middlewares/errorHandler"));
 app.use("/api/super-admin", superAdminRoutes);
-app.use("/api/corpo", corpovendor);
+app.use("/api/corporate", corpovendor);
 app.use("/api/super-admin/coporate/",corporateRoutes);
 
 app.use(errorHandler);

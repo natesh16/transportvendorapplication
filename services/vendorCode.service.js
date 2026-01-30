@@ -1,4 +1,5 @@
 const TransportVendor = require("../models/transportVendor.model");
+const asyncHandler=require('../utils/asyncHandler')
 const AppError = require("../utils/appError");
 
 /**
@@ -9,8 +10,9 @@ const AppError = require("../utils/appError");
 /* ===================================================== */
 /* 🧠 Vendor Code Generator (Corporate Scoped)             */
 /* ===================================================== */
+exports.generateVendorCode = asyncHandler(async (req, res, next) => {
+  const { corporateId, vendorName } = req;
 
-exports.generateVendorCode = async (corporateId, vendorName) => {
   if (!corporateId) {
     throw new AppError("corporateId is required", 400);
   }
@@ -25,10 +27,6 @@ exports.generateVendorCode = async (corporateId, vendorName) => {
     .split(/\s+/)
     .slice(0, 2);
 
-  if (words.length === 0) {
-    throw new AppError("Invalid vendor name", 400);
-  }
-
   const namePart = words
     .map(word => word.substring(0, 4).toUpperCase())
     .join("-");
@@ -40,5 +38,6 @@ exports.generateVendorCode = async (corporateId, vendorName) => {
 
   const sequence = String(count + 1).padStart(3, "0");
 
-  return `VND-${namePart}-${sequence}`;
-};
+  res.locals.vendorCode = `VND-${namePart}-${sequence}`;
+  next();
+});

@@ -216,18 +216,6 @@ const transportVendorSchema = new mongoose.Schema(
 );
 
 /* ===================================================== */
-/* 🔐 Pre-save Hooks                                      */
-/* ===================================================== */
-
-transportVendorSchema.pre("save", function (next) {
-  if (!this.vendorCode) {
-    const suffix = this._id.toString().slice(-5).toUpperCase();
-    this.vendorCode = `VND-${suffix}`;
-  }
-  next();
-});
-
-/* ===================================================== */
 /* 📊 Virtuals                                            */
 /* ===================================================== */
 
