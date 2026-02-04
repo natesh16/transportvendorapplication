@@ -1,6 +1,5 @@
 // models/alert.model.js
 const mongoose = require("mongoose");
-
 const alertSchema = new mongoose.Schema(
   {
     corporateId: mongoose.Schema.Types.ObjectId,
