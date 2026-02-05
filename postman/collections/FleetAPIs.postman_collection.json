@@ -1,0 +1,364 @@
+{
+  "info": {
+    "_postman_id": "9fa1ad40-3627-44f1-8ea8-db8fbbbf4033",
+    "name": "FleetAPIs",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "fleet API",
+      "item": [
+        {
+          "name": "Create.fleet",
+          "id": "e33418ae-cf1c-46bf-8c6e-ae7ecefe252e",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"vehicleNumber\": \"TN10CD5678\",\r\n  \"vehicleType\": \"SUV\",\r\n  \"model\": \"Toyota Innova Crysta\",\r\n  \"manufactureYear\": 2022,\r\n  \"seatingCapacity\": 7,\r\n  \"fuelType\": \"Diesel\",\r\n  \"status\": \"available\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{Base_url}}api/vehicles/createfleet",
+              "host": [
+                "{{Base_url}}api"
+              ],
+              "path": [
+                "vehicles",
+                "createfleet"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get.fleet",
+          "id": "1f96df4e-532b-49e3-813f-d88d7dc6283c",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        },
+        {
+          "name": "update.fleetdetails",
+          "id": "3a365cef-1cdd-48fb-aef3-2beabcd0201b",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"status\": \"maintenance\",\r\n  \"fuelType\": \"Petrol\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{Base_url}}api/vehicles/updatafleet/VEH-D71AA432",
+              "host": [
+                "{{Base_url}}api"
+              ],
+              "path": [
+                "vehicles",
+                "updatafleet",
+                "VEH-D71AA432"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "a564f44f-c2ad-4b09-a19d-7d911356b04a"
+    },
+    {
+      "name": "super Admin",
+      "item": [
+        {
+          "name": "corporate user",
+          "item": [
+            {
+              "name": "corporate login",
+              "id": "e3f50fd3-0647-42e9-bf88-fe5d925848ef",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-Forwarded-For",
+                    "value": "103.21.244.17",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"loginId\":\"CORP-E8DD99-ADMIN-001\",\r\n    \"password\":\"RAMK@15071998\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{Base_url}}api/corpo/login",
+                  "host": [
+                    "{{Base_url}}api"
+                  ],
+                  "path": [
+                    "corpo",
+                    "login"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "employe excel bulk upload",
+              "id": "62683db6-2506-4f16-af57-77a583cda0fa",
+              "request": {
+                "method": "GET",
+                "header": []
+              },
+              "response": []
+            },
+            {
+              "name": "corporate employe creating",
+              "id": "a22aef75-e05b-4bd6-8f5b-9b3ab11bcda0",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"corporateId\": \"696b27860372e799fce8dd99\",\r\n  \"name\": {\r\n    \"firstName\": \"Ramesh\",\r\n    \"lastName\": \"Kumar\"\r\n  },\r\n  \"gender\": \"MALE\",\r\n  \"dateOfBirth\": \"1996-05-14\",\r\n  \"email\": \"ramesh.kumar@company.com\",\r\n  \"phone\": \"9876543210\",\r\n  \"department\": \"Engineering\",\r\n  \"designation\": \"Software Engineer\",\r\n  \"employmentType\": \"FULL_TIME\",\r\n  \"joiningDate\": \"2024-07-01\",\r\n  \"createdBy\": \"6968ff156a7f8fc7d7ba82e7\",\r\n  \"location\": {\r\n    \"region\": \"Chennai\",\r\n    \"pickupPoint\": {\r\n      \"name\": \"T Nagar Bus Stop\",\r\n      \"geo\": {\r\n        \"type\": \"Point\",\r\n        \"coordinates\": [80.2337, 13.0405]\r\n      }\r\n    }\r\n  },\r\n  \"shift\": {\r\n    \"shiftName\": \"Day Shift\",\r\n    \"loginTime\": \"09:00\",\r\n    \"logoutTime\": \"18:00\",\r\n    \"isOvernight\": false\r\n  }\r\n}\r\n",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{Base_url}}api/corpo/employee/create/employees",
+                  "host": [
+                    "{{Base_url}}api"
+                  ],
+                  "path": [
+                    "corpo",
+                    "employee",
+                    "create",
+                    "employees"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "New Request",
+              "id": "fd5d7168-24c5-4e3f-b666-e3ddd13dcd0c",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"corporateId\": \"696b27860372e799fce8dd99\",\r\n  \"name\": {\r\n    \"firstName\": \"Ramesh\",\r\n    \"lastName\": \"Kumar\"\r\n  },\r\n  \"gender\": \"MALE\",\r\n  \"dateOfBirth\": \"1996-05-14\",\r\n  \"email\": \"ramesh.kumar@company.com\",\r\n  \"phone\": \"9876543210\",\r\n  \"department\": \"Engineering\",\r\n  \"designation\": \"Software Engineer\",\r\n  \"employmentType\": \"FULL_TIME\",\r\n  \"joiningDate\": \"2024-07-01\",\r\n  \"createdBy\": \"6968ff156a7f8fc7d7ba82e7\",\r\n  \"location\": {\r\n    \"region\": \"Chennai\",\r\n    \"pickupPoint\": {\r\n      \"name\": \"T Nagar Bus Stop\",\r\n      \"geo\": {\r\n        \"type\": \"Point\",\r\n        \"coordinates\": [80.2337, 13.0405]\r\n      }\r\n    }\r\n  },\r\n  \"shift\": {\r\n    \"shiftName\": \"Day Shift\",\r\n    \"loginTime\": \"09:00\",\r\n    \"logoutTime\": \"18:00\",\r\n    \"isOvernight\": false\r\n  }\r\n}\r\n"
+                },
+                "url": {
+                  "raw": "{{Base_url}}api/corpo/employee/login",
+                  "host": [
+                    "{{Base_url}}api"
+                  ],
+                  "path": [
+                    "corpo",
+                    "employee",
+                    "login"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "New Request",
+              "id": "a422857c-201b-453b-a155-31bd1701108f",
+              "request": {
+                "method": "GET",
+                "header": []
+              },
+              "response": []
+            }
+          ],
+          "id": "e25351ff-fd7a-4e0d-834f-9d3f28ef90cb"
+        },
+        {
+          "name": "vendor APIS",
+          "item": [
+            {
+              "name": "New Request",
+              "id": "92157ad7-1611-403a-b314-8d33851654b9",
+              "request": {
+                "method": "GET",
+                "header": []
+              },
+              "response": []
+            }
+          ],
+          "id": "b267267a-0aed-4719-999b-6095b707d4b6"
+        },
+        {
+          "name": "SuperAdmin.create",
+          "id": "a7d7aadb-f796-431c-917f-b98c648e3302",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"SuperAdmin1\",\r\n  \"email\": \"superadmin@1company.com\",\r\n  \"password\": \"Secure@123\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{Base_url}}api/super-admin/create/superadmin",
+              "host": [
+                "{{Base_url}}api"
+              ],
+              "path": [
+                "super-admin",
+                "create",
+                "superadmin"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "corporate ID",
+          "id": "2fbafaf8-af3d-49a9-849f-f767227e222b",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"companyName\": \"Acme Technologies Pvt Ltd\",\r\n\r\n  \"logo\": {\r\n    \"url\": \"https://cdn.acme.com/logos/acme-logo.png\"\r\n  },\r\n\"contact\":{\r\n  \"registeredEmail\": \"admin@acme.com\",\r\n  \"registeredPhone\": \"9876543210\",\r\n},\r\n  \"address\": {\r\n    \"line1\": \"No 45, 2nd Floor, MG Road\",\r\n    \"city\": \"Bengaluru\",\r\n    \"state\": \"Karnataka\",\r\n    \"pincode\": \"560001\"\r\n  },\r\n\r\n  \"subscription\": {\r\n    \"plan\": \"PRO\",\r\n    \"startDate\": \"2026-01-01T00:00:00.000Z\",\r\n    \"endDate\": \"2027-01-01T00:00:00.000Z\",\r\n    \"limits\": {\r\n      \"users\": 50,\r\n      \"vendors\": 20,\r\n      \"tripsPerMonth\": 5000\r\n    }\r\n  },\r\n\r\n  \"billing\": {\r\n    \"gstNumber\": \"29ABCDE1234F1Z5\",\r\n    \"billingEmail\": \"billing@acme.com\",\r\n    \"paymentProvider\": \"RAZORPAY\"\r\n  }\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{Base_url}}api/super-admin/coporate/create/corporateID",
+              "host": [
+                "{{Base_url}}api"
+              ],
+              "path": [
+                "super-admin",
+                "coporate",
+                "create",
+                "corporateID"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "superAdmin login",
+          "id": "799ee8e0-1679-4157-9d5c-6dadc1d74516",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"superadmin@company.com\",\r\n  \"password\": \"Secure@123\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{Base_url}}api/super-admin/login/superadmin",
+              "host": [
+                "{{Base_url}}api"
+              ],
+              "path": [
+                "super-admin",
+                "login",
+                "superadmin"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get Admin login",
+          "id": "213bd4c2-7697-4325-a930-2e0c278cacd1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"superadmin@1company.com\",\r\n  \"password\": \"Secure@123\"\r\n}\r\n"
+            },
+            "url": {
+              "raw": "{{Base_url}}api/super-admin/Admin&details/superadmin",
+              "host": [
+                "{{Base_url}}api"
+              ],
+              "path": [
+                "super-admin",
+                "Admin&details",
+                "superadmin"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "superAmin corporate login ID",
+          "id": "6e70dd69-e1c6-4076-b2aa-e6b5f39dfdaa",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"corporateId\": \"696b27860372e799fce8dd99\",\r\n  \"name\": \"Ram Kumar\",\r\n  \"dob\": \"1998-07-15\",\r\n  \"role\": \"CORPORATE_ADMIN\"\r\n}\r\n\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{Base_url}}api/super-admin/coporate/create/corporateLoginID",
+              "host": [
+                "{{Base_url}}api"
+              ],
+              "path": [
+                "super-admin",
+                "coporate",
+                "create",
+                "corporateLoginID"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "c2de0085-256f-4cb3-b321-648e48b5fb8d"
+    }
+  ]
+}
