@@ -11,6 +11,8 @@ const alertSchema = new mongoose.Schema(
       enum: ["DOC_EXPIRY", "DOC_EXPIRED"]
     },
 
+
+    
     message: String,
     severity: {
       type: String,

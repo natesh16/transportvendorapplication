@@ -28,4 +28,6 @@ describe("AUTH API", () => {
     expect(res.statusCode).toBe(200);
     expect(res.body).toHaveProperty("token");
   });
+
+  
 });

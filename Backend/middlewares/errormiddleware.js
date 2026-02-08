@@ -12,6 +12,8 @@ const errorHandler = (err, req, res, next) => {
     error: {
       message: err.message,
       type: err.name,
+
+      
       path: req.originalUrl,
       method: req.method,
       stack: process.env.NODE_ENV === "development" ? err.stack : undefined

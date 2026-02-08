@@ -7,6 +7,8 @@ const { validateLoginPassword}=require('../utils/credentialUtil')
 /* 🔐 JWT Helper */
 const signToken = (user) =>
   jwt.sign(
+
+    
     {
       id: user._id,
       email: user.email,
