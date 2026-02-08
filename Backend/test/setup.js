@@ -14,6 +14,10 @@ afterEach(async () => {
     await collection.deleteMany({});
   }
 });
+afterAll(async () => {
+  await mongoose.connection.close();
+  if (mongo) await mongo.stop();
+});
 
 afterAll(async () => {
   await mongoose.disconnect();
