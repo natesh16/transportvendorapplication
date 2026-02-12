@@ -81,7 +81,7 @@ contact: {
     subscription: {
       plan: {
         type: String,
-        enum: ["FREE", "BASIC", "PRO", "ENTERPRISE"],
+        enum: ["FREE", "BASIC", "PRO", "ENTERPRISE","PREMIUM"],
         default: "FREE",
         index: true
       },
