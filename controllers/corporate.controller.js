@@ -108,11 +108,30 @@ exports.createCorporate = asyncHandler(async (req, res, next) => {
     throw new AppError("Corporate already exists", 409);
   }
 
+  
+  /* 🆔 Corporate Code generation */
+  const normalizedName = trimmedName
+    .toUpperCase()
+    .replace(/[^A-Z0-9]/g, "")
+    .slice(0, 6)
+    .padEnd(3, "X");
+
+  const hash = crypto
+    .randomBytes(3)
+    .toString("hex")
+    .toUpperCase();
+
+  const corporateCode = `CORP-${normalizedName}-${hash}`;
+
+  logger.debug("Corporate code generated", {
+    corporateCode
+  });
   /* ================= CREATE CORPORATE ================= */
   /* 🔐 corporateCode auto-generated in schema */
 
   const corporateID = await Corporate.create({
     companyname: trimmedName,
+    corporateCode,
     logo,
     contact,
     address,
@@ -139,6 +158,9 @@ exports.createCorporate = asyncHandler(async (req, res, next) => {
       name: corporateID.companyname,
       status: corporateID.status,
       subscription: corporateID.subscription?.plan,
+      createdAt: corporateID.createdAt,
+      corporateCode: corporateID.corporateCode,
+      status: corporateID.status,
       createdAt: corporateID.createdAt
       // corporateCode intentionally hidden (encrypted + immutable)
     }
