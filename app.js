@@ -1,0 +1,32 @@
+const express=require("express")
+const app=express()
+const errorHandler = require("./middlewares/errorHandler");
+const requestLogger = require("./middlewares/requestLogger");
+const superAdminRoutes = require("./routes/superAdmin.routes");
+const corpovendor = require("./routes/corporate.vendor.route");
+const corporateRoutes = require("./routes/corporate.Routes");
+const cookieParser = require("cookie-parser");
+const corporateAuthRoutes = require("./routes/corporateAuth.routes");
+const corporatemployeRoutes = require("./routes/corporate.employe.route");
+const requestTimeout = require("./middlewares/requestTimeout");
+
+app.use(requestTimeout(20000)); // 5 seconds
+
+app.use(express.json());              // ✅ parses JSON body
+app.use(express.urlencoded({ extended: true })); // optional but safe
+app.use(cookieParser());
+app.use(errorHandler);
+app.use(requestLogger);
+app.set("trust proxy", 1);
+
+
+app.use("/api/corpo/",corporateAuthRoutes)
+app.use("/api/corpo/employee",corporatemployeRoutes)
+app.use(require("./middlewares/errorHandler"));
+app.use("/api/super-admin", superAdminRoutes);
+// app.use("/api/corporate", corpovendor);
+app.use("/api/super-admin/coporate/",corporateRoutes);
+
+app.use(errorHandler);
+
+module.exports = app;
