@@ -7,8 +7,6 @@ const { validateLoginPassword}=require('../utils/credentialUtil')
 /* 🔐 JWT Helper */
 const signToken = (user) =>
   jwt.sign(
-
-    
     {
       id: user._id,
       email: user.email,
@@ -69,14 +67,21 @@ const sendAuthCookie = (res, token) => {
       423
     );
   }
+
   /* ---------------------------------- */
   /* 🔐 Password Validation             */
   /* ---------------------------------- */
-  const isPasswordValid = await validateLoginPassword(
-    password,
-    employee.password
-  );
-  
+const employee = await Employee.findOne({ email });
+
+if (!employee) {
+  throw new AppError("Employee not found", 404);
+}
+
+const isPasswordValid = await validateLoginPassword(
+  password,
+  employee.password
+);
+
   /* 🌐 Track Login Metadata */
   user.loginAttempts = 0;
   user.lockUntil = undefined;

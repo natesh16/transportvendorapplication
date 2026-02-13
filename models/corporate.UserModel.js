@@ -55,12 +55,14 @@ const corporateUserSchema = new mongoose.Schema(
       trim: true,
       match: [/^[6-9]\d{9}$/, "Invalid phone number"]
     },
+
     password: {
       type: String,
       required: true,
       select: false,
-      minlength: 12 // enforce strong passwords
+      minlength: 12// enforce strong passwords
     },
+
     mustChangePassword: {
       type: Boolean,
       default: true
@@ -108,11 +110,11 @@ const corporateUserSchema = new mongoose.Schema(
 /* 🔐 Hash Password (Pre Save)         */
 /* ---------------------------------- */
 corporateUserSchema.pre("save", async function (next) {
-  if (!this.isModified("password")) return;
+  if (!this.isModified("password")) return next();
 
   this.password = await bcrypt.hash(this.password, 12);
-  // next();
 });
+
 
 /* ---------------------------------- */
 /* 🔑 Compare Password (Login)         */

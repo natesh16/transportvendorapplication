@@ -231,7 +231,7 @@ exports.createCorporateEmployee = asyncHandler(async (req, res) => {
   /* 🔐 Password */
   // const finalPassword = password || CorporateUser.generateTempPassword();
 
-  const tempPassword = password || generateTempPassword(
+  const tempPassword = await password || generateTempPassword(
     req.body.name,
     req.body.dateOfBirth
   );

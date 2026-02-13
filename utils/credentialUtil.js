@@ -82,26 +82,7 @@ const generateEmployeeLoginId = (
   return `${corpPart}${namePart}${yearPart}`;
 };
 /* ---------------------------------- */
-/* 🔐 Generate Temporary Password      */
-/* ---------------------------------- */
-const generateTempPassword = (firstName, dob) => {
-  if (!firstName || !dob) {
-    throw new Error("firstName and dob are required");
-  }
-  const cleanName = String(firstName)
-    .replace(/\s+/g, "")
-    .toLowerCase()
-    .substring(0, 4);
-  const date = new Date(dob);
-  if (isNaN(date.getTime())) {
-    throw new Error("Invalid DOB");
-  }
-  const dd = String(date.getDate()).padStart(2, "0");
-  const mm = String(date.getMonth() + 1).padStart(2, "0");
-  return `${cleanName}${dd}${mm}@A1`;
-};
-/* ---------------------------------- */
-/* 🆔 Generate Employee Code           */
+/* 🔑 Generate Employee Login ID (≤12) */
 /* ---------------------------------- */
 const generateEmployeeCode = (
   corporateCode,
@@ -124,15 +105,7 @@ const generateEmployeeCode = (
 /* ---------------------------------- */
 /* 🔐 Validate Password for Login      */
 /* ---------------------------------- */
-const validateLoginPassword = async (
-  candidatePassword,
-  hashedPassword
-) => {
-  if (!candidatePassword || !hashedPassword) {
-    throw new Error("Password validation inputs are required");
-  }
-  return bcrypt.compare(candidatePassword, hashedPassword);
-};
+
 const handleFailedLogin = async (
   employee,
   {
@@ -149,12 +122,62 @@ const handleFailedLogin = async (
   await employee.save();
 };
 
+/* ===================================================== */
+/* 🔐 Generate Temporary Password                       */
+/* ===================================================== */
+const generateTempPassword = (firstName, dob) => {
+  if (!firstName || !dob) {
+    throw new Error("firstName and dob are required");
+  }
+
+  const cleanName = String(firstName)
+    .replace(/\s+/g, "")
+    .toLowerCase()
+    .substring(0, 6);
+
+  const date = new Date(dob);
+  if (isNaN(date.getTime())) {
+    throw new Error("Invalid DOB");
+  }
+
+  const dd = String(date.getDate()).padStart(2, "0");
+  const mm = String(date.getMonth() + 1).padStart(2, "0");
+  const yyyy = String(date.getFullYear()); // full year
+
+  const password = `${cleanName}${dd}${mm}${yyyy}`;
+
+  return password;
+};
+
+/* ===================================================== */
+/* 🔐 Hash Password                                     */
+/* ===================================================== */
+const hashPassword = async (plainPassword) => {
+  if (!plainPassword) {
+    throw new Error("Password is required for hashing");
+  }
+
+  const saltRounds = 10;
+  return await bcrypt.hash(plainPassword, saltRounds);
+};
+
+/* ===================================================== */
+/* 🔐 Validate Login Password                           */
+/* ===================================================== */
+const validateLoginPassword = async (candidatePassword, hashedPassword) => {
+  if (!candidatePassword || !hashedPassword) {
+    throw new Error("Password validation inputs are required");
+  }
+
+  return await bcrypt.compare(candidatePassword, hashedPassword);
+};
 
 
 module.exports = {
   generateEmployeeCode,
   generateEmployeeLoginId,
   generateTempPassword,
+  hashPassword,
   validateLoginPassword,
   handleFailedLogin,
   generateCorporateLoginId
